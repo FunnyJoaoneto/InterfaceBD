@@ -99,12 +99,15 @@
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.listBox7 = new System.Windows.Forms.ListBox();
             this.label33 = new System.Windows.Forms.Label();
+            this.listBox7 = new System.Windows.Forms.ListBox();
+            this.listBox8 = new System.Windows.Forms.ListBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -507,6 +510,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label34);
+            this.tabPage2.Controls.Add(this.listBox8);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -829,6 +834,15 @@
             this.tabPage5.Text = "Tourney";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(298, 14);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(51, 16);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "label33";
+            // 
             // listBox7
             // 
             this.listBox7.FormattingEnabled = true;
@@ -838,14 +852,23 @@
             this.listBox7.Size = new System.Drawing.Size(657, 516);
             this.listBox7.TabIndex = 0;
             // 
-            // label33
+            // listBox8
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(298, 14);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(51, 16);
-            this.label33.TabIndex = 1;
-            this.label33.Text = "label33";
+            this.listBox8.FormattingEnabled = true;
+            this.listBox8.ItemHeight = 16;
+            this.listBox8.Location = new System.Drawing.Point(28, 50);
+            this.listBox8.Name = "listBox8";
+            this.listBox8.Size = new System.Drawing.Size(383, 388);
+            this.listBox8.TabIndex = 0;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(30, 16);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(51, 16);
+            this.label34.TabIndex = 1;
+            this.label34.Text = "label34";
             // 
             // Form1
             // 
@@ -862,6 +885,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -947,6 +972,8 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ListBox listBox7;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.ListBox listBox8;
     }
 }
 
