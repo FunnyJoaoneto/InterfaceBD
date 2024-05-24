@@ -13,7 +13,7 @@ namespace ValoLeague
     public partial class Form2 : Form
     {
         private string nome;
-        public Form2(string texto)
+        public Form2(string texto, int id1, int id2, int mid)
         {
             nome = texto;
             InitializeComponent();

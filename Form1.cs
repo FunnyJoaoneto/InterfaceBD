@@ -78,22 +78,11 @@ namespace ValoLeague
         private void PopulateListBoxes()
         {
             listBox1.Items.Clear();
-            listBox2.Items.Clear();
 
             foreach (DataRow row in dataSet.Tables["Teams"].Rows)
             {
                 string teamInfo = $"{row["Nome"]} (ID: {row["Team_ID"]})";
-                int playerCount = (int)row["PlayerCount"];
-                int coachCount = (int)row["CoachCount"];
-
-                if (playerCount >= 5 && coachCount > 0)
-                {
-                    listBox1.Items.Add(teamInfo);
-                }
-                else
-                {
-                    listBox2.Items.Add(teamInfo);
-                }
+                listBox1.Items.Add(teamInfo);
             }
         }
 
@@ -180,9 +169,94 @@ namespace ValoLeague
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label40_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label41_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label43_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label46_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label57_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label64_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox8_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2("lll", 1, 2, 3);
             form2.Show();
             this.Hide();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,3 +8,4 @@ C:\ValoLeague\obj\Debug\ValoLeague.csproj.GenerateResource.cache
 C:\ValoLeague\obj\Debug\ValoLeague.csproj.CoreCompileInputs.cache
 C:\ValoLeague\obj\Debug\ValoLeague.exe
 C:\ValoLeague\obj\Debug\ValoLeague.pdb
+C:\ValoLeague\obj\Debug\ValoLeague.Form2.resources
