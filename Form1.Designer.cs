@@ -713,6 +713,7 @@
             this.button7.TabIndex = 0;
             this.button7.Text = "Game 1";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label24
             // 
@@ -856,7 +857,7 @@
             // 
             this.listBox8.FormattingEnabled = true;
             this.listBox8.ItemHeight = 16;
-            this.listBox8.Location = new System.Drawing.Point(28, 50);
+            this.listBox8.Location = new System.Drawing.Point(27, 57);
             this.listBox8.Name = "listBox8";
             this.listBox8.Size = new System.Drawing.Size(383, 388);
             this.listBox8.TabIndex = 0;
@@ -864,11 +865,13 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(30, 16);
+            this.label34.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(22, 13);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(51, 16);
+            this.label34.Size = new System.Drawing.Size(160, 30);
             this.label34.TabIndex = 1;
-            this.label34.Text = "label34";
+            this.label34.Text = "All Players:";
+            this.label34.Click += new System.EventHandler(this.label34_Click);
             // 
             // Form1
             // 
@@ -972,8 +975,8 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ListBox listBox7;
-        private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ListBox listBox8;
+        private System.Windows.Forms.Label label34;
     }
 }
 
