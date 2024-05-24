@@ -71,20 +71,43 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label17 = new System.Windows.Forms.Label();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.listBox6 = new System.Windows.Forms.ListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.listBox5 = new System.Windows.Forms.ListBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.listBox7 = new System.Windows.Forms.ListBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -93,6 +116,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(0, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -149,7 +173,7 @@
             this.groupBox2.Size = new System.Drawing.Size(252, 170);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "RemoveTeam";
             // 
             // label16
             // 
@@ -221,7 +245,7 @@
             this.groupBox1.Size = new System.Drawing.Size(390, 205);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "AddTeam";
             // 
             // button4
             // 
@@ -503,6 +527,13 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.button10);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.listBox6);
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.label23);
             this.tabPage3.Controls.Add(this.listBox5);
             this.tabPage3.Controls.Add(this.label22);
             this.tabPage3.Controls.Add(this.label21);
@@ -520,45 +551,221 @@
             this.tabPage3.Text = "Matches";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label17
+            // label29
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(24, 25);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(169, 30);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "All Matches:";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(586, 424);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(128, 25);
+            this.label29.TabIndex = 14;
+            this.label29.Text = "Add match:";
+            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
-            // listBox4
+            // button10
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 16;
-            this.listBox4.Location = new System.Drawing.Point(22, 70);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(385, 276);
-            this.listBox4.TabIndex = 1;
+            this.button10.Location = new System.Drawing.Point(1123, 510);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(115, 42);
+            this.button10.TabIndex = 6;
+            this.button10.Text = "Adicionar";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // label18
+            // label25
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Modern No. 20", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(557, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(162, 38);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "(Team 1)";
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(586, 147);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(500, 25);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "LeaderBoard from (Match id: ...) (Game id: ...): ";
             // 
-            // label19
+            // listBox6
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Modern No. 20", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(956, 18);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(162, 38);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "(Team 2)";
+            this.listBox6.FormattingEnabled = true;
+            this.listBox6.ItemHeight = 16;
+            this.listBox6.Location = new System.Drawing.Point(591, 185);
+            this.listBox6.Name = "listBox6";
+            this.listBox6.Size = new System.Drawing.Size(589, 212);
+            this.listBox6.TabIndex = 12;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label32);
+            this.groupBox3.Controls.Add(this.label31);
+            this.groupBox3.Controls.Add(this.label30);
+            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.label28);
+            this.groupBox3.Controls.Add(this.label27);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.button9);
+            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.button7);
+            this.groupBox3.Location = new System.Drawing.Point(591, 452);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(507, 151);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "AddMatch";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(334, 18);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(53, 16);
+            this.label32.TabIndex = 17;
+            this.label32.Text = "Team 2";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(113, 18);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(53, 16);
+            this.label31.TabIndex = 16;
+            this.label31.Text = "Team 1";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(236, 36);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(42, 25);
+            this.label30.TabIndex = 15;
+            this.label30.Text = "VS";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(293, 36);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(144, 24);
+            this.comboBox3.TabIndex = 7;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(69, 36);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(144, 24);
+            this.comboBox2.TabIndex = 6;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(384, 126);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(71, 16);
+            this.label28.TabIndex = 5;
+            this.label28.Text = "Not added";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(219, 126);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(71, 16);
+            this.label27.TabIndex = 4;
+            this.label27.Text = "Not added";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(52, 126);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(71, 16);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "Not added";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(360, 76);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(115, 42);
+            this.button9.TabIndex = 2;
+            this.button9.Text = "Game 3";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(196, 77);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(115, 42);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "Game 2";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(30, 76);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(115, 42);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Game 1";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Modern No. 20", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(1012, 70);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(236, 38);
+            this.label24.TabIndex = 10;
+            this.label24.Text = "(Games Won)";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Modern No. 20", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(614, 70);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(236, 38);
+            this.label23.TabIndex = 9;
+            this.label23.Text = "(Games Won)";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
+            // 
+            // listBox5
+            // 
+            this.listBox5.FormattingEnabled = true;
+            this.listBox5.ItemHeight = 16;
+            this.listBox5.Location = new System.Drawing.Point(22, 470);
+            this.listBox5.Name = "listBox5";
+            this.listBox5.Size = new System.Drawing.Size(385, 100);
+            this.listBox5.TabIndex = 8;
+            this.listBox5.SelectedIndexChanged += new System.EventHandler(this.listBox5_SelectedIndexChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(24, 424);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(359, 30);
+            this.label22.TabIndex = 7;
+            this.label22.Text = "Games From Match (ID: ...):";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(26, 363);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(111, 16);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "Filtrar por equipa:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(22, 385);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(173, 24);
+            this.comboBox1.TabIndex = 5;
             // 
             // label20
             // 
@@ -570,47 +777,81 @@
             this.label20.TabIndex = 4;
             this.label20.Text = "VS";
             // 
-            // comboBox1
+            // label19
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(22, 385);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(173, 24);
-            this.comboBox1.TabIndex = 5;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Modern No. 20", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(956, 18);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(162, 38);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "(Team 2)";
             // 
-            // label21
+            // label18
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(26, 363);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(111, 16);
-            this.label21.TabIndex = 6;
-            this.label21.Text = "Filtrar por equipa:";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Modern No. 20", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(557, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(162, 38);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "(Team 1)";
             // 
-            // listBox5
+            // listBox4
             // 
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.ItemHeight = 16;
-            this.listBox5.Location = new System.Drawing.Point(22, 481);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(385, 132);
-            this.listBox5.TabIndex = 8;
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 16;
+            this.listBox4.Location = new System.Drawing.Point(22, 70);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(385, 276);
+            this.listBox4.TabIndex = 1;
             // 
-            // label22
+            // label17
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(24, 436);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(359, 30);
-            this.label22.TabIndex = 7;
-            this.label22.Text = "Games From Match (ID: ...):";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(24, 25);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(169, 30);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "All Matches:";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label33);
+            this.tabPage5.Controls.Add(this.listBox7);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1287, 656);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Tourney";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // listBox7
+            // 
+            this.listBox7.FormattingEnabled = true;
+            this.listBox7.ItemHeight = 16;
+            this.listBox7.Location = new System.Drawing.Point(296, 81);
+            this.listBox7.Name = "listBox7";
+            this.listBox7.Size = new System.Drawing.Size(657, 516);
+            this.listBox7.TabIndex = 0;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(298, 14);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(51, 16);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "label33";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 673);
+            this.ClientSize = new System.Drawing.Size(1264, 648);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -623,6 +864,10 @@
             this.groupBox1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -681,6 +926,27 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ListBox listBox5;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListBox listBox6;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ListBox listBox7;
     }
 }
 

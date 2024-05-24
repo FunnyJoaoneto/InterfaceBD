@@ -152,5 +152,25 @@ namespace ValoLeague
         {
 
         }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
