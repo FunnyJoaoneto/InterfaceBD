@@ -1,0 +1,10 @@
+C:\ValoLeague\bin\Debug\ValoLeague.exe.config
+C:\ValoLeague\bin\Debug\ValoLeague.exe
+C:\ValoLeague\bin\Debug\ValoLeague.pdb
+C:\ValoLeague\obj\Debug\ValoLeague.csproj.AssemblyReference.cache
+C:\ValoLeague\obj\Debug\ValoLeague.Form1.resources
+C:\ValoLeague\obj\Debug\ValoLeague.Properties.Resources.resources
+C:\ValoLeague\obj\Debug\ValoLeague.csproj.GenerateResource.cache
+C:\ValoLeague\obj\Debug\ValoLeague.csproj.CoreCompileInputs.cache
+C:\ValoLeague\obj\Debug\ValoLeague.exe
+C:\ValoLeague\obj\Debug\ValoLeague.pdb
