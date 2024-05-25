@@ -31,7 +31,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.TAlt = new System.Windows.Forms.Button();
-            this.TAddConf = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
             this.textBox29 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TAddCan = new System.Windows.Forms.Button();
+            this.TAddConf = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -200,6 +200,17 @@
             this.label18 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -214,6 +225,7 @@
             this.tabPage3.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -231,6 +243,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.TAlt);
             this.tabPage1.Controls.Add(this.label54);
             this.tabPage1.Controls.Add(this.textBox29);
@@ -241,7 +255,6 @@
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.textBox8);
             this.tabPage1.Controls.Add(this.label10);
@@ -283,17 +296,7 @@
             this.TAlt.TabIndex = 42;
             this.TAlt.Text = "Alter Team";
             this.TAlt.UseVisualStyleBackColor = true;
-            // 
-            // TAddConf
-            // 
-            this.TAddConf.Location = new System.Drawing.Point(191, 128);
-            this.TAddConf.Margin = new System.Windows.Forms.Padding(2);
-            this.TAddConf.Name = "TAddConf";
-            this.TAddConf.Size = new System.Drawing.Size(84, 28);
-            this.TAddConf.TabIndex = 26;
-            this.TAddConf.Text = "Confirmar";
-            this.TAddConf.UseVisualStyleBackColor = true;
-            this.TAddConf.Click += new System.EventHandler(this.button3_Click_1);
+            this.TAlt.Click += new System.EventHandler(this.TAlt_Click);
             // 
             // label54
             // 
@@ -461,6 +464,17 @@
             this.TAddCan.Text = "Cancelar";
             this.TAddCan.UseVisualStyleBackColor = true;
             this.TAddCan.Click += new System.EventHandler(this.TAddCan_Click);
+            // 
+            // TAddConf
+            // 
+            this.TAddConf.Location = new System.Drawing.Point(191, 128);
+            this.TAddConf.Margin = new System.Windows.Forms.Padding(2);
+            this.TAddConf.Name = "TAddConf";
+            this.TAddConf.Size = new System.Drawing.Size(84, 28);
+            this.TAddConf.TabIndex = 26;
+            this.TAddConf.Text = "Confirmar";
+            this.TAddConf.UseVisualStyleBackColor = true;
+            this.TAddConf.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // label13
             // 
@@ -1732,6 +1746,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.groupBox10);
             this.tabPage3.Controls.Add(this.button9);
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Controls.Add(this.label60);
@@ -1778,7 +1794,7 @@
             this.groupBox7.Controls.Add(this.textBox24);
             this.groupBox7.Controls.Add(this.button23);
             this.groupBox7.Controls.Add(this.button24);
-            this.groupBox7.Location = new System.Drawing.Point(781, 341);
+            this.groupBox7.Location = new System.Drawing.Point(795, 156);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
@@ -1829,7 +1845,7 @@
             // 
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(778, 318);
+            this.label60.Location = new System.Drawing.Point(792, 133);
             this.label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(155, 24);
@@ -2107,6 +2123,126 @@
             this.label17.Text = "All Matches:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(650, 295);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(121, 24);
+            this.label26.TabIndex = 58;
+            this.label26.Text = "Alter match:";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.button1);
+            this.groupBox10.Controls.Add(this.button2);
+            this.groupBox10.Controls.Add(this.button3);
+            this.groupBox10.Controls.Add(this.label27);
+            this.groupBox10.Controls.Add(this.label28);
+            this.groupBox10.Controls.Add(this.label62);
+            this.groupBox10.Controls.Add(this.comboBox4);
+            this.groupBox10.Controls.Add(this.comboBox5);
+            this.groupBox10.Location = new System.Drawing.Point(653, 318);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox10.Size = new System.Drawing.Size(274, 133);
+            this.groupBox10.TabIndex = 57;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "AlterMatch";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(28, 55);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 45);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Alter Games";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(4, 108);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(66, 20);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(198, 110);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(66, 20);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Confirmar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(187, 15);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(43, 13);
+            this.label27.TabIndex = 17;
+            this.label27.Text = "Team 2";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(41, 15);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(43, 13);
+            this.label28.TabIndex = 16;
+            this.label28.Text = "Team 1";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(121, 29);
+            this.label62.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(37, 24);
+            this.label62.TabIndex = 15;
+            this.label62.Text = "VS";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(156, 30);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(109, 21);
+            this.comboBox4.TabIndex = 7;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(8, 30);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(109, 21);
+            this.comboBox5.TabIndex = 6;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(484, 336);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(347, 63);
+            this.button4.TabIndex = 31;
+            this.button4.Text = "Confirm";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2143,6 +2279,8 @@
             this.groupBox7.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2321,6 +2459,17 @@
         private System.Windows.Forms.Button button9;
         public System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.Button TAddConf;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button button4;
     }
 }
 

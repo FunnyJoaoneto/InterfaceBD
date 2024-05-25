@@ -129,7 +129,10 @@ namespace ValoLeague
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Remove a team!"); // To confirm the button click event is fired.
+            groupBox2.Enabled = true;
+            groupBox1.Enabled = false;
+            DisableEverything();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -154,7 +157,9 @@ namespace ValoLeague
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            textBox11.Clear();
+            AbleEverything();
+            groupBox2.Enabled = false;
         }
 
         private void label16_Click(object sender, EventArgs e)
@@ -357,6 +362,28 @@ namespace ValoLeague
         private void tabPage3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TAlt_Click(object sender, EventArgs e)
+        {
+            textBox29.Enabled = true;
+            textBox8.Enabled = true;
+            label14.Visible = false;
+            label15.Visible = false;
+            groupBox1.Visible = false;
+            groupBox2.Visible = false;
+            button4.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox29.Enabled = false;
+            textBox8.Enabled = false;
+            label14.Visible = true;
+            label15.Visible = true;
+            groupBox1.Visible = true;
+            groupBox2.Visible = true;
+            button4.Visible = false;
         }
     }
 }

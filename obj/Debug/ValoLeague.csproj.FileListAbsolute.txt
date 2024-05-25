@@ -31,3 +31,14 @@ C:\Users\PC\OneDrive\Documentos\Valor\obj\Debug\ValoLeague.csproj.GenerateResour
 C:\Users\PC\OneDrive\Documentos\Valor\obj\Debug\ValoLeague.csproj.CoreCompileInputs.cache
 C:\Users\PC\OneDrive\Documentos\Valor\obj\Debug\ValoLeague.exe
 C:\Users\PC\OneDrive\Documentos\Valor\obj\Debug\ValoLeague.pdb
+C:\Users\PC\Source\Repos\InterfaceBD\bin\Debug\ValoLeague.exe.config
+C:\Users\PC\Source\Repos\InterfaceBD\bin\Debug\ValoLeague.exe
+C:\Users\PC\Source\Repos\InterfaceBD\bin\Debug\ValoLeague.pdb
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.csproj.AssemblyReference.cache
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.Form1.resources
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.Form2.resources
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.Properties.Resources.resources
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.csproj.GenerateResource.cache
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.csproj.CoreCompileInputs.cache
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.exe
+C:\Users\PC\Source\Repos\InterfaceBD\obj\Debug\ValoLeague.pdb
