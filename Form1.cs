@@ -83,6 +83,63 @@ namespace ValoLeague
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Confirm button clicked!"); // To confirm the button click event is fired.
+
+            string teamName = textBox9.Text;
+            DateTime foundationDate;
+
+            // Input validation
+            if (string.IsNullOrEmpty(teamName))
+            {
+                MessageBox.Show("Please enter a team name.");
+                return;
+            }
+
+            if (!DateTime.TryParse(textBox10.Text, out foundationDate))
+            {
+                MessageBox.Show("Please enter a valid foundation date.");
+                return;
+            }
+
+            if (foundationDate <= new DateTime(2020, 6, 2))
+            {
+                MessageBox.Show("Foundation date must be greater than June 2, 2020.");
+                return;
+            }
+
+            try
+            {
+                MessageBox.Show("Attempting to add team..."); // To confirm we're proceeding with the team addition.
+
+                if (!verifySGBDConnection())
+                    return;
+
+                // Use the established connection to execute the stored procedure
+                using (SqlCommand cmd = new SqlCommand("AddTeam", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Nome", teamName);
+                    cmd.Parameters.AddWithValue("@Foundation_Date", foundationDate);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Team added successfully!");
+
+                // Reload the teams to update the ListBox
+                LoadTeams();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error adding team: " + ex.Message);
+            }
+        }
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Error loading data: ");
             groupBox1.Enabled = true;
             groupBox2.Enabled = false;
         }
@@ -253,5 +310,6 @@ namespace ValoLeague
         {
 
         }
+
     }
 }
