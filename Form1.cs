@@ -83,66 +83,44 @@ namespace ValoLeague
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Confirm button clicked!"); // To confirm the button click event is fired.
-
-            string teamName = textBox9.Text;
-            DateTime foundationDate;
-
-            // Input validation
-            if (string.IsNullOrEmpty(teamName))
-            {
-                MessageBox.Show("Please enter a team name.");
-                return;
-            }
-
-            if (!DateTime.TryParse(textBox10.Text, out foundationDate))
-            {
-                MessageBox.Show("Please enter a valid foundation date.");
-                return;
-            }
-
-            if (foundationDate <= new DateTime(2020, 6, 2))
-            {
-                MessageBox.Show("Foundation date must be greater than June 2, 2020.");
-                return;
-            }
-
-            try
-            {
-                MessageBox.Show("Attempting to add team..."); // To confirm we're proceeding with the team addition.
-
-                if (!verifySGBDConnection())
-                    return;
-
-                // Use the established connection to execute the stored procedure
-                using (SqlCommand cmd = new SqlCommand("AddTeam", cn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Nome", teamName);
-                    cmd.Parameters.AddWithValue("@Foundation_Date", foundationDate);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Team added successfully!");
-
-                // Reload the teams to update the ListBox
-                LoadTeams();
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Error adding team: " + ex.Message);
-            }
-        }
-
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Error loading data: ");
+            MessageBox.Show("Add a team!"); // To confirm the button click event is fired.
             groupBox1.Enabled = true;
             groupBox2.Enabled = false;
+            DisableEverything();
         }
+
+        private void DisableEverything()
+        {
+            listBox1.Enabled = false;
+            listBox3.Enabled = false;
+            textBox29.Enabled = false;
+            TRem.Enabled = false;
+            TAlt.Enabled = false;
+            TAdd.Enabled = false;
+            textBox12.Enabled = false;
+            button11.Enabled = false;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            textBox4.Enabled = false;
+            textBox5.Enabled = false;
+            textBox6.Enabled = false;
+            textBox7.Enabled = false;
+            textBox8.Enabled = false;
+        }
+
+        private void AbleEverything()
+        {
+            listBox1.Enabled = true;
+            TRem.Enabled = true;
+            TAlt.Enabled = true;
+            button11.Enabled = true;
+            TAdd.Enabled = true;
+            textBox12.Enabled = true;
+        }
+
+
+
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
@@ -311,5 +289,74 @@ namespace ValoLeague
 
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            string teamName = textBox9.Text;
+            DateTime foundationDate;
+
+            if (string.IsNullOrEmpty(teamName))
+            {
+                MessageBox.Show("Please enter a team name.");
+                return;
+            }
+
+            if (!DateTime.TryParse(textBox10.Text, out foundationDate))
+            {
+                MessageBox.Show("Please enter a valid foundation date.");
+                return;
+            }
+
+            if (foundationDate <= new DateTime(2020, 6, 2))
+            {
+                MessageBox.Show("Foundation date must be greater than June 2, 2020.");
+                return;
+            }
+
+            try
+            {
+                MessageBox.Show("Attempting to add team..."); // To confirm we're proceeding with the team addition.
+
+                if (!verifySGBDConnection())
+                    return;
+
+                // Use the established connection to execute the stored procedure
+                using (SqlCommand cmd = new SqlCommand("AddTeam", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Nome", teamName);
+                    cmd.Parameters.AddWithValue("@Foundation_Date", foundationDate);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Team added successfully!");
+
+                // Reload the teams to update the ListBox
+                LoadTeams();
+                textBox9.Clear();
+                textBox10.Clear();
+                AbleEverything();
+                groupBox1.Enabled = false;
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error adding team: " + ex.Message);
+            }
+
+        }
+
+        private void TAddCan_Click(object sender, EventArgs e)
+        {
+            textBox9.Clear();
+            textBox10.Clear();
+            AbleEverything();
+            groupBox1.Enabled = false;
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
