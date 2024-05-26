@@ -459,7 +459,16 @@ namespace ValoLeague
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Add Match");
+            groupBox3.Enabled = true;
+            DisableEverything4();
+        }
+        private void DisableEverything4()
+        {
+            button10.Enabled = false;
+            button17.Enabled = false;
+            button9.Enabled = false;
+            comboBox1.Enabled = false;
         }
 
         private void label29_Click(object sender, EventArgs e)
@@ -571,7 +580,7 @@ namespace ValoLeague
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2("lll", 1, 2, 3);
+            Form2 form2 = new Form2("lll", 1, 2, 3, this);
             form2.Show();
             this.Hide();
         }
@@ -1134,6 +1143,11 @@ namespace ValoLeague
                     cn.Close();
                 }
             }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

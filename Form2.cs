@@ -13,11 +13,13 @@ namespace ValoLeague
     public partial class Form2 : Form
     {
         private string nome;
-        public Form2(string texto, int id1, int id2, int mid)
+        private Form1 form1;
+        public Form2(string texto, int id1, int id2, int mid, Form1 form)
         {
             nome = texto;
             InitializeComponent();
             this.label1.Text = nome;
+            this.form1 = form;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -43,6 +45,27 @@ namespace ValoLeague
         private void comboBox23_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox16_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.form1.Show();
         }
     }
 }
