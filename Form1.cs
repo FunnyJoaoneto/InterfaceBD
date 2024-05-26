@@ -714,15 +714,28 @@ namespace ValoLeague
 
         private void button21_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                int ccNumber = int.Parse(textBox27.Text);
+                string name = textBox31.Text;
+                int age = int.Parse(textBox30.Text);
+                string nickname = textBox26.Text;
+                int teamID = int.Parse(textBox32.Text);
+
+                AddPlayer(ccNumber, name, age, nickname, teamID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid input: " + ex.Message);
+            }
             MessageBox.Show("Player added");
             AbleEverything2();
             groupBox6.Enabled = false;
-            // Depois de guardados dar clear
-            //textBox26.Clear();
-            //textBox27.Clear();
-            //textBox31.Clear();
-            //textBox32.Clear();
-            //textBox30.Clear();
+            textBox26.Clear();
+            textBox27.Clear();
+            textBox31.Clear();
+            textBox32.Clear();
+            textBox30.Clear();
         }
 
         private void button13_Click(object sender, EventArgs e)
