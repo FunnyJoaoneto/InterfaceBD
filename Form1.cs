@@ -340,7 +340,7 @@ namespace ValoLeague
 
             foreach (DataRow row in dataSet.Tables["Players"].Rows)
             {
-                string playerInfo = $"Name: {row["PlayerName"]} Nickname: {row["Nickname"]}";
+                string playerInfo = $"{row["PlayerID"]}: Name: {row["PlayerName"]} Nickname: {row["Nickname"]}";
                 listBox8.Items.Add(playerInfo);
             }
         }
@@ -516,7 +516,21 @@ namespace ValoLeague
 
         private void button22_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Alter a Player");
+            groupBox6.Visible = false;
+            groupBox5.Visible = false;
+            label50.Visible = false;
+            label49.Visible = false;
+            button5.Visible = true;
+            AbleAlterations();
+        }
+        private void AbleAlterations()
+        {
+            textBox28.Enabled = true;
+            textBox15.Enabled = true;
+            textBox16.Enabled = true;
+            textBox17.Enabled = true;
+            DisableEverything2();
         }
 
         private void label36_Click(object sender, EventArgs e)
@@ -655,6 +669,189 @@ namespace ValoLeague
         private void listBox7_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label66_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add a Player!");
+            DisableEverything2();
+            groupBox6.Enabled = true;
+        }
+        private void DisableEverything2()
+        {
+            textBox13.Enabled = false;
+            button12.Enabled = false;
+            button13.Enabled = false;
+            button14.Enabled = false;
+            button22.Enabled = false;
+        }
+        private void AbleEverything2()
+        {
+            textBox13.Enabled = true;
+            button12.Enabled = true;
+            button13.Enabled = true;
+            button14.Enabled = true;
+            button22.Enabled = true;
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            textBox26.Clear();
+            textBox27.Clear();
+            textBox31.Clear();
+            textBox32.Clear();
+            textBox30.Clear();
+            AbleEverything2();
+            groupBox6.Enabled = false;
+        }
+
+        private void button21_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Player added");
+            AbleEverything2();
+            groupBox6.Enabled = false;
+            // Depois de guardados dar clear
+            //textBox26.Clear();
+            //textBox27.Clear();
+            //textBox31.Clear();
+            //textBox32.Clear();
+            //textBox30.Clear();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Remove a Player!");
+            DisableEverything2();
+            groupBox5.Enabled = true;
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            textBox25.Clear();
+            AbleEverything2();
+            groupBox5.Enabled = false;
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Player removed");
+            AbleEverything2();
+            groupBox5.Enabled = false;
+            //Não esquecer dar clear
+            //textBox25.Clear();
+        }
+
+        private void checkedListBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            DisableAlterations();
+            groupBox6.Visible = true;
+            groupBox5.Visible = true;
+            label50.Visible = true;
+            label49.Visible = true;
+            button5.Visible = false;
+        }
+        private void DisableAlterations()
+        {
+            MessageBox.Show("Player alterated");
+            textBox28.Enabled = false;
+            textBox15.Enabled = false;
+            textBox16.Enabled = false;
+            textBox17.Enabled = false;
+            AbleEverything2();
+        }
+
+        private void listBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox8.SelectedItem == null)
+                return;
+
+            string selectedPlayer = listBox8.SelectedItem.ToString();
+            // The format is now "{PlayerID}: Name: {PlayerName} Nickname: {Nickname}"
+            string playerIDString = selectedPlayer.Split(':')[0].Trim();
+            if (int.TryParse(playerIDString, out int ccNumber))
+            {
+                LoadPlayerStats(ccNumber);
+            }
+            else
+            {
+                MessageBox.Show("Error parsing player ID.");
+            }
+        }
+        private void LoadPlayerStats(int ccNumber)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                // Load Player Global Stats
+                string query = $"SELECT * FROM PlayerGlobalStats WHERE CC_Number = {ccNumber}";
+                adapter = new SqlDataAdapter(query, cn);
+                DataSet playerDataSet = new DataSet();
+                adapter.Fill(playerDataSet, "PlayerStats");
+
+                DataRow row = playerDataSet.Tables["PlayerStats"].Rows[0];
+
+                textBox14.Text = row["CC_Number"].ToString();
+                textBox16.Text = row["Name"].ToString();
+                textBox15.Text = row["Age"].ToString();
+                textBox28.Text = row["Nickname"].ToString();
+                textBox17.Text = row["Team_ID"].ToString();
+                textBox21.Text = row["TotalKills"].ToString();
+                textBox20.Text = row["TotalDeaths"].ToString();
+                textBox19.Text = row["TotalAssists"].ToString();
+                textBox18.Text = row["AverageAVS"].ToString();
+                textBox22.Text = row["AverageRating"].ToString();
+                textBox23.Text = row["TotalFirstKills"].ToString();
+
+                // Load Player Roles
+                query = $"SELECT ROLE_Role_Name FROM PlayerRoles WHERE PERSON_CC_Number = {ccNumber}";
+                adapter = new SqlDataAdapter(query, cn);
+                playerDataSet = new DataSet();
+                adapter.Fill(playerDataSet, "PlayerRoles");
+
+                listBox2.Items.Clear();
+                foreach (DataRow roleRow in playerDataSet.Tables["PlayerRoles"].Rows)
+                {
+                    listBox2.Items.Add(roleRow["ROLE_Role_Name"].ToString());
+                }
+
+                // Load Player Agents
+                query = $"SELECT AGENT_Agent_Name, GamesPlayed FROM PlayerAgents WHERE PLAYER_CC_Number = {ccNumber}";
+                adapter = new SqlDataAdapter(query, cn);
+                playerDataSet = new DataSet();
+                adapter.Fill(playerDataSet, "PlayerAgents");
+
+                listBox7.Items.Clear();
+                foreach (DataRow agentRow in playerDataSet.Tables["PlayerAgents"].Rows)
+                {
+                    string agentInfo = $"{agentRow["AGENT_Agent_Name"]}: {agentRow["GamesPlayed"]}";
+                    listBox7.Items.Add(agentInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading player stats: " + ex.Message);
+            }
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Filtering teams by name");
+            string teamNamefilter = textBox12.Text;
+            FilterTeamsByName(teamNamefilter);
         }
     }
 }
