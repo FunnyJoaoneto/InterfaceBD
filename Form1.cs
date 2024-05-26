@@ -742,11 +742,29 @@ namespace ValoLeague
 
         private void button19_Click(object sender, EventArgs e)
         {
+            if (listBox8.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a player to remove.");
+                return;
+            }
+
+            string selectedPlayer = listBox8.SelectedItem.ToString();
+            string playerIDString = selectedPlayer.Split(':')[0].Trim();
+            if (int.TryParse(playerIDString, out int playerID))
+            {
+                RemovePlayerByID(playerID);
+                // Refresh the player list
+                LoadPlayers();
+            }
+            else
+            {
+                MessageBox.Show("Error parsing player ID.");
+            }
+
             MessageBox.Show("Player removed");
             AbleEverything2();
             groupBox5.Enabled = false;
-            //Não esquecer dar clear
-            //textBox25.Clear();
+            textBox25.Clear();
         }
 
         private void checkedListBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -756,6 +774,20 @@ namespace ValoLeague
 
         private void button5_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                int ccNumber = int.Parse(textBox14.Text);
+                string nickname = textBox28.Text;
+                string name = textBox16.Text;
+                int age = int.Parse(textBox15.Text);
+                int teamID = int.Parse(textBox17.Text);
+
+                UpdatePlayerDetails(ccNumber, nickname, name, age, teamID);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid values for all fields.");
+            }
             DisableAlterations();
             groupBox6.Visible = true;
             groupBox5.Visible = true;
@@ -966,6 +998,129 @@ namespace ValoLeague
         private void label73_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UpdatePlayerDetails(int ccNumber, string nickname, string name, int age, int teamID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdatePlayerDetails", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
+                    cmd.Parameters.AddWithValue("@Nickname", nickname);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Age", age);
+                    cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                    // Ensure the connection is open before executing the command
+                    if (cn.State != ConnectionState.Open)
+                    {
+                        cn.Open();
+                    }
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Player details updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating player details: " + ex.Message);
+            }
+            finally
+            {
+                // Ensure the connection is closed even if an error occurs
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+                LoadPlayers();
+            }
+        }
+        private void FilterPlayersByName(string playerName)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("FilterPlayersByName", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PlayerName", string.IsNullOrEmpty(playerName) ? DBNull.Value : (object)playerName);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataSet dataSet = new DataSet();
+                        adapter.Fill(dataSet, "Players");
+
+                        PopulatePlayersListBox(dataSet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching for player: " + ex.Message);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+        }
+        private void PopulatePlayersListBox(DataSet dataSet)
+        {
+            listBox8.Items.Clear();
+
+            foreach (DataRow row in dataSet.Tables["Players"].Rows)
+            {
+                string playerInfo = $"{row["PlayerID"]}: Name: {row["PlayerName"]} Nickname: {row["Nickname"]}";
+                listBox8.Items.Add(playerInfo);
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            string playerName = textBox13.Text;
+
+            // Call the search function, it will handle empty strings appropriately
+            FilterPlayersByName(playerName);
+        }
+        private void RemovePlayerByID(int playerID)
+        {
+            try
+            {
+                if (!verifySGBDConnection())
+                    return;
+
+                using (SqlCommand cmd = new SqlCommand("RemovePlayerByID", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PlayerID", playerID);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Player removed successfully.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing player: " + ex.Message);
+            }
+            finally
+            {
+                if (cn != null && cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
         }
     }
 }
