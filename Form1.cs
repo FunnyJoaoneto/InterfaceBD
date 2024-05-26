@@ -10,8 +10,10 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ValoLeague
 {
@@ -24,8 +26,10 @@ namespace ValoLeague
         public Form1()
         {
             InitializeComponent();
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             verifySGBDConnection();
             LoadTeams();
+            LoadPlayers();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -120,6 +124,272 @@ namespace ValoLeague
         }
 
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                string selectedTeam = listBox1.SelectedItem.ToString();
+                int teamID = ExtractTeamID(selectedTeam); // A function to extract team ID from the selected item string
+
+                LoadTeamStats(teamID);
+                LoadTeamPlayers(teamID);
+            }
+        }
+
+        private void LoadTeamStats(int teamID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "SELECT * FROM TeamStats WHERE Team_ID = @TeamID";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        textBox29.Text = reader["TeamName"].ToString();
+                        textBox8.Text = DateTime.Parse(reader["Foundation_Date"].ToString()).ToString("yyyy-MM-dd");
+                        textBox7.Text = $"{reader["CoachID"]} {reader["CoachName"]}";
+                        textBox1.Text = reader["GamesWon"].ToString();
+                        textBox2.Text = reader["GamesLost"].ToString();
+                        textBox6.Text = reader["RoundsWon"].ToString();
+                        textBox5.Text = reader["RoundsLost"].ToString();
+                        textBox4.Text = reader["MatchesWon"].ToString();
+                        textBox3.Text = reader["MatchesLost"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading team stats: " + ex.Message);
+            }
+        }
+
+        private void LoadTeamPlayers(int teamID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "SELECT * FROM TeamPlayers WHERE Team_ID = @TeamID";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                listBox3.Items.Clear();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string playerInfo = $"ID: {reader["PlayerID"]}, Nickname: {reader["Nickname"]}";
+                        listBox3.Items.Add(playerInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading team players: " + ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a team first.");
+                return;
+            }
+
+            string newName = textBox29.Text;
+            DateTime newFoundationDate;
+
+            if (!DateTime.TryParse(textBox8.Text, out newFoundationDate))
+            {
+                MessageBox.Show("Please enter a valid date.");
+                return;
+            }
+
+            string selectedTeam = listBox1.SelectedItem.ToString();
+            int teamID = ExtractTeamID(selectedTeam); // Ensure this function exists to extract the team ID from the selected item
+
+            UpdateTeamDetails(teamID, newName, newFoundationDate);
+            textBox29.Enabled = false;
+            textBox8.Enabled = false;
+            label14.Visible = true;
+            label15.Visible = true;
+            groupBox1.Visible = true;
+            groupBox2.Visible = true;
+            button4.Visible = false;
+        }
+
+        private void UpdateTeamDetails(int teamID, string newName, DateTime newFoundationDate)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateTeamDetails", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TeamID", teamID);
+                    cmd.Parameters.AddWithValue("@NewName", newName);
+                    cmd.Parameters.AddWithValue("@NewFoundationDate", newFoundationDate);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Team details updated successfully.");
+
+                // Optionally, refresh the team list and details displayed
+                LoadTeams();
+                LoadTeamStats(teamID);
+                LoadTeamPlayers(teamID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating team details: " + ex.Message);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("asdasdasd");
+            string teamNameFilter = textBox12.Text;
+            FilterTeamsByName(teamNameFilter);
+        }
+
+        private void FilterTeamsByName(string teamName)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "FilterTeamsByName";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TeamName", teamName);
+
+                adapter = new SqlDataAdapter(cmd);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "FilteredTeams");
+
+                PopulateFilteredTeamsListBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error filtering teams: " + ex.Message);
+            }
+        }
+
+        private void PopulateFilteredTeamsListBox()
+        {
+            listBox1.Items.Clear();
+
+            foreach (DataRow row in dataSet.Tables["FilteredTeams"].Rows)
+            {
+                string teamInfo = $"{row["Nome"]} (ID: {row["Team_ID"]})";
+                listBox1.Items.Add(teamInfo);
+            }
+        }
+
+        private int ExtractTeamID(string selectedTeam)
+        {
+            var match = Regex.Match(selectedTeam, @"\(ID: (\d+)\)");
+            return match.Success ? int.Parse(match.Groups[1].Value) : 0;
+        }
+
+
+
+
+        //players
+
+
+
+
+        private void LoadPlayers()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "SELECT * FROM ListPlayersView";
+
+                adapter = new SqlDataAdapter(query, cn);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "Players");
+
+                PopulatePlayersListBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+        }
+
+        private void PopulatePlayersListBox()
+        {
+            listBox8.Items.Clear();
+
+            foreach (DataRow row in dataSet.Tables["Players"].Rows)
+            {
+                string playerInfo = $"Name: {row["PlayerName"]} Nickname: {row["Nickname"]}";
+                listBox8.Items.Add(playerInfo);
+            }
+        }
+
+        private void AddPlayer(int ccNumber, string name, int age, string nickname, int teamID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("AddPlayer", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Age", age);
+                cmd.Parameters.AddWithValue("@Nickname", nickname);
+                cmd.Parameters.AddWithValue("@Team_ID", teamID);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Player added successfully!");
+                LoadPlayers();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding player: " + ex.Message);
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ccNumber = int.Parse(textBox27.Text);
+                string name = textBox31.Text;
+                int age = int.Parse(textBox30.Text);
+                string nickname = textBox26.Text;
+                int teamID = int.Parse(textBox32.Text);
+
+                AddPlayer(ccNumber, name, age, nickname, teamID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid input: " + ex.Message);
+            }
+        }
 
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -236,6 +506,8 @@ namespace ValoLeague
         {
 
         }
+
+
 
         private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -375,15 +647,14 @@ namespace ValoLeague
             button4.Visible = true;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void label58_Click(object sender, EventArgs e)
         {
-            textBox29.Enabled = false;
-            textBox8.Enabled = false;
-            label14.Visible = true;
-            label15.Visible = true;
-            groupBox1.Visible = true;
-            groupBox2.Visible = true;
-            button4.Visible = false;
+
+        }
+
+        private void listBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
