@@ -29,5 +29,20 @@ namespace ValoLeague
         {
 
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox50_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox23_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
