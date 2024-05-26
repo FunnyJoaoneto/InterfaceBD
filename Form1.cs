@@ -522,6 +522,7 @@ namespace ValoLeague
             label50.Visible = false;
             label49.Visible = false;
             button5.Visible = true;
+            DisableEverything2();
             AbleAlterations();
         }
         private void AbleAlterations()
@@ -852,6 +853,119 @@ namespace ValoLeague
             MessageBox.Show("Filtering teams by name");
             string teamNamefilter = textBox12.Text;
             FilterTeamsByName(teamNamefilter);
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add Coach!");
+            groupBox9.Enabled = true;
+            DisableEverything3();
+        }
+        private void DisableEverything3()
+        {
+            button30.Enabled = false;
+            button31.Enabled = false;
+            button25.Enabled = false;
+            textBox50.Enabled = false;
+            button32.Enabled = false;
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            groupBox9.Enabled = false;
+            AbleEverything3();
+            textBox35.Clear();
+            textBox36.Clear();
+            textBox38.Clear();
+            textBox39.Clear();
+        }
+        private void AbleEverything3()
+        {
+            button30.Enabled = true;
+            button31.Enabled = true;
+            button25.Enabled = true;
+            textBox50.Enabled = true;
+            button32.Enabled = true;
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coach Added");
+            groupBox9.Enabled = false;
+            AbleEverything3();
+            //nao esquecer de dar clear depois
+            //textBox35.Clear();
+            //textBox36.Clear();
+            //textBox38.Clear();
+            //textBox39.Clear();
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Remove Coach!");
+            groupBox8.Enabled = true;
+            DisableEverything3();
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            groupBox8.Enabled = false;
+            AbleEverything3();
+            textBox34.Clear();
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coach Removed");
+            groupBox8.Enabled = false;
+            AbleEverything3();
+            //nao esquecer de dar clear depois
+            //textBox34.Clear();
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Alter Coach");
+            groupBox8.Visible = false;
+            groupBox9.Visible = false;
+            label65.Visible = false;
+            label64.Visible = false;
+            button6.Visible = true;
+            DisableEverything3();
+            AbleAlterationsCoach();
+        }
+
+        private void AbleAlterationsCoach()
+        {
+            textBox40.Enabled = true;
+            textBox41.Enabled = true;
+            textBox42.Enabled = true;
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coach Altered");
+            groupBox8.Visible = true;
+            groupBox9.Visible = true;
+            label65.Visible = true;
+            label64.Visible = true;
+            button6.Visible = false;
+            AbleEverything3();
+            DisableAlterationsCoach();
+        }
+
+        private void DisableAlterationsCoach()
+        {
+            textBox40.Enabled = false;
+            textBox41.Enabled = false;
+            textBox42.Enabled = false;
+        }
+
+        private void label73_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
