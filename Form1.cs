@@ -27,6 +27,8 @@ namespace ValoLeague
         {
             InitializeComponent();
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            listBox4.SelectedIndexChanged += new EventHandler(listBox4_SelectedIndexChanged);
+            listBox5.SelectedIndexChanged += new EventHandler(listBox5_SelectedIndexChanged);
             verifySGBDConnection();
             LoadTeams();
             LoadPlayers();
@@ -556,10 +558,6 @@ namespace ValoLeague
 
         }
 
-        private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void label29_Click(object sender, EventArgs e)
         {
@@ -1592,6 +1590,108 @@ namespace ValoLeague
                 MessageBox.Show("Error parsing match ID.");
             }
         }
+        private void LoadGameDetails(int matchID, int gameID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = $"SELECT * FROM ListPlayerStatsView WHERE MATCH_Match_ID = {matchID} AND Game_ID = {gameID}";
+                adapter = new SqlDataAdapter(query, cn);
+                DataSet gameDataSet = new DataSet();
+                adapter.Fill(gameDataSet, "GameDetails");
+
+                if (gameDataSet.Tables["GameDetails"].Rows.Count > 0)
+                {
+                    DataRow row = gameDataSet.Tables["GameDetails"].Rows[0];
+
+                    T1.Text = row["Team1_Name"].ToString();
+                    T2.Text = row["Team2_Name"].ToString();
+                    textBox33.Text = row["Rounds_Won_Team_1"].ToString();
+                    textBox37.Text = row["Rounds_Won_Team_2"].ToString();
+                    string te = $"LeaderBoard from (Match id: {matchID}) (Game id: {gameID}): ";
+                    label25.Text = te;
+
+
+                    // Load player stats in default order
+                    LoadPlayerStats(matchID, gameID);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading game details: " + ex.Message);
+            }
+        }
+        private void LoadPlayerStats(int matchID, int gameID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = $@"
+    SELECT * 
+    FROM PlayerStatsWithDefaultOrder
+    WHERE MATCH_Match_ID = {matchID} AND Game_ID = {gameID}
+    ORDER BY TeamOrder, AVS DESC";
+
+                adapter = new SqlDataAdapter(query, cn);
+                DataSet playerStatsDataSet = new DataSet();
+                adapter.Fill(playerStatsDataSet, "PlayerStats");
+
+                PopulatePlayerStatsListBox(playerStatsDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading player stats: " + ex.Message);
+            }
+        }
+        private void PopulatePlayerStatsListBox(DataSet playerStatsDataSet)
+        {
+            listBox6.Items.Clear();
+
+            var playerStats = playerStatsDataSet.Tables["PlayerStats"].AsEnumerable();
+            string topic = "PlayerID  \tPlayerName\tTeamName\t (  K  /  D  /  A  )\tAVS\t Rating\t       FK\t Agent\t";
+            listBox6.Items.Add(topic);
+
+            foreach (var row in playerStats)
+            {
+                string playerID = row["Player_ID"].ToString().PadRight(10);
+                string playerName = row["Player_Name"].ToString().PadRight(20);
+                string teamName = row["Team_Name"].ToString().PadRight(15);
+                string kills = row["Kills"].ToString().PadLeft(5);
+                string deaths = row["Deaths"].ToString().PadLeft(5);
+                string assists = row["Assists"].ToString().PadLeft(5);
+                string avs = row["AVS"].ToString().PadLeft(6);
+                string rating = row["Rating"].ToString().PadLeft(6);
+                string firstKills = row["First_kills"].ToString().PadLeft(11);
+                string agentName = row["AGENT_Agent_Name"].ToString().PadRight(15);
+
+                string playerInfo = $"{playerID}\t{playerName}\t{teamName}\t({kills}/{deaths}/{assists})\t{avs}\t{rating}\t{firstKills}\t{agentName}";
+                listBox6.Items.Add(playerInfo);
+            }
+        }
+        private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox5.SelectedItem == null)
+                return;
+
+            string selectedGame = listBox5.SelectedItem.ToString();
+            // Match the pattern "Match_ID: 1 Game: 1 Team Alpha vs Team Kappa 13 - 11"
+            string pattern = @"Match_ID: (\d+) Game: (\d+)";
+            var match = System.Text.RegularExpressions.Regex.Match(selectedGame, pattern);
+
+            if (match.Success && int.TryParse(match.Groups[1].Value, out int matchID) && int.TryParse(match.Groups[2].Value, out int gameID))
+            {
+                LoadGameDetails(matchID, gameID);
+            }
+            else
+            {
+                MessageBox.Show("Error parsing match or game ID.");
+            }
+        }
+
     }
 
 }

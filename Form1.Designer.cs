@@ -1876,7 +1876,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(654, 307);
+            this.label26.Location = new System.Drawing.Point(666, 364);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(121, 24);
@@ -1892,7 +1892,7 @@
             this.groupBox10.Controls.Add(this.button1);
             this.groupBox10.Controls.Add(this.label62);
             this.groupBox10.Enabled = false;
-            this.groupBox10.Location = new System.Drawing.Point(657, 330);
+            this.groupBox10.Location = new System.Drawing.Point(669, 387);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
@@ -1941,7 +1941,7 @@
             this.groupBox7.Controls.Add(this.button23);
             this.groupBox7.Controls.Add(this.button24);
             this.groupBox7.Enabled = false;
-            this.groupBox7.Location = new System.Drawing.Point(795, 156);
+            this.groupBox7.Location = new System.Drawing.Point(542, 289);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
@@ -1994,7 +1994,7 @@
             // 
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(792, 133);
+            this.label60.Location = new System.Drawing.Point(539, 266);
             this.label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(155, 24);
@@ -2016,7 +2016,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(351, 307);
+            this.label29.Location = new System.Drawing.Point(329, 358);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(116, 24);
@@ -2039,7 +2039,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(329, 92);
+            this.label25.Location = new System.Drawing.Point(328, 86);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(446, 24);
@@ -2049,10 +2049,10 @@
             // listBox6
             // 
             this.listBox6.FormattingEnabled = true;
-            this.listBox6.Location = new System.Drawing.Point(333, 118);
+            this.listBox6.Location = new System.Drawing.Point(332, 112);
             this.listBox6.Margin = new System.Windows.Forms.Padding(2);
             this.listBox6.Name = "listBox6";
-            this.listBox6.Size = new System.Drawing.Size(450, 147);
+            this.listBox6.Size = new System.Drawing.Size(598, 147);
             this.listBox6.TabIndex = 12;
             this.listBox6.SelectedIndexChanged += new System.EventHandler(this.listBox6_SelectedIndexChanged);
             // 
@@ -2065,7 +2065,7 @@
             this.groupBox3.Controls.Add(this.label31);
             this.groupBox3.Controls.Add(this.label30);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(354, 330);
+            this.groupBox3.Location = new System.Drawing.Point(332, 381);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
