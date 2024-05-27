@@ -1538,11 +1538,26 @@ namespace ValoLeague
 
         private void button24_Click(object sender, EventArgs e)
         {
+            if (listBox4.SelectedItem == null)
+                return;
+
+            string selectedMatch = listBox4.SelectedItem.ToString();
+            string matchIDString = selectedMatch.Split(':')[1].Split(',')[0].Trim();
+            if (int.TryParse(matchIDString, out int matchID))
+            {
+                RemoveMatch(matchID);
+                LoadMatches();
+            }
+            else
+            {
+                MessageBox.Show("Error parsing match ID.");
+            }
+
             MessageBox.Show("Match removed!");
             groupBox7.Enabled = false;
             AbleEverything4();
-            //nao esquecer dar clear
-            //textBox24.Clear();
+
+            textBox24.Clear();
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -1691,7 +1706,56 @@ namespace ValoLeague
                 MessageBox.Show("Error parsing match or game ID.");
             }
         }
+        private void LoadFilteredMatches(string teamName)
+        {
+            if (!verifySGBDConnection())
+                return;
 
+            try
+            {
+                string query = "FilterMatchesByTeamName"; // Name of the stored procedure
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TeamName", teamName);
+
+                adapter = new SqlDataAdapter(cmd);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "Matches");
+
+                PopulateMatchesListBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading matches: " + ex.Message);
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string teamName = textBox44.Text.Trim();
+            LoadFilteredMatches(teamName);
+        }
+
+        private void RemoveMatch(int matchID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "RemoveMatch"; // Name of the stored procedure
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MatchID", matchID);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Match removed successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing match: " + ex.Message);
+            }
+        }
     }
 
 }
