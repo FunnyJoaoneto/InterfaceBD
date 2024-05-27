@@ -31,6 +31,7 @@ namespace ValoLeague
             LoadTeams();
             LoadPlayers();
             LoadCoaches();
+            LoadMatches();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -1425,6 +1426,71 @@ namespace ValoLeague
 
 
 
+        private void LoadMatches()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "SELECT * FROM ListMatchesView";
+                adapter = new SqlDataAdapter(query, cn);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "Matches");
+
+                PopulateMatchesListBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading matches: " + ex.Message);
+            }
+        }
+
+        private void LoadGames(int matchID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                // Clear previous games data
+                if (dataSet.Tables["Games"] != null)
+                    dataSet.Tables["Games"].Clear();
+
+                string query = $"SELECT * FROM ListGamesView WHERE MATCH_Match_ID = {matchID}";
+                adapter = new SqlDataAdapter(query, cn);
+                adapter.Fill(dataSet, "Games");
+
+                PopulateGamesListBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading games: " + ex.Message);
+            }
+        }
+
+        private void PopulateGamesListBox()
+        {
+            listBox5.Items.Clear();
+
+            foreach (DataRow row in dataSet.Tables["Games"].Rows)
+            {
+                string gameInfo = $"Match_ID: {row["MATCH_Match_ID"]} Game: {row["Game_ID"]} {row["Team1_Name"]} vs {row["Team2_Name"]} {row["Rounds_Won_Team_1"]} - {row["Rounds_Won_Team_2"]}";
+                listBox5.Items.Add(gameInfo);
+            }
+        }
+
+        private void PopulateMatchesListBox()
+        {
+            listBox4.Items.Clear();
+
+            foreach (DataRow row in dataSet.Tables["Matches"].Rows)
+            {
+                string matchInfo = $"ID: {row["Match_ID"]}, {row["Team1_Name"]} vs {row["Team2_Name"]}";
+                listBox4.Items.Add(matchInfo);
+            }
+        }
+
         private void button10_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Add Match");
@@ -1436,14 +1502,16 @@ namespace ValoLeague
             button10.Enabled = false;
             button17.Enabled = false;
             button9.Enabled = false;
-            comboBox1.Enabled = false;
+            textBox44.Enabled = false;
+            button2.Enabled = false;
         }
         private void AbleEverything4()
         {
             button10.Enabled = true;
             button17.Enabled = true;
             button9.Enabled = true;
-            comboBox1.Enabled = true;
+            textBox44.Enabled = true;
+            button2.Enabled = true;
         }
 
         private void button7_Click_1(object sender, EventArgs e)
@@ -1494,6 +1562,35 @@ namespace ValoLeague
             AbleEverything4();
             form2.Show();
             this.Hide();
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox4.SelectedItem == null)
+                return;
+
+            string selectedMatch = listBox4.SelectedItem.ToString();
+            string matchIDString = selectedMatch.Split(':')[1].Split(',')[0].Trim();
+            if (int.TryParse(matchIDString, out int matchID))
+            {
+                LoadGames(matchID);
+                string te = $"Games From Match (ID: {matchID})";
+                label22.Text = te;
+            }
+            else
+            {
+                MessageBox.Show("Error parsing match ID.");
+            }
         }
     }
 
