@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.E10 = new System.Windows.Forms.TextBox();
+            this.E9 = new System.Windows.Forms.TextBox();
+            this.E8 = new System.Windows.Forms.TextBox();
+            this.E7 = new System.Windows.Forms.TextBox();
+            this.E6 = new System.Windows.Forms.TextBox();
+            this.E5 = new System.Windows.Forms.TextBox();
+            this.E4 = new System.Windows.Forms.TextBox();
+            this.E3 = new System.Windows.Forms.TextBox();
+            this.E2 = new System.Windows.Forms.TextBox();
+            this.E1 = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -135,11 +146,22 @@
             this.End = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.E20 = new System.Windows.Forms.TextBox();
+            this.E19 = new System.Windows.Forms.TextBox();
+            this.E18 = new System.Windows.Forms.TextBox();
+            this.E17 = new System.Windows.Forms.TextBox();
+            this.E16 = new System.Windows.Forms.TextBox();
+            this.E15 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.E14 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.E13 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.E12 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.E11 = new System.Windows.Forms.TextBox();
             this.R20 = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
             this.P20 = new System.Windows.Forms.TextBox();
             this.R19 = new System.Windows.Forms.ComboBox();
             this.M2 = new System.Windows.Forms.ComboBox();
@@ -234,6 +256,17 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.E30 = new System.Windows.Forms.TextBox();
+            this.E29 = new System.Windows.Forms.TextBox();
+            this.E28 = new System.Windows.Forms.TextBox();
+            this.E27 = new System.Windows.Forms.TextBox();
+            this.E26 = new System.Windows.Forms.TextBox();
+            this.E25 = new System.Windows.Forms.TextBox();
+            this.E24 = new System.Windows.Forms.TextBox();
+            this.E23 = new System.Windows.Forms.TextBox();
+            this.E22 = new System.Windows.Forms.TextBox();
+            this.E21 = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -336,39 +369,7 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.E5 = new System.Windows.Forms.TextBox();
-            this.E4 = new System.Windows.Forms.TextBox();
-            this.E3 = new System.Windows.Forms.TextBox();
-            this.E2 = new System.Windows.Forms.TextBox();
-            this.E1 = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.E10 = new System.Windows.Forms.TextBox();
-            this.E9 = new System.Windows.Forms.TextBox();
-            this.E8 = new System.Windows.Forms.TextBox();
-            this.E7 = new System.Windows.Forms.TextBox();
-            this.E6 = new System.Windows.Forms.TextBox();
-            this.E15 = new System.Windows.Forms.TextBox();
-            this.E14 = new System.Windows.Forms.TextBox();
-            this.E13 = new System.Windows.Forms.TextBox();
-            this.E12 = new System.Windows.Forms.TextBox();
-            this.E11 = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.E20 = new System.Windows.Forms.TextBox();
-            this.E19 = new System.Windows.Forms.TextBox();
-            this.E18 = new System.Windows.Forms.TextBox();
-            this.E17 = new System.Windows.Forms.TextBox();
-            this.E16 = new System.Windows.Forms.TextBox();
-            this.E25 = new System.Windows.Forms.TextBox();
-            this.E24 = new System.Windows.Forms.TextBox();
-            this.E23 = new System.Windows.Forms.TextBox();
-            this.E22 = new System.Windows.Forms.TextBox();
-            this.E21 = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.E30 = new System.Windows.Forms.TextBox();
-            this.E29 = new System.Windows.Forms.TextBox();
-            this.E28 = new System.Windows.Forms.TextBox();
-            this.E27 = new System.Windows.Forms.TextBox();
-            this.E26 = new System.Windows.Forms.TextBox();
+            this.autofill = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -490,6 +491,85 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Game1";
+            // 
+            // E10
+            // 
+            this.E10.Location = new System.Drawing.Point(309, 332);
+            this.E10.Name = "E10";
+            this.E10.Size = new System.Drawing.Size(32, 20);
+            this.E10.TabIndex = 131;
+            // 
+            // E9
+            // 
+            this.E9.Location = new System.Drawing.Point(309, 305);
+            this.E9.Name = "E9";
+            this.E9.Size = new System.Drawing.Size(32, 20);
+            this.E9.TabIndex = 130;
+            // 
+            // E8
+            // 
+            this.E8.Location = new System.Drawing.Point(311, 278);
+            this.E8.Name = "E8";
+            this.E8.Size = new System.Drawing.Size(32, 20);
+            this.E8.TabIndex = 129;
+            // 
+            // E7
+            // 
+            this.E7.Location = new System.Drawing.Point(311, 251);
+            this.E7.Name = "E7";
+            this.E7.Size = new System.Drawing.Size(32, 20);
+            this.E7.TabIndex = 128;
+            // 
+            // E6
+            // 
+            this.E6.Location = new System.Drawing.Point(311, 224);
+            this.E6.Name = "E6";
+            this.E6.Size = new System.Drawing.Size(30, 20);
+            this.E6.TabIndex = 127;
+            // 
+            // E5
+            // 
+            this.E5.Location = new System.Drawing.Point(311, 180);
+            this.E5.Name = "E5";
+            this.E5.Size = new System.Drawing.Size(32, 20);
+            this.E5.TabIndex = 126;
+            // 
+            // E4
+            // 
+            this.E4.Location = new System.Drawing.Point(311, 153);
+            this.E4.Name = "E4";
+            this.E4.Size = new System.Drawing.Size(32, 20);
+            this.E4.TabIndex = 125;
+            // 
+            // E3
+            // 
+            this.E3.Location = new System.Drawing.Point(313, 126);
+            this.E3.Name = "E3";
+            this.E3.Size = new System.Drawing.Size(32, 20);
+            this.E3.TabIndex = 124;
+            // 
+            // E2
+            // 
+            this.E2.Location = new System.Drawing.Point(313, 99);
+            this.E2.Name = "E2";
+            this.E2.Size = new System.Drawing.Size(32, 20);
+            this.E2.TabIndex = 123;
+            // 
+            // E1
+            // 
+            this.E1.Location = new System.Drawing.Point(313, 72);
+            this.E1.Name = "E1";
+            this.E1.Size = new System.Drawing.Size(30, 20);
+            this.E1.TabIndex = 122;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(310, 53);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(38, 13);
+            this.label49.TabIndex = 121;
+            this.label49.Text = "Rating";
             // 
             // label30
             // 
@@ -1427,6 +1507,48 @@
             this.groupBox2.Text = "Game2";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // E20
+            // 
+            this.E20.Location = new System.Drawing.Point(301, 333);
+            this.E20.Name = "E20";
+            this.E20.Size = new System.Drawing.Size(32, 20);
+            this.E20.TabIndex = 142;
+            // 
+            // E19
+            // 
+            this.E19.Location = new System.Drawing.Point(301, 306);
+            this.E19.Name = "E19";
+            this.E19.Size = new System.Drawing.Size(32, 20);
+            this.E19.TabIndex = 141;
+            // 
+            // E18
+            // 
+            this.E18.Location = new System.Drawing.Point(303, 279);
+            this.E18.Name = "E18";
+            this.E18.Size = new System.Drawing.Size(32, 20);
+            this.E18.TabIndex = 140;
+            // 
+            // E17
+            // 
+            this.E17.Location = new System.Drawing.Point(303, 252);
+            this.E17.Name = "E17";
+            this.E17.Size = new System.Drawing.Size(32, 20);
+            this.E17.TabIndex = 139;
+            // 
+            // E16
+            // 
+            this.E16.Location = new System.Drawing.Point(303, 225);
+            this.E16.Name = "E16";
+            this.E16.Size = new System.Drawing.Size(30, 20);
+            this.E16.TabIndex = 138;
+            // 
+            // E15
+            // 
+            this.E15.Location = new System.Drawing.Point(303, 180);
+            this.E15.Name = "E15";
+            this.E15.Size = new System.Drawing.Size(32, 20);
+            this.E15.TabIndex = 137;
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -1437,6 +1559,13 @@
             this.label31.TabIndex = 121;
             this.label31.Text = "T2";
             // 
+            // E14
+            // 
+            this.E14.Location = new System.Drawing.Point(303, 153);
+            this.E14.Name = "E14";
+            this.E14.Size = new System.Drawing.Size(32, 20);
+            this.E14.TabIndex = 136;
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -1446,6 +1575,13 @@
             this.label29.Size = new System.Drawing.Size(26, 17);
             this.label29.TabIndex = 119;
             this.label29.Text = "T1";
+            // 
+            // E13
+            // 
+            this.E13.Location = new System.Drawing.Point(305, 126);
+            this.E13.Name = "E13";
+            this.E13.Size = new System.Drawing.Size(32, 20);
+            this.E13.TabIndex = 135;
             // 
             // label27
             // 
@@ -1458,6 +1594,13 @@
     "--------------------------------------------------------------------------------" +
     "-----------";
             // 
+            // E12
+            // 
+            this.E12.Location = new System.Drawing.Point(305, 99);
+            this.E12.Name = "E12";
+            this.E12.Size = new System.Drawing.Size(32, 20);
+            this.E12.TabIndex = 134;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -1467,6 +1610,13 @@
             this.label24.TabIndex = 115;
             this.label24.Text = "Players";
             // 
+            // E11
+            // 
+            this.E11.Location = new System.Drawing.Point(305, 72);
+            this.E11.Name = "E11";
+            this.E11.Size = new System.Drawing.Size(30, 20);
+            this.E11.TabIndex = 133;
+            // 
             // R20
             // 
             this.R20.FormattingEnabled = true;
@@ -1474,6 +1624,15 @@
             this.R20.Name = "R20";
             this.R20.Size = new System.Drawing.Size(87, 21);
             this.R20.TabIndex = 114;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(300, 56);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(38, 13);
+            this.label50.TabIndex = 132;
+            this.label50.Text = "Rating";
             // 
             // P20
             // 
@@ -2293,6 +2452,85 @@
             this.groupBox3.Text = "Game3";
             this.groupBox3.Visible = false;
             // 
+            // E30
+            // 
+            this.E30.Location = new System.Drawing.Point(302, 330);
+            this.E30.Name = "E30";
+            this.E30.Size = new System.Drawing.Size(32, 20);
+            this.E30.TabIndex = 137;
+            // 
+            // E29
+            // 
+            this.E29.Location = new System.Drawing.Point(302, 303);
+            this.E29.Name = "E29";
+            this.E29.Size = new System.Drawing.Size(32, 20);
+            this.E29.TabIndex = 136;
+            // 
+            // E28
+            // 
+            this.E28.Location = new System.Drawing.Point(304, 276);
+            this.E28.Name = "E28";
+            this.E28.Size = new System.Drawing.Size(32, 20);
+            this.E28.TabIndex = 135;
+            // 
+            // E27
+            // 
+            this.E27.Location = new System.Drawing.Point(304, 249);
+            this.E27.Name = "E27";
+            this.E27.Size = new System.Drawing.Size(32, 20);
+            this.E27.TabIndex = 134;
+            // 
+            // E26
+            // 
+            this.E26.Location = new System.Drawing.Point(304, 222);
+            this.E26.Name = "E26";
+            this.E26.Size = new System.Drawing.Size(30, 20);
+            this.E26.TabIndex = 133;
+            // 
+            // E25
+            // 
+            this.E25.Location = new System.Drawing.Point(304, 180);
+            this.E25.Name = "E25";
+            this.E25.Size = new System.Drawing.Size(32, 20);
+            this.E25.TabIndex = 132;
+            // 
+            // E24
+            // 
+            this.E24.Location = new System.Drawing.Point(304, 153);
+            this.E24.Name = "E24";
+            this.E24.Size = new System.Drawing.Size(32, 20);
+            this.E24.TabIndex = 131;
+            // 
+            // E23
+            // 
+            this.E23.Location = new System.Drawing.Point(306, 126);
+            this.E23.Name = "E23";
+            this.E23.Size = new System.Drawing.Size(32, 20);
+            this.E23.TabIndex = 130;
+            // 
+            // E22
+            // 
+            this.E22.Location = new System.Drawing.Point(306, 99);
+            this.E22.Name = "E22";
+            this.E22.Size = new System.Drawing.Size(32, 20);
+            this.E22.TabIndex = 129;
+            // 
+            // E21
+            // 
+            this.E21.Location = new System.Drawing.Point(306, 72);
+            this.E21.Name = "E21";
+            this.E21.Size = new System.Drawing.Size(30, 20);
+            this.E21.TabIndex = 128;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(303, 53);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(38, 13);
+            this.label51.TabIndex = 127;
+            this.label51.Text = "Rating";
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -2412,6 +2650,7 @@
             this.R21.Name = "R21";
             this.R21.Size = new System.Drawing.Size(87, 21);
             this.R21.TabIndex = 94;
+            this.R21.SelectedIndexChanged += new System.EventHandler(this.R21_SelectedIndexChanged);
             // 
             // label37
             // 
@@ -3074,248 +3313,22 @@
             this.label48.TabIndex = 22;
             this.label48.Text = "Players Team2";
             // 
-            // E5
-            // 
-            this.E5.Location = new System.Drawing.Point(311, 180);
-            this.E5.Name = "E5";
-            this.E5.Size = new System.Drawing.Size(32, 20);
-            this.E5.TabIndex = 126;
-            // 
-            // E4
-            // 
-            this.E4.Location = new System.Drawing.Point(311, 153);
-            this.E4.Name = "E4";
-            this.E4.Size = new System.Drawing.Size(32, 20);
-            this.E4.TabIndex = 125;
-            // 
-            // E3
-            // 
-            this.E3.Location = new System.Drawing.Point(313, 126);
-            this.E3.Name = "E3";
-            this.E3.Size = new System.Drawing.Size(32, 20);
-            this.E3.TabIndex = 124;
-            // 
-            // E2
-            // 
-            this.E2.Location = new System.Drawing.Point(313, 99);
-            this.E2.Name = "E2";
-            this.E2.Size = new System.Drawing.Size(32, 20);
-            this.E2.TabIndex = 123;
-            // 
-            // E1
-            // 
-            this.E1.Location = new System.Drawing.Point(313, 72);
-            this.E1.Name = "E1";
-            this.E1.Size = new System.Drawing.Size(30, 20);
-            this.E1.TabIndex = 122;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(310, 53);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(38, 13);
-            this.label49.TabIndex = 121;
-            this.label49.Text = "Rating";
-            // 
-            // E10
-            // 
-            this.E10.Location = new System.Drawing.Point(309, 332);
-            this.E10.Name = "E10";
-            this.E10.Size = new System.Drawing.Size(32, 20);
-            this.E10.TabIndex = 131;
-            // 
-            // E9
-            // 
-            this.E9.Location = new System.Drawing.Point(309, 305);
-            this.E9.Name = "E9";
-            this.E9.Size = new System.Drawing.Size(32, 20);
-            this.E9.TabIndex = 130;
-            // 
-            // E8
-            // 
-            this.E8.Location = new System.Drawing.Point(311, 278);
-            this.E8.Name = "E8";
-            this.E8.Size = new System.Drawing.Size(32, 20);
-            this.E8.TabIndex = 129;
-            // 
-            // E7
-            // 
-            this.E7.Location = new System.Drawing.Point(311, 251);
-            this.E7.Name = "E7";
-            this.E7.Size = new System.Drawing.Size(32, 20);
-            this.E7.TabIndex = 128;
-            // 
-            // E6
-            // 
-            this.E6.Location = new System.Drawing.Point(311, 224);
-            this.E6.Name = "E6";
-            this.E6.Size = new System.Drawing.Size(30, 20);
-            this.E6.TabIndex = 127;
-            // 
-            // E15
-            // 
-            this.E15.Location = new System.Drawing.Point(303, 180);
-            this.E15.Name = "E15";
-            this.E15.Size = new System.Drawing.Size(32, 20);
-            this.E15.TabIndex = 137;
-            // 
-            // E14
-            // 
-            this.E14.Location = new System.Drawing.Point(303, 153);
-            this.E14.Name = "E14";
-            this.E14.Size = new System.Drawing.Size(32, 20);
-            this.E14.TabIndex = 136;
-            // 
-            // E13
-            // 
-            this.E13.Location = new System.Drawing.Point(305, 126);
-            this.E13.Name = "E13";
-            this.E13.Size = new System.Drawing.Size(32, 20);
-            this.E13.TabIndex = 135;
-            // 
-            // E12
-            // 
-            this.E12.Location = new System.Drawing.Point(305, 99);
-            this.E12.Name = "E12";
-            this.E12.Size = new System.Drawing.Size(32, 20);
-            this.E12.TabIndex = 134;
-            // 
-            // E11
-            // 
-            this.E11.Location = new System.Drawing.Point(305, 72);
-            this.E11.Name = "E11";
-            this.E11.Size = new System.Drawing.Size(30, 20);
-            this.E11.TabIndex = 133;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(300, 56);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(38, 13);
-            this.label50.TabIndex = 132;
-            this.label50.Text = "Rating";
-            // 
-            // E20
-            // 
-            this.E20.Location = new System.Drawing.Point(301, 333);
-            this.E20.Name = "E20";
-            this.E20.Size = new System.Drawing.Size(32, 20);
-            this.E20.TabIndex = 142;
-            // 
-            // E19
-            // 
-            this.E19.Location = new System.Drawing.Point(301, 306);
-            this.E19.Name = "E19";
-            this.E19.Size = new System.Drawing.Size(32, 20);
-            this.E19.TabIndex = 141;
-            // 
-            // E18
-            // 
-            this.E18.Location = new System.Drawing.Point(303, 279);
-            this.E18.Name = "E18";
-            this.E18.Size = new System.Drawing.Size(32, 20);
-            this.E18.TabIndex = 140;
-            // 
-            // E17
-            // 
-            this.E17.Location = new System.Drawing.Point(303, 252);
-            this.E17.Name = "E17";
-            this.E17.Size = new System.Drawing.Size(32, 20);
-            this.E17.TabIndex = 139;
-            // 
-            // E16
-            // 
-            this.E16.Location = new System.Drawing.Point(303, 225);
-            this.E16.Name = "E16";
-            this.E16.Size = new System.Drawing.Size(30, 20);
-            this.E16.TabIndex = 138;
-            // 
-            // E25
-            // 
-            this.E25.Location = new System.Drawing.Point(304, 180);
-            this.E25.Name = "E25";
-            this.E25.Size = new System.Drawing.Size(32, 20);
-            this.E25.TabIndex = 132;
-            // 
-            // E24
-            // 
-            this.E24.Location = new System.Drawing.Point(304, 153);
-            this.E24.Name = "E24";
-            this.E24.Size = new System.Drawing.Size(32, 20);
-            this.E24.TabIndex = 131;
-            // 
-            // E23
-            // 
-            this.E23.Location = new System.Drawing.Point(306, 126);
-            this.E23.Name = "E23";
-            this.E23.Size = new System.Drawing.Size(32, 20);
-            this.E23.TabIndex = 130;
-            // 
-            // E22
-            // 
-            this.E22.Location = new System.Drawing.Point(306, 99);
-            this.E22.Name = "E22";
-            this.E22.Size = new System.Drawing.Size(32, 20);
-            this.E22.TabIndex = 129;
-            // 
-            // E21
-            // 
-            this.E21.Location = new System.Drawing.Point(306, 72);
-            this.E21.Name = "E21";
-            this.E21.Size = new System.Drawing.Size(30, 20);
-            this.E21.TabIndex = 128;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(303, 53);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(38, 13);
-            this.label51.TabIndex = 127;
-            this.label51.Text = "Rating";
-            // 
-            // E30
-            // 
-            this.E30.Location = new System.Drawing.Point(302, 330);
-            this.E30.Name = "E30";
-            this.E30.Size = new System.Drawing.Size(32, 20);
-            this.E30.TabIndex = 137;
-            // 
-            // E29
-            // 
-            this.E29.Location = new System.Drawing.Point(302, 303);
-            this.E29.Name = "E29";
-            this.E29.Size = new System.Drawing.Size(32, 20);
-            this.E29.TabIndex = 136;
-            // 
-            // E28
-            // 
-            this.E28.Location = new System.Drawing.Point(304, 276);
-            this.E28.Name = "E28";
-            this.E28.Size = new System.Drawing.Size(32, 20);
-            this.E28.TabIndex = 135;
-            // 
-            // E27
-            // 
-            this.E27.Location = new System.Drawing.Point(304, 249);
-            this.E27.Name = "E27";
-            this.E27.Size = new System.Drawing.Size(32, 20);
-            this.E27.TabIndex = 134;
-            // 
-            // E26
-            // 
-            this.E26.Location = new System.Drawing.Point(304, 222);
-            this.E26.Name = "E26";
-            this.E26.Size = new System.Drawing.Size(30, 20);
-            this.E26.TabIndex = 133;
+            // autofill
+            // 
+            this.autofill.Location = new System.Drawing.Point(508, 63);
+            this.autofill.Name = "autofill";
+            this.autofill.Size = new System.Drawing.Size(90, 24);
+            this.autofill.TabIndex = 23;
+            this.autofill.Text = "autofill";
+            this.autofill.UseVisualStyleBackColor = true;
+            this.autofill.Click += new System.EventHandler(this.autofill_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 584);
+            this.Controls.Add(this.autofill);
             this.Controls.Add(this.label48);
             this.Controls.Add(this.label47);
             this.Controls.Add(this.listBox2);
@@ -3690,5 +3703,6 @@
         private System.Windows.Forms.TextBox E28;
         private System.Windows.Forms.TextBox E27;
         private System.Windows.Forms.TextBox E26;
+        private System.Windows.Forms.Button autofill;
     }
 }

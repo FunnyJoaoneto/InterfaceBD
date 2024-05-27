@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ValoLeague
 {
@@ -23,15 +24,29 @@ namespace ValoLeague
         private SqlConnection cn;
         private SqlDataAdapter adapter;
         private DataSet dataSet;
+        private int team1ID;
+        private int team2ID;
+        private int matchID;
+        private bool loadStats;
         public Form2(int id1, int id2, int mid, Form1 form, Boolean load)
         {
             InitializeComponent();
             this.form1 = form;
+            this.team1ID = id1;
+            this.team2ID = id2;
+            this.matchID = mid;
+            this.loadStats = load;
+            verifySGBDConnection();
             if (load)
             {
                 LoadStats();
             }
-            verifySGBDConnection();
+            else
+            {
+                LoadTeamDetails();
+            }
+            addRolesToComboBoxes();
+            addMapsToComboBoxes();
         }
         private SqlConnection getSGBDConnection()
         {
@@ -47,6 +62,64 @@ namespace ValoLeague
                 cn.Open();
 
             return cn.State == ConnectionState.Open;
+        }
+        private void LoadTeamDetails()
+        {
+            var team1Details = GetTeamDetails(team1ID);
+            var team2Details = GetTeamDetails(team2ID);
+
+            if (team1Details.TeamName != null && team2Details.TeamName != null)
+            {
+                // Pass team names to textboxes
+                T1.Text = team1Details.TeamName;
+                T2.Text = team2Details.TeamName;
+
+                // Pass players to listboxes
+                listBox1.Items.Clear();
+                listBox1.Items.AddRange(team1Details.Players.ToArray());
+
+                listBox2.Items.Clear();
+                listBox2.Items.AddRange(team2Details.Players.ToArray());
+            }
+            else
+            {
+                MessageBox.Show("Error retrieving team details.");
+            }
+        }
+        private (string TeamName, List<string> Players) GetTeamDetails(int teamID)
+        {
+            if (!verifySGBDConnection())
+                return (null, null);
+
+            try
+            {
+                string query = "GetTeamDetails"; // Name of the stored procedure
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                // Extract team name
+                string teamName = dataSet.Tables[0].Rows[0]["Nome"].ToString();
+
+                // Extract players
+                List<string> players = new List<string>();
+                foreach (DataRow row in dataSet.Tables[1].Rows)
+                {
+                    string playerInfo = $"ID:{row["PlayerID"]} NickName:{row["Nickname"]}";
+                    players.Add(playerInfo);
+                }
+
+                return (teamName, players);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving team details: " + ex.Message);
+                return (null, null);
+            }
         }
         private void LoadStats()
         {
@@ -102,9 +175,20 @@ namespace ValoLeague
 
         private void End_Click(object sender, EventArgs e)
         {
-            this.Close();
-            MessageBox.Show("Match Added!");
-            this.form1.Show();
+            try
+            {
+                AddMatch();
+                MessageBox.Show("Match Added!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding match: " + ex.Message);
+            }
+            finally
+            {
+                this.Close();
+                this.form1.Show();
+            }
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -140,5 +224,601 @@ namespace ValoLeague
         {
 
         }
+        private void addRolesToComboBoxes()
+        {
+            string[] roles = { "Sentinel", "Duelist", "Initiator", "Controller" };
+            for (int i = 1; i <= 30; i++)
+            {
+                System.Windows.Forms.ComboBox comboBoxR = this.Controls.Find($"R{i}", true).FirstOrDefault() as System.Windows.Forms.ComboBox;
+                if (comboBoxR != null)
+                {
+                    comboBoxR.Items.AddRange(roles);
+                    comboBoxR.SelectedIndexChanged += R_SelectedIndexChanged;
+                }
+            }
+        }
+
+        private void R21_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void R_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox comboBoxR = sender as System.Windows.Forms.ComboBox;
+            if (comboBoxR != null)
+            {
+                string selectedRole = comboBoxR.SelectedItem.ToString();
+                string comboBoxRName = comboBoxR.Name;
+                int index = int.Parse(comboBoxRName.Substring(1)); // Extract the index from the ComboBox name
+                System.Windows.Forms.ComboBox comboBoxG = this.Controls.Find($"G{index}", true).FirstOrDefault() as System.Windows.Forms.ComboBox;
+                if (comboBoxG != null)
+                {
+                    UpdateGItems(comboBoxG, selectedRole);
+                }
+            }
+        }
+        private void UpdateGItems(System.Windows.Forms.ComboBox comboBoxG, string role)
+        {
+            comboBoxG.Items.Clear();
+            switch (role)
+            {
+                case "Controller":
+                    comboBoxG.Items.AddRange(new string[] { "Brimstone", "Viper", "Omen", "Astra", "Harbor", "Clove" });
+                    break;
+                case "Duelist":
+                    comboBoxG.Items.AddRange(new string[] { "Phoenix", "Jett", "Reyna", "Raze", "Yoru", "Neon", "Iso" });
+                    break;
+                case "Initiator":
+                    comboBoxG.Items.AddRange(new string[] { "Sova", "Breach", "Skye", "KAY/O", "Fade", "Gekko" });
+                    break;
+                case "Sentinel":
+                    comboBoxG.Items.AddRange(new string[] { "Killjoy", "Cypher", "Sage", "Chamber", "Deadlock" });
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void addMapsToComboBoxes()
+        {
+            string[] maps = { "Bind", "Haven", "Split", "Ascent", "Icebox", "Breeze", "Fracture", "Pearl", "Lotus", "Sunset" };
+            System.Windows.Forms.ComboBox[] mapComboBoxes = { M1, M2, M3 };
+
+            foreach (System.Windows.Forms.ComboBox comboBox in mapComboBoxes)
+            {
+                comboBox.Items.Clear();
+                comboBox.Items.AddRange(maps);
+            }
+        }
+
+        private void AddMatch()
+        {
+            using (SqlConnection conn = getSGBDConnection())
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("AddMatch", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Match_ID", matchID);
+                    cmd.Parameters.AddWithValue("@Team_1_ID", team1ID);
+                    cmd.Parameters.AddWithValue("@Team_2_ID", team2ID);
+                    cmd.ExecuteNonQuery();
+                }
+
+                AddGame(conn, 1, int.Parse(S11.Text), int.Parse(S12.Text), matchID, M1.Text);
+                AddGame(conn, 2, int.Parse(S21.Text), int.Parse(S22.Text), matchID, M2.Text);
+
+                int maxPlayers = 20;
+
+                if (!string.IsNullOrEmpty(M3.Text))
+                {
+                    AddGame(conn, 3, int.Parse(S31.Text), int.Parse(S32.Text), matchID, M3.Text);
+                    maxPlayers = 30; // If there is a third game, include players 21-30
+                }
+
+                for (int i = 1; i <= maxPlayers; i++)
+                {
+                    AddPlayerStats(conn, GetPlayerStatsParameters(i));
+                }
+            }
+        }
+
+        private void AddGame(SqlConnection conn, int gameId, int roundsWonTeam1, int roundsWonTeam2, int matchId, string map)
+        {
+            using (SqlCommand cmd = new SqlCommand("AddGame", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Game_ID", gameId);
+                cmd.Parameters.AddWithValue("@Rounds_Won_Team_1", roundsWonTeam1);
+                cmd.Parameters.AddWithValue("@Rounds_Won_Team_2", roundsWonTeam2);
+                cmd.Parameters.AddWithValue("@Match_ID", matchId);
+                cmd.Parameters.AddWithValue("@Map", map);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void AddPlayerStats(SqlConnection conn, PlayerStatsParameters parameters)
+        {
+            using (SqlCommand cmd = new SqlCommand("AddPlayerStats", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PLAYER_CC_Number", parameters.PlayerId);
+                cmd.Parameters.AddWithValue("@GAME_Match_ID", matchID);
+                cmd.Parameters.AddWithValue("@GAME_Game_ID", parameters.GameId);
+                cmd.Parameters.AddWithValue("@Kills", parameters.Kills);
+                cmd.Parameters.AddWithValue("@Deaths", parameters.Deaths);
+                cmd.Parameters.AddWithValue("@Assists", parameters.Assists);
+                cmd.Parameters.AddWithValue("@AVS", parameters.AVS);
+                cmd.Parameters.AddWithValue("@Rating", parameters.Rating);
+                cmd.Parameters.AddWithValue("@First_kills", parameters.FirstKills);
+                cmd.Parameters.AddWithValue("@AGENT_Agent_Name", parameters.AgentName);
+                cmd.Parameters.AddWithValue("@ROLE_Role_Name", parameters.RoleName);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private PlayerStatsParameters GetPlayerStatsParameters(int index)
+        {
+            PlayerStatsParameters parameters = new PlayerStatsParameters();
+
+            try
+            {
+                // Validate and parse PlayerId
+                System.Windows.Forms.TextBox playerTextBox = this.Controls.Find($"P{index}", true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                if (playerTextBox != null && int.TryParse(playerTextBox.Text, out int playerId))
+                {
+                    parameters.PlayerId = playerId;
+                }
+                else
+                {
+                    throw new Exception($"Control P{index} contains an invalid integer value or was not found");
+                }
+
+                // Validate and parse Kills
+                System.Windows.Forms.TextBox killsTextBox = this.Controls.Find($"K{index}", true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                if (killsTextBox != null && int.TryParse(killsTextBox.Text, out int kills))
+                {
+                    parameters.Kills = kills;
+                }
+                else
+                {
+                    throw new Exception($"Control K{index} contains an invalid integer value or was not found");
+                }
+
+                // Validate and parse Deaths
+                System.Windows.Forms.TextBox deathsTextBox = this.Controls.Find($"D{index}", true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                if (deathsTextBox != null && int.TryParse(deathsTextBox.Text, out int deaths))
+                {
+                    parameters.Deaths = deaths;
+                }
+                else
+                {
+                    throw new Exception($"Control D{index} contains an invalid integer value or was not found");
+                }
+
+                // Validate and parse Assists
+                System.Windows.Forms.TextBox assistsTextBox = this.Controls.Find($"A{index}", true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                if (assistsTextBox != null && int.TryParse(assistsTextBox.Text, out int assists))
+                {
+                    parameters.Assists = assists;
+                }
+                else
+                {
+                    throw new Exception($"Control A{index} contains an invalid integer value or was not found");
+                }
+
+                // Validate and parse AVS
+                System.Windows.Forms.TextBox avsTextBox = this.Controls.Find($"C{index}", true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                if (avsTextBox != null && decimal.TryParse(avsTextBox.Text, out decimal avs))
+                {
+                    parameters.AVS = avs;
+                }
+                else
+                {
+                    throw new Exception($"Control C{index} contains an invalid decimal value or was not found");
+                }
+
+                // Validate and parse Rating
+                System.Windows.Forms.TextBox ratingTextBox = this.Controls.Find($"E{index}", true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                if (ratingTextBox != null && int.TryParse(ratingTextBox.Text, out int rating))
+                {
+                    parameters.Rating = rating;
+                }
+                else
+                {
+                    throw new Exception($"Control E{index} contains an invalid integer value or was not found");
+                }
+
+                // Validate and parse FirstKills
+                System.Windows.Forms.TextBox firstKillsTextBox = this.Controls.Find($"F{index}", true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                if (firstKillsTextBox != null && int.TryParse(firstKillsTextBox.Text, out int firstKills))
+                {
+                    parameters.FirstKills = firstKills;
+                }
+                else
+                {
+                    throw new Exception($"Control F{index} contains an invalid integer value or was not found");
+                }
+
+                // Validate RoleName
+                System.Windows.Forms.ComboBox roleComboBox = this.Controls.Find($"R{index}", true).FirstOrDefault() as System.Windows.Forms.ComboBox;
+                if (roleComboBox != null && !string.IsNullOrWhiteSpace(roleComboBox.Text))
+                {
+                    parameters.RoleName = roleComboBox.Text;
+                }
+                else
+                {
+                    throw new Exception($"Control R{index} contains an invalid value or was not found");
+                }
+
+                // Validate AgentName
+                System.Windows.Forms.ComboBox agentComboBox = this.Controls.Find($"G{index}", true).FirstOrDefault() as System.Windows.Forms.ComboBox;
+                if (agentComboBox != null && !string.IsNullOrWhiteSpace(agentComboBox.Text))
+                {
+                    parameters.AgentName = agentComboBox.Text;
+                }
+                else
+                {
+                    throw new Exception($"Control G{index} contains an invalid value or was not found");
+                }
+
+                parameters.GameId = GetGameId(index);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+
+            return parameters;
+        }
+
+
+        private int GetGameId(int index)
+        {
+            if (index <= 10) return 1;
+            if (index <= 20) return 2;
+            return 3;
+        }
+
+        private void autofill_Click(object sender, EventArgs e)
+        {
+            // Automatically fill fields for debugging
+
+            // Player stats for Game 1, Team 1
+            P1.Text = "20000000";
+            K1.Text = "10";
+            D1.Text = "5";
+            A1.Text = "2";
+            C1.Text = "1,5";
+            F1.Text = "1";
+            E1.Text = "100";
+            R1.Text = "Sentinel";
+            G1.Text = "Sage";
+
+            P2.Text = "20000001";
+            K2.Text = "12";
+            D2.Text = "6";
+            A2.Text = "4";
+            C2.Text = "1,7";
+            F2.Text = "1";
+            E2.Text = "110";
+            R2.Text = "Duelist";
+            G2.Text = "Jett";
+
+            P3.Text = "20000002";
+            K3.Text = "8";
+            D3.Text = "7";
+            A3.Text = "3";
+            C3.Text = "1,2";
+            F3.Text = "2";
+            E3.Text = "90";
+            R3.Text = "Initiator";
+            G3.Text = "Sova";
+
+            P4.Text = "20000003";
+            K4.Text = "11";
+            D4.Text = "5";
+            A4.Text = "3";
+            C4.Text = "1,6";
+            F4.Text = "2";
+            E4.Text = "105";
+            R4.Text = "Controller";
+            G4.Text = "Omen";
+
+            P5.Text = "20000004";
+            K5.Text = "9";
+            D5.Text = "6";
+            A5.Text = "3";
+            C5.Text = "1,4";
+            F5.Text = "1";
+            E5.Text = "95";
+            R5.Text = "Sentinel";
+            G5.Text = "Cypher";
+
+            // Player stats for Game 1, Team 2
+            P6.Text = "20000005";
+            K6.Text = "8";
+            D6.Text = "7";
+            A6.Text = "2";
+            C6.Text = "1,2";
+            F6.Text = "1";
+            E6.Text = "90";
+            R6.Text = "Duelist";
+            G6.Text = "Phoenix";
+
+            P7.Text = "20000006";
+            K7.Text = "10";
+            D7.Text = "5";
+            A7.Text = "2";
+            C7.Text = "1,5";
+            F7.Text = "1";
+            E7.Text = "100";
+            R7.Text = "Initiator";
+            G7.Text = "Breach";
+
+            P8.Text = "20000007";
+            K8.Text = "11";
+            D8.Text = "6";
+            A8.Text = "3";
+            C8.Text = "1,6";
+            F8.Text = "2";
+            E8.Text = "105";
+            R8.Text = "Controller";
+            G8.Text = "Viper";
+
+            P9.Text = "20000008";
+            K9.Text = "12";
+            D9.Text = "7";
+            A9.Text = "4";
+            C9.Text = "1,7";
+            F9.Text = "1";
+            E9.Text = "110";
+            R9.Text = "Sentinel";
+            G9.Text = "Killjoy";
+
+            P10.Text = "20000009";
+            K10.Text = "7";
+            D10.Text = "8";
+            A10.Text = "2";
+            C10.Text = "1,1";
+            F10.Text = "0";
+            E10.Text = "85";
+            R10.Text = "Duelist";
+            G10.Text = "Reyna";
+
+            // Player stats for Game 2, Team 1
+            P11.Text = "20000000";
+            K11.Text = "10";
+            D11.Text = "5";
+            A11.Text = "2";
+            C11.Text = "1,5";
+            F11.Text = "1";
+            E11.Text = "100";
+            R11.Text = "Sentinel";
+            G11.Text = "Sage";
+
+            P12.Text = "20000001";
+            K12.Text = "12";
+            D12.Text = "6";
+            A12.Text = "4";
+            C12.Text = "1,7";
+            F12.Text = "1";
+            E12.Text = "110";
+            R12.Text = "Duelist";
+            G12.Text = "Jett";
+
+            P13.Text = "20000002";
+            K13.Text = "8";
+            D13.Text = "7";
+            A13.Text = "3";
+            C13.Text = "1,2";
+            F13.Text = "2";
+            E13.Text = "90";
+            R13.Text = "Initiator";
+            G13.Text = "Sova";
+
+            P14.Text = "20000003";
+            K14.Text = "11";
+            D14.Text = "5";
+            A14.Text = "3";
+            C14.Text = "1,6";
+            F14.Text = "2";
+            E14.Text = "105";
+            R14.Text = "Controller";
+            G14.Text = "Omen";
+
+            P15.Text = "20000004";
+            K15.Text = "9";
+            D15.Text = "6";
+            A15.Text = "3";
+            C15.Text = "1,4";
+            F15.Text = "1";
+            E15.Text = "95";
+            R15.Text = "Sentinel";
+            G15.Text = "Cypher";
+
+            // Player stats for Game 2, Team 2
+            P16.Text = "20000005";
+            K16.Text = "8";
+            D16.Text = "7";
+            A16.Text = "2";
+            C16.Text = "1,2";
+            F16.Text = "1";
+            E16.Text = "90";
+            R16.Text = "Duelist";
+            G16.Text = "Phoenix";
+
+            P17.Text = "20000006";
+            K17.Text = "10";
+            D17.Text = "5";
+            A17.Text = "2";
+            C17.Text = "1,5";
+            F17.Text = "1";
+            E17.Text = "100";
+            R17.Text = "Initiator";
+            G17.Text = "Breach";
+
+            P18.Text = "20000007";
+            K18.Text = "11";
+            D18.Text = "6";
+            A18.Text = "3";
+            C18.Text = "1,6";
+            F18.Text = "2";
+            E18.Text = "105";
+            R18.Text = "Controller";
+            G18.Text = "Viper";
+
+            P19.Text = "20000008";
+            K19.Text = "12";
+            D19.Text = "7";
+            A19.Text = "4";
+            C19.Text = "1,7";
+            F19.Text = "1";
+            E19.Text = "110";
+            R19.Text = "Sentinel";
+            G19.Text = "Killjoy";
+
+            P20.Text = "20000009";
+            K20.Text = "7";
+            D20.Text = "8";
+            A20.Text = "2";
+            C20.Text = "1,1";
+            F20.Text = "0";
+            E20.Text = "85";
+            R20.Text = "Duelist";
+            G20.Text = "Reyna";
+
+            // Player stats for Game 3, Team 1
+            P21.Text = "20000000";
+            K21.Text = "10";
+            D21.Text = "5";
+            A21.Text = "2";
+            C21.Text = "1,5";
+            F21.Text = "1";
+            E21.Text = "100";
+            R21.Text = "Sentinel";
+            G21.Text = "Sage";
+
+            P22.Text = "20000001";
+            K22.Text = "12";
+            D22.Text = "6";
+            A22.Text = "4";
+            C22.Text = "1,7";
+            F22.Text = "1";
+            E22.Text = "110";
+            R22.Text = "Duelist";
+            G22.Text = "Jett";
+
+            P23.Text = "20000002";
+            K23.Text = "8";
+            D23.Text = "7";
+            A23.Text = "3";
+            C23.Text = "1,2";
+            F23.Text = "2";
+            E23.Text = "90";
+            R23.Text = "Initiator";
+            G23.Text = "Sova";
+
+            P24.Text = "20000003";
+            K24.Text = "11";
+            D24.Text = "5";
+            A24.Text = "3";
+            C24.Text = "1,6";
+            F24.Text = "2";
+            E24.Text = "105";
+            R24.Text = "Controller";
+            G24.Text = "Omen";
+
+            P25.Text = "20000004";
+            K25.Text = "9";
+            D25.Text = "6";
+            A25.Text = "3";
+            C25.Text = "1,4";
+            F25.Text = "1";
+            E25.Text = "95";
+            R25.Text = "Sentinel";
+            G25.Text = "Cypher";
+
+            // Player stats for Game 3, Team 2
+            P26.Text = "20000005";
+            K26.Text = "8";
+            D26.Text = "7";
+            A26.Text = "2";
+            C26.Text = "1,2";
+            F26.Text = "1";
+            E26.Text = "90";
+            R26.Text = "Duelist";
+            G26.Text = "Phoenix";
+
+            P27.Text = "20000006";
+            K27.Text = "10";
+            D27.Text = "5";
+            A27.Text = "2";
+            C27.Text = "1,5";
+            F27.Text = "1";
+            E27.Text = "100";
+            R27.Text = "Initiator";
+            G27.Text = "Breach";
+
+            P28.Text = "20000007";
+            K28.Text = "11";
+            D28.Text = "6";
+            A28.Text = "3";
+            C28.Text = "1,6";
+            F28.Text = "2";
+            E28.Text = "105";
+            R28.Text = "Controller";
+            G28.Text = "Viper";
+
+            P29.Text = "20000008";
+            K29.Text = "12";
+            D29.Text = "7";
+            A29.Text = "4";
+            C29.Text = "1,7";
+            F29.Text = "1";
+            E29.Text = "110";
+            R29.Text = "Sentinel";
+            G29.Text = "Killjoy";
+
+            P30.Text = "20000009";
+            K30.Text = "7";
+            D30.Text = "8";
+            A30.Text = "2";
+            C30.Text = "1,1";
+            F30.Text = "0";
+            E30.Text = "85";
+            R30.Text = "Duelist";
+            G30.Text = "Reyna";
+
+            // Rounds won by teams
+            S11.Text = "13";
+            S12.Text = "7";
+            S21.Text = "9";
+            S22.Text = "13";
+            S31.Text = "15";
+            S32.Text = "13";
+
+            // Maps for each game
+            M1.Text = "Ascent";
+            M2.Text = "Bind";
+            M3.Text = "Haven";
+        }
     }
+
+    public class PlayerStatsParameters
+    {
+        public int PlayerId { get; set; }
+        public int GameId { get; set; }
+        public int Kills { get; set; }
+        public int Deaths { get; set; }
+        public int Assists { get; set; }
+        public decimal AVS { get; set; }
+        public int Rating { get; set; }
+        public int FirstKills { get; set; }
+        public string RoleName { get; set; }
+        public string AgentName { get; set; }
+    }
+
+
 }

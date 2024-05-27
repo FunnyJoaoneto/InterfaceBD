@@ -1514,11 +1514,26 @@ namespace ValoLeague
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(1, 2, 3, this, false); //id team 1, id team 2, match id, (form, sempre "this"), se false não vai dar load ás stats)
-            groupBox3.Enabled = false;
-            AbleEverything4();
-            form2.Show();
-            this.Hide();
+            if (int.TryParse(textBox45.Text, out int team1ID) && int.TryParse(textBox46.Text, out int team2ID))
+            {
+                int matchID = GetNextAvailableMatchID();
+                MessageBox.Show(matchID.ToString());
+                if (matchID == -1)
+                {
+                    MessageBox.Show("Error generating match ID.");
+                    return;
+                }
+
+                Form2 form2 = new Form2(team1ID, team2ID, matchID, this, false);
+                groupBox3.Enabled = false;
+                AbleEverything4();
+                form2.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid team IDs.");
+            }
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -1754,6 +1769,23 @@ namespace ValoLeague
             catch (Exception ex)
             {
                 MessageBox.Show("Error removing match: " + ex.Message);
+            }
+        }
+        private int GetNextAvailableMatchID()
+        {
+            if (!verifySGBDConnection())
+                return -1;
+
+            try
+            {
+                string query = "SELECT ISNULL(MAX(Match_ID), 0) + 1 FROM VALO_MATCH";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                return (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving next match ID: " + ex.Message);
+                return -1;
             }
         }
     }
