@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ValoLeague
 {
     public partial class Form2 : Form
     {
         private Form1 form1;
+        private SqlConnection cn;
+        private SqlDataAdapter adapter;
+        private DataSet dataSet;
         public Form2(int id1, int id2, int mid, Form1 form, Boolean load)
         {
             InitializeComponent();
@@ -21,6 +31,22 @@ namespace ValoLeague
             {
                 LoadStats();
             }
+            verifySGBDConnection();
+        }
+        private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("data source = tcp:mednat.ieeta.pt\\SQLSERVER, 8101; Initial Catalog = p8g7; uid = p8g7; password = rumoao20.");
+        }
+
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
         }
         private void LoadStats()
         {
@@ -108,6 +134,11 @@ namespace ValoLeague
             label32.Visible = false;
             button1.Visible = false;
             Game3Show.Visible = true;
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
