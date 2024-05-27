@@ -30,6 +30,7 @@ namespace ValoLeague
             verifySGBDConnection();
             LoadTeams();
             LoadPlayers();
+            LoadCoaches();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,6 +53,17 @@ namespace ValoLeague
 
             return cn.State == ConnectionState.Open;
         }
+
+
+
+
+
+
+        //CODE: TEAMS
+
+
+
+
 
         private void LoadTeams()
         {
@@ -85,12 +97,38 @@ namespace ValoLeague
             }
         }
 
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Filtering teams by name");
+            string teamNamefilter = textBox12.Text;
+            FilterTeamsByName(teamNamefilter);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Remove a team!"); // To confirm the button click event is fired.
+            groupBox2.Enabled = true;
+            groupBox1.Enabled = false;
+            DisableEverything();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Add a team!"); // To confirm the button click event is fired.
             groupBox1.Enabled = true;
             groupBox2.Enabled = false;
             DisableEverything();
+        }
+
+        private void TAlt_Click(object sender, EventArgs e)
+        {
+            textBox29.Enabled = true;
+            textBox8.Enabled = true;
+            label14.Visible = false;
+            label15.Visible = false;
+            groupBox1.Visible = false;
+            groupBox2.Visible = false;
+            button4.Visible = true;
         }
 
         private void DisableEverything()
@@ -305,10 +343,93 @@ namespace ValoLeague
             return match.Success ? int.Parse(match.Groups[1].Value) : 0;
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            string teamName = textBox9.Text;
+            DateTime foundationDate;
+
+            if (string.IsNullOrEmpty(teamName))
+            {
+                MessageBox.Show("Please enter a team name.");
+                return;
+            }
+
+            if (!DateTime.TryParse(textBox10.Text, out foundationDate))
+            {
+                MessageBox.Show("Please enter a valid foundation date.");
+                return;
+            }
+
+            if (foundationDate <= new DateTime(2020, 6, 2))
+            {
+                MessageBox.Show("Foundation date must be greater than June 2, 2020.");
+                return;
+            }
+
+            try
+            {
+                MessageBox.Show("Attempting to add team..."); // To confirm we're proceeding with the team addition.
+
+                if (!verifySGBDConnection())
+                    return;
+
+                // Use the established connection to execute the stored procedure
+                using (SqlCommand cmd = new SqlCommand("AddTeam", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Nome", teamName);
+                    cmd.Parameters.AddWithValue("@Foundation_Date", foundationDate);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Team added successfully!");
+
+                // Reload the teams to update the ListBox
+                LoadTeams();
+                textBox9.Clear();
+                textBox10.Clear();
+                AbleEverything();
+                groupBox1.Enabled = false;
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error adding team: " + ex.Message);
+            }
+
+        }
+
+        private void TAddCan_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            textBox9.Clear();
+            textBox10.Clear();
+            AbleEverything();
+            groupBox1.Enabled = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Team Removed!");
+            AbleEverything();
+            groupBox2.Enabled = false;
+            //não esquecer de dar clear
+            //textBox11.Clear();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            textBox11.Clear();
+            AbleEverything();
+            groupBox2.Enabled = false;
+        }
 
 
 
-        //players
+
+        //CODE: PLAYERS
 
 
 
@@ -397,13 +518,6 @@ namespace ValoLeague
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Remove a team!"); // To confirm the button click event is fired.
-            groupBox2.Enabled = true;
-            groupBox1.Enabled = false;
-            DisableEverything();
-        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -425,27 +539,11 @@ namespace ValoLeague
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Operation Canceled");
-            textBox11.Clear();
-            AbleEverything();
-            groupBox2.Enabled = false;
-        }
-
         private void label16_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Team Removed!");
-            AbleEverything();
-            groupBox2.Enabled = false;
-            //não esquecer de dar clear
-            //textBox11.Clear();
-        }
 
         private void label17_Click(object sender, EventArgs e)
         {
@@ -460,27 +558,6 @@ namespace ValoLeague
         private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Add Match");
-            groupBox3.Enabled = true;
-            DisableEverything4();
-        }
-        private void DisableEverything4()
-        {
-            button10.Enabled = false;
-            button17.Enabled = false;
-            button9.Enabled = false;
-            comboBox1.Enabled = false;
-        }
-        private void AbleEverything4()
-        {
-            button10.Enabled = true;
-            button17.Enabled = true;
-            button9.Enabled = true;
-            comboBox1.Enabled = true;
         }
 
         private void label29_Click(object sender, EventArgs e)
@@ -590,84 +667,10 @@ namespace ValoLeague
 
         }
 
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-            Form2 form2 = new Form2(1, 2, 3, this, false); //id team 1, id team 2, match id, (form, sempre "this"), se false não vai dar load ás stats)
-            groupBox3.Enabled = false;
-            AbleEverything4();
-            form2.Show();
-            this.Hide();
-        }
 
         private void label18_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            string teamName = textBox9.Text;
-            DateTime foundationDate;
-
-            if (string.IsNullOrEmpty(teamName))
-            {
-                MessageBox.Show("Please enter a team name.");
-                return;
-            }
-
-            if (!DateTime.TryParse(textBox10.Text, out foundationDate))
-            {
-                MessageBox.Show("Please enter a valid foundation date.");
-                return;
-            }
-
-            if (foundationDate <= new DateTime(2020, 6, 2))
-            {
-                MessageBox.Show("Foundation date must be greater than June 2, 2020.");
-                return;
-            }
-
-            try
-            {
-                MessageBox.Show("Attempting to add team..."); // To confirm we're proceeding with the team addition.
-
-                if (!verifySGBDConnection())
-                    return;
-
-                // Use the established connection to execute the stored procedure
-                using (SqlCommand cmd = new SqlCommand("AddTeam", cn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Nome", teamName);
-                    cmd.Parameters.AddWithValue("@Foundation_Date", foundationDate);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Team added successfully!");
-
-                // Reload the teams to update the ListBox
-                LoadTeams();
-                textBox9.Clear();
-                textBox10.Clear();
-                AbleEverything();
-                groupBox1.Enabled = false;
-
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Error adding team: " + ex.Message);
-            }
-
-        }
-
-        private void TAddCan_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Operation Canceled");
-            textBox9.Clear();
-            textBox10.Clear();
-            AbleEverything();
-            groupBox1.Enabled = false;
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -675,16 +678,6 @@ namespace ValoLeague
 
         }
 
-        private void TAlt_Click(object sender, EventArgs e)
-        {
-            textBox29.Enabled = true;
-            textBox8.Enabled = true;
-            label14.Visible = false;
-            label15.Visible = false;
-            groupBox1.Visible = false;
-            groupBox2.Visible = false;
-            button4.Visible = true;
-        }
 
         private void label58_Click(object sender, EventArgs e)
         {
@@ -873,6 +866,7 @@ namespace ValoLeague
 
                 DataRow row = playerDataSet.Tables["PlayerStats"].Rows[0];
 
+
                 textBox14.Text = row["CC_Number"].ToString();
                 textBox16.Text = row["Name"].ToString();
                 textBox15.Text = row["Age"].ToString();
@@ -914,121 +908,6 @@ namespace ValoLeague
             {
                 MessageBox.Show("Error loading player stats: " + ex.Message);
             }
-        }
-
-        private void button11_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Filtering teams by name");
-            string teamNamefilter = textBox12.Text;
-            FilterTeamsByName(teamNamefilter);
-        }
-
-        private void button31_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Add Coach!");
-            groupBox9.Enabled = true;
-            DisableEverything3();
-        }
-        private void DisableEverything3()
-        {
-            button30.Enabled = false;
-            button31.Enabled = false;
-            button25.Enabled = false;
-            textBox50.Enabled = false;
-            button32.Enabled = false;
-        }
-
-        private void button28_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Operation Canceled");
-            groupBox9.Enabled = false;
-            AbleEverything3();
-            textBox35.Clear();
-            textBox36.Clear();
-            textBox38.Clear();
-            textBox39.Clear();
-        }
-        private void AbleEverything3()
-        {
-            button30.Enabled = true;
-            button31.Enabled = true;
-            button25.Enabled = true;
-            textBox50.Enabled = true;
-            button32.Enabled = true;
-        }
-
-        private void button29_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Coach Added");
-            groupBox9.Enabled = false;
-            AbleEverything3();
-            //nao esquecer de dar clear depois
-            //textBox35.Clear();
-            //textBox36.Clear();
-            //textBox38.Clear();
-            //textBox39.Clear();
-        }
-
-        private void button30_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Remove Coach!");
-            groupBox8.Enabled = true;
-            DisableEverything3();
-        }
-
-        private void button26_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Operation Canceled");
-            groupBox8.Enabled = false;
-            AbleEverything3();
-            textBox34.Clear();
-        }
-
-        private void button27_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Coach Removed");
-            groupBox8.Enabled = false;
-            AbleEverything3();
-            //nao esquecer de dar clear depois
-            //textBox34.Clear();
-        }
-
-        private void button25_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Alter Coach");
-            groupBox8.Visible = false;
-            groupBox9.Visible = false;
-            label65.Visible = false;
-            label64.Visible = false;
-            button6.Visible = true;
-            DisableEverything3();
-            AbleAlterationsCoach();
-        }
-
-        private void AbleAlterationsCoach()
-        {
-            textBox40.Enabled = true;
-            textBox41.Enabled = true;
-            textBox42.Enabled = true;
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Coach Altered");
-            groupBox8.Visible = true;
-            groupBox9.Visible = true;
-            label65.Visible = true;
-            label64.Visible = true;
-            button6.Visible = false;
-            AbleEverything3();
-            DisableAlterationsCoach();
-        }
-
-        private void DisableAlterationsCoach()
-        {
-            textBox40.Enabled = false;
-            textBox41.Enabled = false;
-            textBox42.Enabled = false;
         }
 
         private void label73_Click(object sender, EventArgs e)
@@ -1164,6 +1043,418 @@ namespace ValoLeague
 
         }
 
+
+
+
+
+
+        //CODE : COACH
+
+
+
+
+
+
+        private void LoadCoaches()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "SELECT * FROM ListCoachesView";
+                adapter = new SqlDataAdapter(query, cn);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "Coaches");
+
+                PopulateCoachesListBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+        }
+        private void PopulateCoachesListBox()
+        {
+            listBox9.Items.Clear();
+
+            foreach (DataRow row in dataSet.Tables["Coaches"].Rows)
+            {
+                string coachInfo = $"ID: {row["CoachID"]} Name: {row["CoachName"]} Team ID: {row["Team_ID"]}";
+                listBox9.Items.Add(coachInfo);
+            }
+        }
+
+        private void listBox9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox9.SelectedItem == null)
+                return;
+
+            string selectedCoach = listBox9.SelectedItem.ToString();
+            // The format is now "ID: {CoachID} Name: {CoachName} Team ID: {Team_ID}"
+            string coachIDString = selectedCoach.Split(':')[1].Split(' ')[1].Trim();
+            if (int.TryParse(coachIDString, out int coachID))
+            {
+                DisplayCoachDetails(coachID);
+            }
+            else
+            {
+                MessageBox.Show("Error parsing coach ID.");
+            }
+        }
+
+        private void DisplayCoachDetails(int coachID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = $"SELECT * FROM ListCoachesView WHERE CoachID = {coachID}";
+                adapter = new SqlDataAdapter(query, cn);
+                DataSet coachDataSet = new DataSet();
+                adapter.Fill(coachDataSet, "CoachDetails");
+
+                if (coachDataSet.Tables["CoachDetails"].Rows.Count > 0)
+                {
+                    DataRow row = coachDataSet.Tables["CoachDetails"].Rows[0];
+
+                    textBox43.Text = row["CoachID"].ToString();
+                    textBox41.Text = row["CoachName"].ToString();
+                    textBox42.Text = row["Age"].ToString();
+                    textBox40.Text = row["Team_ID"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading coach details: " + ex.Message);
+            }
+        }
+
+        private void AddCoach(int ccNumber, string name, int age, int teamID)
+        {
+            try
+            {
+                using (SqlConnection cn = getSGBDConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("AddCoach", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
+                        cmd.Parameters.AddWithValue("@Name", name);
+                        cmd.Parameters.AddWithValue("@Age", age);
+                        cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Coach added successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding coach: " + ex.Message);
+            }
+        }
+        private void button29_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ccNumber = int.Parse(textBox39.Text);
+                string name = textBox36.Text;
+                int age = int.Parse(textBox38.Text);
+                int teamID = int.Parse(textBox35.Text);
+
+                AddCoach(ccNumber, name, age, teamID);
+                // Refresh the coach list
+                LoadCoaches();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid values for all fields.");
+            }
+
+            MessageBox.Show("Coach Added");
+            groupBox9.Enabled = false;
+            AbleEverything3();
+
+            textBox35.Clear();
+            textBox36.Clear();
+            textBox38.Clear();
+            textBox39.Clear();
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add Coach!");
+            groupBox9.Enabled = true;
+            DisableEverything3();
+        }
+        private void DisableEverything3()
+        {
+            button30.Enabled = false;
+            button31.Enabled = false;
+            button25.Enabled = false;
+            textBox50.Enabled = false;
+            button32.Enabled = false;
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            groupBox9.Enabled = false;
+            AbleEverything3();
+            textBox35.Clear();
+            textBox36.Clear();
+            textBox38.Clear();
+            textBox39.Clear();
+        }
+        private void AbleEverything3()
+        {
+            button30.Enabled = true;
+            button31.Enabled = true;
+            button25.Enabled = true;
+            textBox50.Enabled = true;
+            button32.Enabled = true;
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Remove Coach!");
+            groupBox8.Enabled = true;
+            DisableEverything3();
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled");
+            groupBox8.Enabled = false;
+            AbleEverything3();
+            textBox34.Clear();
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Alter Coach");
+            groupBox8.Visible = false;
+            groupBox9.Visible = false;
+            label65.Visible = false;
+            label64.Visible = false;
+            button6.Visible = true;
+            DisableEverything3();
+            AbleAlterationsCoach();
+        }
+
+        private void AbleAlterationsCoach()
+        {
+            textBox40.Enabled = true;
+            textBox41.Enabled = true;
+            textBox42.Enabled = true;
+        }
+
+        private void DisableAlterationsCoach()
+        {
+            textBox40.Enabled = false;
+            textBox41.Enabled = false;
+            textBox42.Enabled = false;
+        }
+
+        private void RemoveCoach(int ccNumber)
+        {
+            try
+            {
+                using (SqlConnection cn = getSGBDConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("RemoveCoach", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Coach removed successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing coach: " + ex.Message);
+            }
+        }
+        private void button27_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ccNumber = int.Parse(textBox34.Text);
+                RemoveCoach(ccNumber);
+                // Refresh the coach list
+                LoadCoaches();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter a valid CC Number.");
+            }
+            MessageBox.Show("Coach Removed");
+            groupBox8.Enabled = false;
+            AbleEverything3();
+
+            textBox34.Clear();
+        }
+        private void SearchCoachByName(string coachName)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("SearchCoachByName", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CoachName", string.IsNullOrEmpty(coachName) ? DBNull.Value : (object)coachName);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataSet dataSet = new DataSet();
+                        adapter.Fill(dataSet, "Coaches");
+
+                        PopulateCoachesListBox(dataSet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching for coach: " + ex.Message);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+        }
+        private void PopulateCoachesListBox(DataSet dataSet)
+        {
+            listBox9.Items.Clear();
+
+            foreach (DataRow row in dataSet.Tables["Coaches"].Rows)
+            {
+                string coachInfo = $"ID: {row["CoachID"]} Name: {row["CoachName"]} Team ID: {row["Team_ID"]}";
+                listBox9.Items.Add(coachInfo);
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            string coachName = textBox50.Text;
+
+            // Call the search function, it will handle empty strings appropriately
+            SearchCoachByName(coachName);
+        }
+        private void UpdateCoachDetails(int ccNumber, string name, int age, int teamID)
+        {
+            try
+            {
+                using (SqlConnection cn = getSGBDConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("UpdateCoachDetails", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
+                        cmd.Parameters.AddWithValue("@Name", name);
+                        cmd.Parameters.AddWithValue("@Age", age);
+                        cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Coach details updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating coach details: " + ex.Message);
+            }
+        }
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                int ccNumber = int.Parse(textBox43.Text);
+                int age = int.Parse(textBox42.Text);
+                string name = textBox41.Text;
+                int teamID = int.Parse(textBox40.Text);
+
+                UpdateCoachDetails(ccNumber, name, age, teamID);
+                // Refresh the coach list
+                LoadCoaches();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid values for all fields.");
+            }
+
+            MessageBox.Show("Coach Altered");
+            groupBox8.Visible = true;
+            groupBox9.Visible = true;
+            label65.Visible = true;
+            label64.Visible = true;
+            button6.Visible = false;
+            AbleEverything3();
+            DisableAlterationsCoach();
+        }
+
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+        //CODE: MATCH
+
+
+
+
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add Match");
+            groupBox3.Enabled = true;
+            DisableEverything4();
+        }
+        private void DisableEverything4()
+        {
+            button10.Enabled = false;
+            button17.Enabled = false;
+            button9.Enabled = false;
+            comboBox1.Enabled = false;
+        }
+        private void AbleEverything4()
+        {
+            button10.Enabled = true;
+            button17.Enabled = true;
+            button9.Enabled = true;
+            comboBox1.Enabled = true;
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(1, 2, 3, this, false); //id team 1, id team 2, match id, (form, sempre "this"), se false não vai dar load ás stats)
+            groupBox3.Enabled = false;
+            AbleEverything4();
+            form2.Show();
+            this.Hide();
+        }
+
         private void button17_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Remove a match");
@@ -1175,7 +1466,7 @@ namespace ValoLeague
         {
             MessageBox.Show("Operation Canceled!");
             textBox24.Clear();
-            groupBox7.Enabled=false;
+            groupBox7.Enabled = false;
             AbleEverything4();
         }
 
@@ -1205,4 +1496,5 @@ namespace ValoLeague
             this.Hide();
         }
     }
+
 }

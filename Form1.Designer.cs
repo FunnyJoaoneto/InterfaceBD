@@ -737,6 +737,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(346, 316);
             this.listBox1.TabIndex = 1;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
             // 
             // tabPage2
             // 
@@ -1758,6 +1759,7 @@
             this.button32.TabIndex = 63;
             this.button32.Text = "Pesquisar";
             this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // textBox50
             // 
@@ -1796,6 +1798,7 @@
             this.listBox9.Name = "listBox9";
             this.listBox9.Size = new System.Drawing.Size(288, 316);
             this.listBox9.TabIndex = 59;
+            this.listBox9.SelectedIndexChanged += new System.EventHandler(this.listBox9_SelectedIndexChanged);
             // 
             // tabPage3
             // 
