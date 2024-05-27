@@ -188,6 +188,7 @@ namespace ValoLeague
             {
                 this.Close();
                 this.form1.Show();
+                this.form1.LoadMatches();
             }
         }
 

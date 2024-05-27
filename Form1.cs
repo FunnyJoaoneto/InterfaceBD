@@ -1424,7 +1424,7 @@ namespace ValoLeague
 
 
 
-        private void LoadMatches()
+        public void LoadMatches()
         {
             if (!verifySGBDConnection())
                 return;
