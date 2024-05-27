@@ -427,6 +427,7 @@ namespace ValoLeague
 
         private void button6_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Operation Canceled");
             textBox11.Clear();
             AbleEverything();
             groupBox2.Enabled = false;
@@ -439,7 +440,11 @@ namespace ValoLeague
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Team Removed!");
+            AbleEverything();
+            groupBox2.Enabled = false;
+            //não esquecer de dar clear
+            //textBox11.Clear();
         }
 
         private void label17_Click(object sender, EventArgs e)
@@ -469,6 +474,13 @@ namespace ValoLeague
             button17.Enabled = false;
             button9.Enabled = false;
             comboBox1.Enabled = false;
+        }
+        private void AbleEverything4()
+        {
+            button10.Enabled = true;
+            button17.Enabled = true;
+            button9.Enabled = true;
+            comboBox1.Enabled = true;
         }
 
         private void label29_Click(object sender, EventArgs e)
@@ -580,7 +592,9 @@ namespace ValoLeague
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2("lll", 1, 2, 3, this);
+            Form2 form2 = new Form2(1, 2, 3, this, false); //id team 1, id team 2, match id, (form, sempre "this"), se false não vai dar load ás stats)
+            groupBox3.Enabled = false;
+            AbleEverything4();
             form2.Show();
             this.Hide();
         }
@@ -649,6 +663,7 @@ namespace ValoLeague
 
         private void TAddCan_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Operation Canceled");
             textBox9.Clear();
             textBox10.Clear();
             AbleEverything();
@@ -764,14 +779,13 @@ namespace ValoLeague
 
         private void button19_Click(object sender, EventArgs e)
         {
-            if (listBox8.SelectedItem == null)
+            if (textBox25.Text == null)
             {
-                MessageBox.Show("Please select a player to remove.");
+                MessageBox.Show("Please write the player id you want to remove");
                 return;
             }
 
-            string selectedPlayer = listBox8.SelectedItem.ToString();
-            string playerIDString = selectedPlayer.Split(':')[0].Trim();
+            string playerIDString = textBox25.Text.ToString();
             if (int.TryParse(playerIDString, out int playerID))
             {
                 RemovePlayerByID(playerID);
@@ -1148,6 +1162,47 @@ namespace ValoLeague
         private void button16_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Remove a match");
+            groupBox7.Enabled = true;
+            DisableEverything4();
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Operation Canceled!");
+            textBox24.Clear();
+            groupBox7.Enabled=false;
+            AbleEverything4();
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Match removed!");
+            groupBox7.Enabled = false;
+            AbleEverything4();
+            //nao esquecer dar clear
+            //textBox24.Clear();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Alter Match!");
+            groupBox10.Enabled = true;
+            DisableEverything4();
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(1, 2, 3, this, true); //id team 1, id team 2, match id, (form, sempre "this"), se true vai dar load ás stats)
+            groupBox10.Enabled = false;
+            AbleEverything4();
+            form2.Show();
+            this.Hide();
         }
     }
 }

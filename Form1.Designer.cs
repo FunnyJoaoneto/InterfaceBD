@@ -75,7 +75,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listBox7 = new System.Windows.Forms.ListBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label53 = new System.Windows.Forms.Label();
             this.textBox28 = new System.Windows.Forms.TextBox();
@@ -111,6 +111,8 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.listBox7 = new System.Windows.Forms.ListBox();
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.textBox22 = new System.Windows.Forms.TextBox();
@@ -131,6 +133,7 @@
             this.label34 = new System.Windows.Forms.Label();
             this.listBox8 = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
             this.button25 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -167,11 +170,13 @@
             this.label84 = new System.Windows.Forms.Label();
             this.listBox9 = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.T2 = new System.Windows.Forms.TextBox();
+            this.T1 = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
@@ -203,13 +208,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.T1 = new System.Windows.Forms.TextBox();
-            this.T2 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.textBox37 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -779,17 +777,16 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // listBox7
+            // button5
             // 
-            this.listBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox7.FormattingEnabled = true;
-            this.listBox7.ItemHeight = 16;
-            this.listBox7.Location = new System.Drawing.Point(581, 39);
-            this.listBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox7.Name = "listBox7";
-            this.listBox7.Size = new System.Drawing.Size(89, 68);
-            this.listBox7.TabIndex = 60;
-            this.listBox7.SelectedIndexChanged += new System.EventHandler(this.listBox7_SelectedIndexChanged);
+            this.button5.Location = new System.Drawing.Point(463, 282);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(260, 57);
+            this.button5.TabIndex = 59;
+            this.button5.Text = "Confirm";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // listBox2
             // 
@@ -1170,6 +1167,30 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Player Stats";
             // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(600, 16);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(58, 17);
+            this.label66.TabIndex = 61;
+            this.label66.Text = "Agents";
+            this.label66.Click += new System.EventHandler(this.label66_Click);
+            // 
+            // listBox7
+            // 
+            this.listBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox7.FormattingEnabled = true;
+            this.listBox7.ItemHeight = 16;
+            this.listBox7.Location = new System.Drawing.Point(581, 39);
+            this.listBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox7.Name = "listBox7";
+            this.listBox7.Size = new System.Drawing.Size(89, 68);
+            this.listBox7.TabIndex = 60;
+            this.listBox7.SelectedIndexChanged += new System.EventHandler(this.listBox7_SelectedIndexChanged);
+            // 
             // textBox23
             // 
             this.textBox23.Enabled = false;
@@ -1399,6 +1420,17 @@
             this.tabPage4.Text = "Coaches";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(509, 184);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(260, 57);
+            this.button6.TabIndex = 84;
+            this.button6.Text = "Confirm";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // label61
             // 
@@ -1799,11 +1831,47 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // textBox37
+            // 
+            this.textBox37.Enabled = false;
+            this.textBox37.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox37.Location = new System.Drawing.Point(570, 44);
+            this.textBox37.Name = "textBox37";
+            this.textBox37.Size = new System.Drawing.Size(50, 30);
+            this.textBox37.TabIndex = 62;
+            // 
+            // textBox33
+            // 
+            this.textBox33.Enabled = false;
+            this.textBox33.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox33.Location = new System.Drawing.Point(429, 44);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(50, 30);
+            this.textBox33.TabIndex = 61;
+            // 
+            // T2
+            // 
+            this.T2.Enabled = false;
+            this.T2.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T2.Location = new System.Drawing.Point(570, 5);
+            this.T2.Name = "T2";
+            this.T2.Size = new System.Drawing.Size(167, 30);
+            this.T2.TabIndex = 60;
+            // 
+            // T1
+            // 
+            this.T1.Enabled = false;
+            this.T1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T1.Location = new System.Drawing.Point(312, 5);
+            this.T1.Name = "T1";
+            this.T1.Size = new System.Drawing.Size(167, 30);
+            this.T1.TabIndex = 59;
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(654, 295);
+            this.label26.Location = new System.Drawing.Point(654, 307);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(121, 24);
@@ -1813,19 +1881,17 @@
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.button1);
-            this.groupBox10.Controls.Add(this.button2);
-            this.groupBox10.Controls.Add(this.button3);
             this.groupBox10.Controls.Add(this.label27);
             this.groupBox10.Controls.Add(this.label28);
             this.groupBox10.Controls.Add(this.label62);
             this.groupBox10.Controls.Add(this.comboBox4);
             this.groupBox10.Controls.Add(this.comboBox5);
             this.groupBox10.Enabled = false;
-            this.groupBox10.Location = new System.Drawing.Point(657, 318);
+            this.groupBox10.Location = new System.Drawing.Point(657, 330);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox10.Size = new System.Drawing.Size(274, 133);
+            this.groupBox10.Size = new System.Drawing.Size(274, 116);
             this.groupBox10.TabIndex = 57;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "AlterMatch";
@@ -1839,26 +1905,7 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "Alter Games";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(4, 108);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 20);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(198, 110);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(66, 20);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Confirmar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label27
             // 
@@ -1883,16 +1930,17 @@
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(121, 29);
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(121, 30);
             this.label62.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(37, 24);
+            this.label62.Size = new System.Drawing.Size(33, 20);
             this.label62.TabIndex = 15;
             this.label62.Text = "VS";
             // 
             // comboBox4
             // 
+            this.comboBox4.Enabled = false;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(156, 30);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
@@ -1902,6 +1950,7 @@
             // 
             // comboBox5
             // 
+            this.comboBox5.Enabled = false;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(8, 30);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
@@ -1918,6 +1967,7 @@
             this.button9.TabIndex = 56;
             this.button9.Text = "Alter Match";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // groupBox7
             // 
@@ -1962,6 +2012,7 @@
             this.button23.TabIndex = 32;
             this.button23.Text = "Cancelar";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // button24
             // 
@@ -1972,6 +2023,7 @@
             this.button24.TabIndex = 31;
             this.button24.Text = "Confirmar";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // label60
             // 
@@ -1993,6 +2045,7 @@
             this.button17.TabIndex = 15;
             this.button17.Text = "Remove Match";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // label29
             // 
@@ -2090,11 +2143,11 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(121, 29);
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(121, 31);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(37, 24);
+            this.label30.Size = new System.Drawing.Size(33, 20);
             this.label30.TabIndex = 15;
             this.label30.Text = "VS";
             // 
@@ -2187,72 +2240,6 @@
             this.label17.TabIndex = 0;
             this.label17.Text = "All Matches:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.Location = new System.Drawing.Point(600, 16);
-            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(58, 17);
-            this.label66.TabIndex = 61;
-            this.label66.Text = "Agents";
-            this.label66.Click += new System.EventHandler(this.label66_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(463, 282);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(260, 57);
-            this.button5.TabIndex = 59;
-            this.button5.Text = "Confirm";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(509, 184);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(260, 57);
-            this.button6.TabIndex = 84;
-            this.button6.Text = "Confirm";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Visible = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
-            // 
-            // T1
-            // 
-            this.T1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.T1.Location = new System.Drawing.Point(312, 5);
-            this.T1.Name = "T1";
-            this.T1.Size = new System.Drawing.Size(167, 30);
-            this.T1.TabIndex = 59;
-            // 
-            // T2
-            // 
-            this.T2.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.T2.Location = new System.Drawing.Point(570, 5);
-            this.T2.Name = "T2";
-            this.T2.Size = new System.Drawing.Size(167, 30);
-            this.T2.TabIndex = 60;
-            // 
-            // textBox33
-            // 
-            this.textBox33.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox33.Location = new System.Drawing.Point(429, 44);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(50, 30);
-            this.textBox33.TabIndex = 61;
-            // 
-            // textBox37
-            // 
-            this.textBox37.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox37.Location = new System.Drawing.Point(570, 44);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(50, 30);
-            this.textBox37.TabIndex = 62;
             // 
             // Form1
             // 
@@ -2463,8 +2450,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label62;

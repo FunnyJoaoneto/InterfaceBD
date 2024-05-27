@@ -29,96 +29,146 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.S11 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.S12 = new System.Windows.Forms.TextBox();
-            this.T1 = new System.Windows.Forms.TextBox();
-            this.T2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.K1 = new System.Windows.Forms.TextBox();
-            this.D1 = new System.Windows.Forms.TextBox();
-            this.C1 = new System.Windows.Forms.TextBox();
-            this.A1 = new System.Windows.Forms.TextBox();
-            this.F1 = new System.Windows.Forms.TextBox();
-            this.G1 = new System.Windows.Forms.ComboBox();
-            this.G2 = new System.Windows.Forms.ComboBox();
-            this.F2 = new System.Windows.Forms.TextBox();
-            this.C2 = new System.Windows.Forms.TextBox();
-            this.A2 = new System.Windows.Forms.TextBox();
-            this.D2 = new System.Windows.Forms.TextBox();
-            this.K2 = new System.Windows.Forms.TextBox();
-            this.G3 = new System.Windows.Forms.ComboBox();
-            this.F3 = new System.Windows.Forms.TextBox();
-            this.C3 = new System.Windows.Forms.TextBox();
-            this.A3 = new System.Windows.Forms.TextBox();
-            this.D3 = new System.Windows.Forms.TextBox();
-            this.K3 = new System.Windows.Forms.TextBox();
-            this.G4 = new System.Windows.Forms.ComboBox();
-            this.F4 = new System.Windows.Forms.TextBox();
-            this.C4 = new System.Windows.Forms.TextBox();
-            this.A4 = new System.Windows.Forms.TextBox();
-            this.D4 = new System.Windows.Forms.TextBox();
-            this.K4 = new System.Windows.Forms.TextBox();
-            this.G5 = new System.Windows.Forms.ComboBox();
-            this.F5 = new System.Windows.Forms.TextBox();
-            this.C5 = new System.Windows.Forms.TextBox();
-            this.A5 = new System.Windows.Forms.TextBox();
-            this.D5 = new System.Windows.Forms.TextBox();
-            this.K5 = new System.Windows.Forms.TextBox();
-            this.G6 = new System.Windows.Forms.ComboBox();
-            this.F6 = new System.Windows.Forms.TextBox();
-            this.C6 = new System.Windows.Forms.TextBox();
-            this.A6 = new System.Windows.Forms.TextBox();
-            this.D6 = new System.Windows.Forms.TextBox();
-            this.K6 = new System.Windows.Forms.TextBox();
-            this.G7 = new System.Windows.Forms.ComboBox();
-            this.F7 = new System.Windows.Forms.TextBox();
-            this.C7 = new System.Windows.Forms.TextBox();
-            this.A7 = new System.Windows.Forms.TextBox();
-            this.D7 = new System.Windows.Forms.TextBox();
-            this.K7 = new System.Windows.Forms.TextBox();
-            this.G8 = new System.Windows.Forms.ComboBox();
-            this.F8 = new System.Windows.Forms.TextBox();
-            this.C8 = new System.Windows.Forms.TextBox();
-            this.A8 = new System.Windows.Forms.TextBox();
-            this.D8 = new System.Windows.Forms.TextBox();
-            this.K8 = new System.Windows.Forms.TextBox();
-            this.G9 = new System.Windows.Forms.ComboBox();
-            this.F9 = new System.Windows.Forms.TextBox();
-            this.C9 = new System.Windows.Forms.TextBox();
-            this.A9 = new System.Windows.Forms.TextBox();
-            this.D9 = new System.Windows.Forms.TextBox();
-            this.K9 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.R10 = new System.Windows.Forms.ComboBox();
+            this.R9 = new System.Windows.Forms.ComboBox();
+            this.R8 = new System.Windows.Forms.ComboBox();
+            this.R7 = new System.Windows.Forms.ComboBox();
+            this.R6 = new System.Windows.Forms.ComboBox();
+            this.R5 = new System.Windows.Forms.ComboBox();
+            this.R4 = new System.Windows.Forms.ComboBox();
+            this.R3 = new System.Windows.Forms.ComboBox();
+            this.R2 = new System.Windows.Forms.ComboBox();
+            this.R1 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.P10 = new System.Windows.Forms.TextBox();
+            this.P9 = new System.Windows.Forms.TextBox();
+            this.P8 = new System.Windows.Forms.TextBox();
+            this.P7 = new System.Windows.Forms.TextBox();
+            this.P6 = new System.Windows.Forms.TextBox();
+            this.P5 = new System.Windows.Forms.TextBox();
+            this.P4 = new System.Windows.Forms.TextBox();
+            this.P3 = new System.Windows.Forms.TextBox();
+            this.P2 = new System.Windows.Forms.TextBox();
+            this.P1 = new System.Windows.Forms.TextBox();
+            this.M1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.G10 = new System.Windows.Forms.ComboBox();
             this.F10 = new System.Windows.Forms.TextBox();
             this.C10 = new System.Windows.Forms.TextBox();
             this.A10 = new System.Windows.Forms.TextBox();
             this.D10 = new System.Windows.Forms.TextBox();
             this.K10 = new System.Windows.Forms.TextBox();
+            this.G9 = new System.Windows.Forms.ComboBox();
+            this.F9 = new System.Windows.Forms.TextBox();
+            this.C9 = new System.Windows.Forms.TextBox();
+            this.A9 = new System.Windows.Forms.TextBox();
+            this.D9 = new System.Windows.Forms.TextBox();
+            this.K9 = new System.Windows.Forms.TextBox();
+            this.G8 = new System.Windows.Forms.ComboBox();
+            this.F8 = new System.Windows.Forms.TextBox();
+            this.C8 = new System.Windows.Forms.TextBox();
+            this.A8 = new System.Windows.Forms.TextBox();
+            this.D8 = new System.Windows.Forms.TextBox();
+            this.K8 = new System.Windows.Forms.TextBox();
+            this.G7 = new System.Windows.Forms.ComboBox();
+            this.F7 = new System.Windows.Forms.TextBox();
+            this.C7 = new System.Windows.Forms.TextBox();
+            this.A7 = new System.Windows.Forms.TextBox();
+            this.D7 = new System.Windows.Forms.TextBox();
+            this.K7 = new System.Windows.Forms.TextBox();
+            this.G6 = new System.Windows.Forms.ComboBox();
+            this.F6 = new System.Windows.Forms.TextBox();
+            this.C6 = new System.Windows.Forms.TextBox();
+            this.A6 = new System.Windows.Forms.TextBox();
+            this.D6 = new System.Windows.Forms.TextBox();
+            this.K6 = new System.Windows.Forms.TextBox();
+            this.G5 = new System.Windows.Forms.ComboBox();
+            this.F5 = new System.Windows.Forms.TextBox();
+            this.C5 = new System.Windows.Forms.TextBox();
+            this.A5 = new System.Windows.Forms.TextBox();
+            this.D5 = new System.Windows.Forms.TextBox();
+            this.K5 = new System.Windows.Forms.TextBox();
+            this.G4 = new System.Windows.Forms.ComboBox();
+            this.F4 = new System.Windows.Forms.TextBox();
+            this.C4 = new System.Windows.Forms.TextBox();
+            this.A4 = new System.Windows.Forms.TextBox();
+            this.D4 = new System.Windows.Forms.TextBox();
+            this.K4 = new System.Windows.Forms.TextBox();
+            this.G3 = new System.Windows.Forms.ComboBox();
+            this.F3 = new System.Windows.Forms.TextBox();
+            this.C3 = new System.Windows.Forms.TextBox();
+            this.A3 = new System.Windows.Forms.TextBox();
+            this.D3 = new System.Windows.Forms.TextBox();
+            this.K3 = new System.Windows.Forms.TextBox();
+            this.G2 = new System.Windows.Forms.ComboBox();
+            this.F2 = new System.Windows.Forms.TextBox();
+            this.C2 = new System.Windows.Forms.TextBox();
+            this.A2 = new System.Windows.Forms.TextBox();
+            this.D2 = new System.Windows.Forms.TextBox();
+            this.K2 = new System.Windows.Forms.TextBox();
+            this.G1 = new System.Windows.Forms.ComboBox();
+            this.F1 = new System.Windows.Forms.TextBox();
+            this.C1 = new System.Windows.Forms.TextBox();
+            this.A1 = new System.Windows.Forms.TextBox();
+            this.D1 = new System.Windows.Forms.TextBox();
+            this.K1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.S12 = new System.Windows.Forms.TextBox();
+            this.S11 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.T1 = new System.Windows.Forms.TextBox();
+            this.T2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.M1 = new System.Windows.Forms.ComboBox();
             this.Cancel = new System.Windows.Forms.Button();
             this.Game3Show = new System.Windows.Forms.Button();
             this.End = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.R20 = new System.Windows.Forms.ComboBox();
+            this.P20 = new System.Windows.Forms.TextBox();
+            this.R19 = new System.Windows.Forms.ComboBox();
             this.M2 = new System.Windows.Forms.ComboBox();
+            this.R18 = new System.Windows.Forms.ComboBox();
+            this.P19 = new System.Windows.Forms.TextBox();
+            this.R17 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.R16 = new System.Windows.Forms.ComboBox();
+            this.P18 = new System.Windows.Forms.TextBox();
+            this.R15 = new System.Windows.Forms.ComboBox();
             this.G20 = new System.Windows.Forms.ComboBox();
+            this.R14 = new System.Windows.Forms.ComboBox();
+            this.P17 = new System.Windows.Forms.TextBox();
+            this.R13 = new System.Windows.Forms.ComboBox();
             this.F20 = new System.Windows.Forms.TextBox();
+            this.R12 = new System.Windows.Forms.ComboBox();
+            this.P16 = new System.Windows.Forms.TextBox();
+            this.R11 = new System.Windows.Forms.ComboBox();
             this.C20 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.P15 = new System.Windows.Forms.TextBox();
             this.A20 = new System.Windows.Forms.TextBox();
+            this.P14 = new System.Windows.Forms.TextBox();
             this.D20 = new System.Windows.Forms.TextBox();
+            this.P13 = new System.Windows.Forms.TextBox();
             this.K20 = new System.Windows.Forms.TextBox();
+            this.P12 = new System.Windows.Forms.TextBox();
             this.G19 = new System.Windows.Forms.ComboBox();
+            this.P11 = new System.Windows.Forms.TextBox();
             this.F19 = new System.Windows.Forms.TextBox();
             this.C19 = new System.Windows.Forms.TextBox();
             this.A19 = new System.Windows.Forms.TextBox();
@@ -182,58 +232,109 @@
             this.S22 = new System.Windows.Forms.TextBox();
             this.S21 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.P1 = new System.Windows.Forms.TextBox();
-            this.P2 = new System.Windows.Forms.TextBox();
-            this.P3 = new System.Windows.Forms.TextBox();
-            this.P4 = new System.Windows.Forms.TextBox();
-            this.P5 = new System.Windows.Forms.TextBox();
-            this.P10 = new System.Windows.Forms.TextBox();
-            this.P9 = new System.Windows.Forms.TextBox();
-            this.P8 = new System.Windows.Forms.TextBox();
-            this.P7 = new System.Windows.Forms.TextBox();
-            this.P6 = new System.Windows.Forms.TextBox();
-            this.P20 = new System.Windows.Forms.TextBox();
-            this.P19 = new System.Windows.Forms.TextBox();
-            this.P18 = new System.Windows.Forms.TextBox();
-            this.P17 = new System.Windows.Forms.TextBox();
-            this.P16 = new System.Windows.Forms.TextBox();
-            this.P15 = new System.Windows.Forms.TextBox();
-            this.P14 = new System.Windows.Forms.TextBox();
-            this.P13 = new System.Windows.Forms.TextBox();
-            this.P12 = new System.Windows.Forms.TextBox();
-            this.P11 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.R10 = new System.Windows.Forms.ComboBox();
-            this.R9 = new System.Windows.Forms.ComboBox();
-            this.R8 = new System.Windows.Forms.ComboBox();
-            this.R7 = new System.Windows.Forms.ComboBox();
-            this.R6 = new System.Windows.Forms.ComboBox();
-            this.R5 = new System.Windows.Forms.ComboBox();
-            this.R4 = new System.Windows.Forms.ComboBox();
-            this.R3 = new System.Windows.Forms.ComboBox();
-            this.R2 = new System.Windows.Forms.ComboBox();
-            this.R1 = new System.Windows.Forms.ComboBox();
-            this.R20 = new System.Windows.Forms.ComboBox();
-            this.R19 = new System.Windows.Forms.ComboBox();
-            this.R18 = new System.Windows.Forms.ComboBox();
-            this.R17 = new System.Windows.Forms.ComboBox();
-            this.R16 = new System.Windows.Forms.ComboBox();
-            this.R15 = new System.Windows.Forms.ComboBox();
-            this.R14 = new System.Windows.Forms.ComboBox();
-            this.R13 = new System.Windows.Forms.ComboBox();
-            this.R12 = new System.Windows.Forms.ComboBox();
-            this.R11 = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.R30 = new System.Windows.Forms.ComboBox();
+            this.R29 = new System.Windows.Forms.ComboBox();
+            this.R28 = new System.Windows.Forms.ComboBox();
+            this.R27 = new System.Windows.Forms.ComboBox();
+            this.R26 = new System.Windows.Forms.ComboBox();
+            this.R25 = new System.Windows.Forms.ComboBox();
+            this.R24 = new System.Windows.Forms.ComboBox();
+            this.R23 = new System.Windows.Forms.ComboBox();
+            this.R22 = new System.Windows.Forms.ComboBox();
+            this.R21 = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.P30 = new System.Windows.Forms.TextBox();
+            this.P29 = new System.Windows.Forms.TextBox();
+            this.P28 = new System.Windows.Forms.TextBox();
+            this.P27 = new System.Windows.Forms.TextBox();
+            this.P26 = new System.Windows.Forms.TextBox();
+            this.P25 = new System.Windows.Forms.TextBox();
+            this.P24 = new System.Windows.Forms.TextBox();
+            this.P23 = new System.Windows.Forms.TextBox();
+            this.P22 = new System.Windows.Forms.TextBox();
+            this.P21 = new System.Windows.Forms.TextBox();
+            this.M3 = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.G30 = new System.Windows.Forms.ComboBox();
+            this.F30 = new System.Windows.Forms.TextBox();
+            this.C30 = new System.Windows.Forms.TextBox();
+            this.A30 = new System.Windows.Forms.TextBox();
+            this.D30 = new System.Windows.Forms.TextBox();
+            this.K30 = new System.Windows.Forms.TextBox();
+            this.G29 = new System.Windows.Forms.ComboBox();
+            this.F29 = new System.Windows.Forms.TextBox();
+            this.C29 = new System.Windows.Forms.TextBox();
+            this.A29 = new System.Windows.Forms.TextBox();
+            this.D29 = new System.Windows.Forms.TextBox();
+            this.K29 = new System.Windows.Forms.TextBox();
+            this.G28 = new System.Windows.Forms.ComboBox();
+            this.F28 = new System.Windows.Forms.TextBox();
+            this.C28 = new System.Windows.Forms.TextBox();
+            this.A28 = new System.Windows.Forms.TextBox();
+            this.D28 = new System.Windows.Forms.TextBox();
+            this.K28 = new System.Windows.Forms.TextBox();
+            this.G27 = new System.Windows.Forms.ComboBox();
+            this.F27 = new System.Windows.Forms.TextBox();
+            this.C27 = new System.Windows.Forms.TextBox();
+            this.A27 = new System.Windows.Forms.TextBox();
+            this.D27 = new System.Windows.Forms.TextBox();
+            this.K27 = new System.Windows.Forms.TextBox();
+            this.G26 = new System.Windows.Forms.ComboBox();
+            this.F26 = new System.Windows.Forms.TextBox();
+            this.C26 = new System.Windows.Forms.TextBox();
+            this.A26 = new System.Windows.Forms.TextBox();
+            this.D26 = new System.Windows.Forms.TextBox();
+            this.K26 = new System.Windows.Forms.TextBox();
+            this.G25 = new System.Windows.Forms.ComboBox();
+            this.F25 = new System.Windows.Forms.TextBox();
+            this.C25 = new System.Windows.Forms.TextBox();
+            this.A25 = new System.Windows.Forms.TextBox();
+            this.D25 = new System.Windows.Forms.TextBox();
+            this.K25 = new System.Windows.Forms.TextBox();
+            this.G24 = new System.Windows.Forms.ComboBox();
+            this.F24 = new System.Windows.Forms.TextBox();
+            this.C24 = new System.Windows.Forms.TextBox();
+            this.A24 = new System.Windows.Forms.TextBox();
+            this.D24 = new System.Windows.Forms.TextBox();
+            this.K24 = new System.Windows.Forms.TextBox();
+            this.G23 = new System.Windows.Forms.ComboBox();
+            this.F23 = new System.Windows.Forms.TextBox();
+            this.C23 = new System.Windows.Forms.TextBox();
+            this.A23 = new System.Windows.Forms.TextBox();
+            this.D23 = new System.Windows.Forms.TextBox();
+            this.K23 = new System.Windows.Forms.TextBox();
+            this.G22 = new System.Windows.Forms.ComboBox();
+            this.F22 = new System.Windows.Forms.TextBox();
+            this.C22 = new System.Windows.Forms.TextBox();
+            this.A22 = new System.Windows.Forms.TextBox();
+            this.D22 = new System.Windows.Forms.TextBox();
+            this.K22 = new System.Windows.Forms.TextBox();
+            this.G21 = new System.Windows.Forms.ComboBox();
+            this.F21 = new System.Windows.Forms.TextBox();
+            this.C21 = new System.Windows.Forms.TextBox();
+            this.A21 = new System.Windows.Forms.TextBox();
+            this.D21 = new System.Windows.Forms.TextBox();
+            this.K21 = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.S32 = new System.Windows.Forms.TextBox();
+            this.S31 = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -342,508 +443,223 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Game1";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Score:";
-            // 
-            // S11
-            // 
-            this.S11.Location = new System.Drawing.Point(81, 19);
-            this.S11.Name = "S11";
-            this.S11.Size = new System.Drawing.Size(34, 20);
-            this.S11.TabIndex = 2;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(523, 9);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(58, 36);
-            this.label20.TabIndex = 7;
-            this.label20.Text = "VS";
-            // 
-            // S12
-            // 
-            this.S12.Location = new System.Drawing.Point(140, 19);
-            this.S12.Name = "S12";
-            this.S12.Size = new System.Drawing.Size(34, 20);
-            this.S12.TabIndex = 3;
-            // 
-            // T1
-            // 
-            this.T1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.T1.Location = new System.Drawing.Point(321, 15);
-            this.T1.Name = "T1";
-            this.T1.Size = new System.Drawing.Size(167, 30);
-            this.T1.TabIndex = 8;
-            // 
-            // T2
-            // 
-            this.T2.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.T2.Location = new System.Drawing.Point(611, 15);
-            this.T2.Name = "T2";
-            this.T2.Size = new System.Drawing.Size(167, 30);
-            this.T2.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(123, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = ":";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(157, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Kills";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(188, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Deaths";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(226, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Assists";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(468, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Agent";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(305, 53);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(20, 13);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "FK";
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(7, 278);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(26, 17);
+            this.label30.TabIndex = 120;
+            this.label30.Text = "T2";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(7, 130);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(26, 17);
+            this.label28.TabIndex = 118;
+            this.label28.Text = "T1";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(7, 206);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(523, 13);
+            this.label26.TabIndex = 117;
+            this.label26.Text = "---------------------------------------------------------------------------------" +
+    "--------------------------------------------------------------------------------" +
+    "-----------";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(74, 53);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.TabIndex = 116;
+            this.label25.Text = "Players";
+            // 
+            // R10
+            // 
+            this.R10.FormattingEnabled = true;
+            this.R10.Location = new System.Drawing.Point(347, 331);
+            this.R10.Name = "R10";
+            this.R10.Size = new System.Drawing.Size(87, 21);
+            this.R10.TabIndex = 103;
+            // 
+            // R9
+            // 
+            this.R9.FormattingEnabled = true;
+            this.R9.Location = new System.Drawing.Point(347, 303);
+            this.R9.Name = "R9";
+            this.R9.Size = new System.Drawing.Size(87, 21);
+            this.R9.TabIndex = 102;
+            // 
+            // R8
+            // 
+            this.R8.FormattingEnabled = true;
+            this.R8.Location = new System.Drawing.Point(347, 277);
+            this.R8.Name = "R8";
+            this.R8.Size = new System.Drawing.Size(87, 21);
+            this.R8.TabIndex = 101;
+            // 
+            // R7
+            // 
+            this.R7.FormattingEnabled = true;
+            this.R7.Location = new System.Drawing.Point(347, 250);
+            this.R7.Name = "R7";
+            this.R7.Size = new System.Drawing.Size(87, 21);
+            this.R7.TabIndex = 100;
+            // 
+            // R6
+            // 
+            this.R6.FormattingEnabled = true;
+            this.R6.Location = new System.Drawing.Point(347, 223);
+            this.R6.Name = "R6";
+            this.R6.Size = new System.Drawing.Size(87, 21);
+            this.R6.TabIndex = 99;
+            // 
+            // R5
+            // 
+            this.R5.FormattingEnabled = true;
+            this.R5.Location = new System.Drawing.Point(347, 180);
+            this.R5.Name = "R5";
+            this.R5.Size = new System.Drawing.Size(87, 21);
+            this.R5.TabIndex = 98;
+            // 
+            // R4
+            // 
+            this.R4.FormattingEnabled = true;
+            this.R4.Location = new System.Drawing.Point(347, 153);
+            this.R4.Name = "R4";
+            this.R4.Size = new System.Drawing.Size(87, 21);
+            this.R4.TabIndex = 97;
             // 
-            // label8
+            // R3
+            // 
+            this.R3.FormattingEnabled = true;
+            this.R3.Location = new System.Drawing.Point(349, 126);
+            this.R3.Name = "R3";
+            this.R3.Size = new System.Drawing.Size(87, 21);
+            this.R3.TabIndex = 96;
+            this.R3.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(271, 53);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(28, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "AVS";
+            // R2
             // 
-            // K1
+            this.R2.FormattingEnabled = true;
+            this.R2.Location = new System.Drawing.Point(349, 99);
+            this.R2.Name = "R2";
+            this.R2.Size = new System.Drawing.Size(87, 21);
+            this.R2.TabIndex = 95;
             // 
-            this.K1.Location = new System.Drawing.Point(152, 72);
-            this.K1.Name = "K1";
-            this.K1.Size = new System.Drawing.Size(32, 20);
-            this.K1.TabIndex = 21;
+            // R1
             // 
-            // D1
+            this.R1.FormattingEnabled = true;
+            this.R1.Location = new System.Drawing.Point(349, 72);
+            this.R1.Name = "R1";
+            this.R1.Size = new System.Drawing.Size(87, 21);
+            this.R1.TabIndex = 94;
             // 
-            this.D1.Location = new System.Drawing.Point(191, 72);
-            this.D1.Name = "D1";
-            this.D1.Size = new System.Drawing.Size(32, 20);
-            this.D1.TabIndex = 22;
+            // label22
             // 
-            // C1
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(373, 53);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(29, 13);
+            this.label22.TabIndex = 93;
+            this.label22.Text = "Role";
             // 
-            this.C1.Location = new System.Drawing.Point(267, 72);
-            this.C1.Name = "C1";
-            this.C1.Size = new System.Drawing.Size(32, 20);
-            this.C1.TabIndex = 24;
+            // P10
             // 
-            // A1
+            this.P10.Location = new System.Drawing.Point(44, 329);
+            this.P10.Name = "P10";
+            this.P10.Size = new System.Drawing.Size(94, 20);
+            this.P10.TabIndex = 92;
             // 
-            this.A1.Location = new System.Drawing.Point(229, 72);
-            this.A1.Name = "A1";
-            this.A1.Size = new System.Drawing.Size(32, 20);
-            this.A1.TabIndex = 23;
+            // P9
             // 
-            // F1
+            this.P9.Location = new System.Drawing.Point(44, 303);
+            this.P9.Name = "P9";
+            this.P9.Size = new System.Drawing.Size(94, 20);
+            this.P9.TabIndex = 91;
             // 
-            this.F1.Location = new System.Drawing.Point(308, 72);
-            this.F1.Name = "F1";
-            this.F1.Size = new System.Drawing.Size(32, 20);
-            this.F1.TabIndex = 25;
+            // P8
             // 
-            // G1
+            this.P8.Location = new System.Drawing.Point(44, 277);
+            this.P8.Name = "P8";
+            this.P8.Size = new System.Drawing.Size(94, 20);
+            this.P8.TabIndex = 90;
             // 
-            this.G1.FormattingEnabled = true;
-            this.G1.Location = new System.Drawing.Point(443, 72);
-            this.G1.Name = "G1";
-            this.G1.Size = new System.Drawing.Size(87, 21);
-            this.G1.TabIndex = 26;
+            // P7
             // 
-            // G2
+            this.P7.Location = new System.Drawing.Point(44, 250);
+            this.P7.Name = "P7";
+            this.P7.Size = new System.Drawing.Size(94, 20);
+            this.P7.TabIndex = 89;
             // 
-            this.G2.FormattingEnabled = true;
-            this.G2.Location = new System.Drawing.Point(443, 99);
-            this.G2.Name = "G2";
-            this.G2.Size = new System.Drawing.Size(87, 21);
-            this.G2.TabIndex = 32;
+            // P6
             // 
-            // F2
+            this.P6.Location = new System.Drawing.Point(44, 222);
+            this.P6.Name = "P6";
+            this.P6.Size = new System.Drawing.Size(94, 20);
+            this.P6.TabIndex = 88;
             // 
-            this.F2.Location = new System.Drawing.Point(308, 99);
-            this.F2.Name = "F2";
-            this.F2.Size = new System.Drawing.Size(32, 20);
-            this.F2.TabIndex = 31;
+            // P5
             // 
-            // C2
+            this.P5.Location = new System.Drawing.Point(44, 179);
+            this.P5.Name = "P5";
+            this.P5.Size = new System.Drawing.Size(94, 20);
+            this.P5.TabIndex = 87;
             // 
-            this.C2.Location = new System.Drawing.Point(267, 99);
-            this.C2.Name = "C2";
-            this.C2.Size = new System.Drawing.Size(32, 20);
-            this.C2.TabIndex = 30;
+            // P4
             // 
-            // A2
+            this.P4.Location = new System.Drawing.Point(44, 153);
+            this.P4.Name = "P4";
+            this.P4.Size = new System.Drawing.Size(94, 20);
+            this.P4.TabIndex = 86;
             // 
-            this.A2.Location = new System.Drawing.Point(229, 99);
-            this.A2.Name = "A2";
-            this.A2.Size = new System.Drawing.Size(32, 20);
-            this.A2.TabIndex = 29;
+            // P3
             // 
-            // D2
+            this.P3.Location = new System.Drawing.Point(44, 127);
+            this.P3.Name = "P3";
+            this.P3.Size = new System.Drawing.Size(94, 20);
+            this.P3.TabIndex = 85;
             // 
-            this.D2.Location = new System.Drawing.Point(191, 99);
-            this.D2.Name = "D2";
-            this.D2.Size = new System.Drawing.Size(32, 20);
-            this.D2.TabIndex = 28;
+            // P2
             // 
-            // K2
+            this.P2.Location = new System.Drawing.Point(44, 100);
+            this.P2.Name = "P2";
+            this.P2.Size = new System.Drawing.Size(94, 20);
+            this.P2.TabIndex = 84;
             // 
-            this.K2.Location = new System.Drawing.Point(152, 99);
-            this.K2.Name = "K2";
-            this.K2.Size = new System.Drawing.Size(32, 20);
-            this.K2.TabIndex = 27;
+            // P1
             // 
-            // G3
+            this.P1.Location = new System.Drawing.Point(44, 72);
+            this.P1.Name = "P1";
+            this.P1.Size = new System.Drawing.Size(94, 20);
+            this.P1.TabIndex = 83;
             // 
-            this.G3.FormattingEnabled = true;
-            this.G3.Location = new System.Drawing.Point(443, 126);
-            this.G3.Name = "G3";
-            this.G3.Size = new System.Drawing.Size(87, 21);
-            this.G3.TabIndex = 38;
+            // M1
             // 
-            // F3
+            this.M1.FormattingEnabled = true;
+            this.M1.Location = new System.Drawing.Point(364, 19);
+            this.M1.Name = "M1";
+            this.M1.Size = new System.Drawing.Size(96, 21);
+            this.M1.TabIndex = 82;
             // 
-            this.F3.Location = new System.Drawing.Point(308, 126);
-            this.F3.Name = "F3";
-            this.F3.Size = new System.Drawing.Size(32, 20);
-            this.F3.TabIndex = 37;
+            // label10
             // 
-            // C3
-            // 
-            this.C3.Location = new System.Drawing.Point(267, 126);
-            this.C3.Name = "C3";
-            this.C3.Size = new System.Drawing.Size(32, 20);
-            this.C3.TabIndex = 36;
-            // 
-            // A3
-            // 
-            this.A3.Location = new System.Drawing.Point(229, 126);
-            this.A3.Name = "A3";
-            this.A3.Size = new System.Drawing.Size(32, 20);
-            this.A3.TabIndex = 35;
-            // 
-            // D3
-            // 
-            this.D3.Location = new System.Drawing.Point(191, 126);
-            this.D3.Name = "D3";
-            this.D3.Size = new System.Drawing.Size(32, 20);
-            this.D3.TabIndex = 34;
-            // 
-            // K3
-            // 
-            this.K3.Location = new System.Drawing.Point(152, 126);
-            this.K3.Name = "K3";
-            this.K3.Size = new System.Drawing.Size(32, 20);
-            this.K3.TabIndex = 33;
-            // 
-            // G4
-            // 
-            this.G4.FormattingEnabled = true;
-            this.G4.Location = new System.Drawing.Point(441, 153);
-            this.G4.Name = "G4";
-            this.G4.Size = new System.Drawing.Size(87, 21);
-            this.G4.TabIndex = 44;
-            // 
-            // F4
-            // 
-            this.F4.Location = new System.Drawing.Point(306, 153);
-            this.F4.Name = "F4";
-            this.F4.Size = new System.Drawing.Size(32, 20);
-            this.F4.TabIndex = 43;
-            // 
-            // C4
-            // 
-            this.C4.Location = new System.Drawing.Point(265, 153);
-            this.C4.Name = "C4";
-            this.C4.Size = new System.Drawing.Size(32, 20);
-            this.C4.TabIndex = 42;
-            // 
-            // A4
-            // 
-            this.A4.Location = new System.Drawing.Point(227, 153);
-            this.A4.Name = "A4";
-            this.A4.Size = new System.Drawing.Size(32, 20);
-            this.A4.TabIndex = 41;
-            // 
-            // D4
-            // 
-            this.D4.Location = new System.Drawing.Point(189, 153);
-            this.D4.Name = "D4";
-            this.D4.Size = new System.Drawing.Size(32, 20);
-            this.D4.TabIndex = 40;
-            // 
-            // K4
-            // 
-            this.K4.Location = new System.Drawing.Point(150, 153);
-            this.K4.Name = "K4";
-            this.K4.Size = new System.Drawing.Size(32, 20);
-            this.K4.TabIndex = 39;
-            // 
-            // G5
-            // 
-            this.G5.FormattingEnabled = true;
-            this.G5.Location = new System.Drawing.Point(441, 180);
-            this.G5.Name = "G5";
-            this.G5.Size = new System.Drawing.Size(87, 21);
-            this.G5.TabIndex = 50;
-            // 
-            // F5
-            // 
-            this.F5.Location = new System.Drawing.Point(306, 180);
-            this.F5.Name = "F5";
-            this.F5.Size = new System.Drawing.Size(32, 20);
-            this.F5.TabIndex = 49;
-            // 
-            // C5
-            // 
-            this.C5.Location = new System.Drawing.Point(265, 180);
-            this.C5.Name = "C5";
-            this.C5.Size = new System.Drawing.Size(32, 20);
-            this.C5.TabIndex = 48;
-            // 
-            // A5
-            // 
-            this.A5.Location = new System.Drawing.Point(227, 180);
-            this.A5.Name = "A5";
-            this.A5.Size = new System.Drawing.Size(32, 20);
-            this.A5.TabIndex = 47;
-            // 
-            // D5
-            // 
-            this.D5.Location = new System.Drawing.Point(189, 180);
-            this.D5.Name = "D5";
-            this.D5.Size = new System.Drawing.Size(32, 20);
-            this.D5.TabIndex = 46;
-            // 
-            // K5
-            // 
-            this.K5.Location = new System.Drawing.Point(150, 180);
-            this.K5.Name = "K5";
-            this.K5.Size = new System.Drawing.Size(32, 20);
-            this.K5.TabIndex = 45;
-            // 
-            // G6
-            // 
-            this.G6.FormattingEnabled = true;
-            this.G6.Location = new System.Drawing.Point(441, 223);
-            this.G6.Name = "G6";
-            this.G6.Size = new System.Drawing.Size(87, 21);
-            this.G6.TabIndex = 56;
-            // 
-            // F6
-            // 
-            this.F6.Location = new System.Drawing.Point(306, 223);
-            this.F6.Name = "F6";
-            this.F6.Size = new System.Drawing.Size(32, 20);
-            this.F6.TabIndex = 55;
-            // 
-            // C6
-            // 
-            this.C6.Location = new System.Drawing.Point(265, 223);
-            this.C6.Name = "C6";
-            this.C6.Size = new System.Drawing.Size(32, 20);
-            this.C6.TabIndex = 54;
-            // 
-            // A6
-            // 
-            this.A6.Location = new System.Drawing.Point(227, 223);
-            this.A6.Name = "A6";
-            this.A6.Size = new System.Drawing.Size(32, 20);
-            this.A6.TabIndex = 53;
-            // 
-            // D6
-            // 
-            this.D6.Location = new System.Drawing.Point(189, 223);
-            this.D6.Name = "D6";
-            this.D6.Size = new System.Drawing.Size(32, 20);
-            this.D6.TabIndex = 52;
-            // 
-            // K6
-            // 
-            this.K6.Location = new System.Drawing.Point(150, 223);
-            this.K6.Name = "K6";
-            this.K6.Size = new System.Drawing.Size(32, 20);
-            this.K6.TabIndex = 51;
-            // 
-            // G7
-            // 
-            this.G7.FormattingEnabled = true;
-            this.G7.Location = new System.Drawing.Point(441, 250);
-            this.G7.Name = "G7";
-            this.G7.Size = new System.Drawing.Size(87, 21);
-            this.G7.TabIndex = 62;
-            // 
-            // F7
-            // 
-            this.F7.Location = new System.Drawing.Point(306, 250);
-            this.F7.Name = "F7";
-            this.F7.Size = new System.Drawing.Size(32, 20);
-            this.F7.TabIndex = 61;
-            // 
-            // C7
-            // 
-            this.C7.Location = new System.Drawing.Point(265, 250);
-            this.C7.Name = "C7";
-            this.C7.Size = new System.Drawing.Size(32, 20);
-            this.C7.TabIndex = 60;
-            // 
-            // A7
-            // 
-            this.A7.Location = new System.Drawing.Point(227, 250);
-            this.A7.Name = "A7";
-            this.A7.Size = new System.Drawing.Size(32, 20);
-            this.A7.TabIndex = 59;
-            // 
-            // D7
-            // 
-            this.D7.Location = new System.Drawing.Point(189, 250);
-            this.D7.Name = "D7";
-            this.D7.Size = new System.Drawing.Size(32, 20);
-            this.D7.TabIndex = 58;
-            // 
-            // K7
-            // 
-            this.K7.Location = new System.Drawing.Point(150, 250);
-            this.K7.Name = "K7";
-            this.K7.Size = new System.Drawing.Size(32, 20);
-            this.K7.TabIndex = 57;
-            // 
-            // G8
-            // 
-            this.G8.FormattingEnabled = true;
-            this.G8.Location = new System.Drawing.Point(441, 277);
-            this.G8.Name = "G8";
-            this.G8.Size = new System.Drawing.Size(87, 21);
-            this.G8.TabIndex = 68;
-            // 
-            // F8
-            // 
-            this.F8.Location = new System.Drawing.Point(306, 277);
-            this.F8.Name = "F8";
-            this.F8.Size = new System.Drawing.Size(32, 20);
-            this.F8.TabIndex = 67;
-            // 
-            // C8
-            // 
-            this.C8.Location = new System.Drawing.Point(265, 277);
-            this.C8.Name = "C8";
-            this.C8.Size = new System.Drawing.Size(32, 20);
-            this.C8.TabIndex = 66;
-            // 
-            // A8
-            // 
-            this.A8.Location = new System.Drawing.Point(227, 277);
-            this.A8.Name = "A8";
-            this.A8.Size = new System.Drawing.Size(32, 20);
-            this.A8.TabIndex = 65;
-            // 
-            // D8
-            // 
-            this.D8.Location = new System.Drawing.Point(189, 277);
-            this.D8.Name = "D8";
-            this.D8.Size = new System.Drawing.Size(32, 20);
-            this.D8.TabIndex = 64;
-            // 
-            // K8
-            // 
-            this.K8.Location = new System.Drawing.Point(150, 277);
-            this.K8.Name = "K8";
-            this.K8.Size = new System.Drawing.Size(32, 20);
-            this.K8.TabIndex = 63;
-            // 
-            // G9
-            // 
-            this.G9.FormattingEnabled = true;
-            this.G9.Location = new System.Drawing.Point(441, 303);
-            this.G9.Name = "G9";
-            this.G9.Size = new System.Drawing.Size(87, 21);
-            this.G9.TabIndex = 74;
-            // 
-            // F9
-            // 
-            this.F9.Location = new System.Drawing.Point(306, 303);
-            this.F9.Name = "F9";
-            this.F9.Size = new System.Drawing.Size(32, 20);
-            this.F9.TabIndex = 73;
-            // 
-            // C9
-            // 
-            this.C9.Location = new System.Drawing.Point(265, 303);
-            this.C9.Name = "C9";
-            this.C9.Size = new System.Drawing.Size(32, 20);
-            this.C9.TabIndex = 72;
-            // 
-            // A9
-            // 
-            this.A9.Location = new System.Drawing.Point(227, 303);
-            this.A9.Name = "A9";
-            this.A9.Size = new System.Drawing.Size(32, 20);
-            this.A9.TabIndex = 71;
-            // 
-            // D9
-            // 
-            this.D9.Location = new System.Drawing.Point(189, 303);
-            this.D9.Name = "D9";
-            this.D9.Size = new System.Drawing.Size(32, 20);
-            this.D9.TabIndex = 70;
-            // 
-            // K9
-            // 
-            this.K9.Location = new System.Drawing.Point(150, 303);
-            this.K9.Name = "K9";
-            this.K9.Size = new System.Drawing.Size(32, 20);
-            this.K9.TabIndex = 69;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(313, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 18);
+            this.label10.TabIndex = 81;
+            this.label10.Text = "Map:";
             // 
             // G10
             // 
@@ -889,6 +705,511 @@
             this.K10.Size = new System.Drawing.Size(32, 20);
             this.K10.TabIndex = 75;
             // 
+            // G9
+            // 
+            this.G9.FormattingEnabled = true;
+            this.G9.Location = new System.Drawing.Point(441, 303);
+            this.G9.Name = "G9";
+            this.G9.Size = new System.Drawing.Size(87, 21);
+            this.G9.TabIndex = 74;
+            // 
+            // F9
+            // 
+            this.F9.Location = new System.Drawing.Point(306, 303);
+            this.F9.Name = "F9";
+            this.F9.Size = new System.Drawing.Size(32, 20);
+            this.F9.TabIndex = 73;
+            // 
+            // C9
+            // 
+            this.C9.Location = new System.Drawing.Point(265, 303);
+            this.C9.Name = "C9";
+            this.C9.Size = new System.Drawing.Size(32, 20);
+            this.C9.TabIndex = 72;
+            // 
+            // A9
+            // 
+            this.A9.Location = new System.Drawing.Point(227, 303);
+            this.A9.Name = "A9";
+            this.A9.Size = new System.Drawing.Size(32, 20);
+            this.A9.TabIndex = 71;
+            // 
+            // D9
+            // 
+            this.D9.Location = new System.Drawing.Point(189, 303);
+            this.D9.Name = "D9";
+            this.D9.Size = new System.Drawing.Size(32, 20);
+            this.D9.TabIndex = 70;
+            // 
+            // K9
+            // 
+            this.K9.Location = new System.Drawing.Point(150, 303);
+            this.K9.Name = "K9";
+            this.K9.Size = new System.Drawing.Size(32, 20);
+            this.K9.TabIndex = 69;
+            // 
+            // G8
+            // 
+            this.G8.FormattingEnabled = true;
+            this.G8.Location = new System.Drawing.Point(441, 277);
+            this.G8.Name = "G8";
+            this.G8.Size = new System.Drawing.Size(87, 21);
+            this.G8.TabIndex = 68;
+            // 
+            // F8
+            // 
+            this.F8.Location = new System.Drawing.Point(306, 277);
+            this.F8.Name = "F8";
+            this.F8.Size = new System.Drawing.Size(32, 20);
+            this.F8.TabIndex = 67;
+            // 
+            // C8
+            // 
+            this.C8.Location = new System.Drawing.Point(265, 277);
+            this.C8.Name = "C8";
+            this.C8.Size = new System.Drawing.Size(32, 20);
+            this.C8.TabIndex = 66;
+            // 
+            // A8
+            // 
+            this.A8.Location = new System.Drawing.Point(227, 277);
+            this.A8.Name = "A8";
+            this.A8.Size = new System.Drawing.Size(32, 20);
+            this.A8.TabIndex = 65;
+            // 
+            // D8
+            // 
+            this.D8.Location = new System.Drawing.Point(189, 277);
+            this.D8.Name = "D8";
+            this.D8.Size = new System.Drawing.Size(32, 20);
+            this.D8.TabIndex = 64;
+            // 
+            // K8
+            // 
+            this.K8.Location = new System.Drawing.Point(150, 277);
+            this.K8.Name = "K8";
+            this.K8.Size = new System.Drawing.Size(32, 20);
+            this.K8.TabIndex = 63;
+            // 
+            // G7
+            // 
+            this.G7.FormattingEnabled = true;
+            this.G7.Location = new System.Drawing.Point(441, 250);
+            this.G7.Name = "G7";
+            this.G7.Size = new System.Drawing.Size(87, 21);
+            this.G7.TabIndex = 62;
+            // 
+            // F7
+            // 
+            this.F7.Location = new System.Drawing.Point(306, 250);
+            this.F7.Name = "F7";
+            this.F7.Size = new System.Drawing.Size(32, 20);
+            this.F7.TabIndex = 61;
+            // 
+            // C7
+            // 
+            this.C7.Location = new System.Drawing.Point(265, 250);
+            this.C7.Name = "C7";
+            this.C7.Size = new System.Drawing.Size(32, 20);
+            this.C7.TabIndex = 60;
+            // 
+            // A7
+            // 
+            this.A7.Location = new System.Drawing.Point(227, 250);
+            this.A7.Name = "A7";
+            this.A7.Size = new System.Drawing.Size(32, 20);
+            this.A7.TabIndex = 59;
+            // 
+            // D7
+            // 
+            this.D7.Location = new System.Drawing.Point(189, 250);
+            this.D7.Name = "D7";
+            this.D7.Size = new System.Drawing.Size(32, 20);
+            this.D7.TabIndex = 58;
+            // 
+            // K7
+            // 
+            this.K7.Location = new System.Drawing.Point(150, 250);
+            this.K7.Name = "K7";
+            this.K7.Size = new System.Drawing.Size(32, 20);
+            this.K7.TabIndex = 57;
+            // 
+            // G6
+            // 
+            this.G6.FormattingEnabled = true;
+            this.G6.Location = new System.Drawing.Point(441, 223);
+            this.G6.Name = "G6";
+            this.G6.Size = new System.Drawing.Size(87, 21);
+            this.G6.TabIndex = 56;
+            // 
+            // F6
+            // 
+            this.F6.Location = new System.Drawing.Point(306, 223);
+            this.F6.Name = "F6";
+            this.F6.Size = new System.Drawing.Size(32, 20);
+            this.F6.TabIndex = 55;
+            // 
+            // C6
+            // 
+            this.C6.Location = new System.Drawing.Point(265, 223);
+            this.C6.Name = "C6";
+            this.C6.Size = new System.Drawing.Size(32, 20);
+            this.C6.TabIndex = 54;
+            // 
+            // A6
+            // 
+            this.A6.Location = new System.Drawing.Point(227, 223);
+            this.A6.Name = "A6";
+            this.A6.Size = new System.Drawing.Size(32, 20);
+            this.A6.TabIndex = 53;
+            // 
+            // D6
+            // 
+            this.D6.Location = new System.Drawing.Point(189, 223);
+            this.D6.Name = "D6";
+            this.D6.Size = new System.Drawing.Size(32, 20);
+            this.D6.TabIndex = 52;
+            // 
+            // K6
+            // 
+            this.K6.Location = new System.Drawing.Point(150, 223);
+            this.K6.Name = "K6";
+            this.K6.Size = new System.Drawing.Size(32, 20);
+            this.K6.TabIndex = 51;
+            // 
+            // G5
+            // 
+            this.G5.FormattingEnabled = true;
+            this.G5.Location = new System.Drawing.Point(441, 180);
+            this.G5.Name = "G5";
+            this.G5.Size = new System.Drawing.Size(87, 21);
+            this.G5.TabIndex = 50;
+            // 
+            // F5
+            // 
+            this.F5.Location = new System.Drawing.Point(306, 180);
+            this.F5.Name = "F5";
+            this.F5.Size = new System.Drawing.Size(32, 20);
+            this.F5.TabIndex = 49;
+            // 
+            // C5
+            // 
+            this.C5.Location = new System.Drawing.Point(265, 180);
+            this.C5.Name = "C5";
+            this.C5.Size = new System.Drawing.Size(32, 20);
+            this.C5.TabIndex = 48;
+            // 
+            // A5
+            // 
+            this.A5.Location = new System.Drawing.Point(227, 180);
+            this.A5.Name = "A5";
+            this.A5.Size = new System.Drawing.Size(32, 20);
+            this.A5.TabIndex = 47;
+            // 
+            // D5
+            // 
+            this.D5.Location = new System.Drawing.Point(189, 180);
+            this.D5.Name = "D5";
+            this.D5.Size = new System.Drawing.Size(32, 20);
+            this.D5.TabIndex = 46;
+            // 
+            // K5
+            // 
+            this.K5.Location = new System.Drawing.Point(150, 180);
+            this.K5.Name = "K5";
+            this.K5.Size = new System.Drawing.Size(32, 20);
+            this.K5.TabIndex = 45;
+            // 
+            // G4
+            // 
+            this.G4.FormattingEnabled = true;
+            this.G4.Location = new System.Drawing.Point(441, 153);
+            this.G4.Name = "G4";
+            this.G4.Size = new System.Drawing.Size(87, 21);
+            this.G4.TabIndex = 44;
+            // 
+            // F4
+            // 
+            this.F4.Location = new System.Drawing.Point(306, 153);
+            this.F4.Name = "F4";
+            this.F4.Size = new System.Drawing.Size(32, 20);
+            this.F4.TabIndex = 43;
+            // 
+            // C4
+            // 
+            this.C4.Location = new System.Drawing.Point(265, 153);
+            this.C4.Name = "C4";
+            this.C4.Size = new System.Drawing.Size(32, 20);
+            this.C4.TabIndex = 42;
+            // 
+            // A4
+            // 
+            this.A4.Location = new System.Drawing.Point(227, 153);
+            this.A4.Name = "A4";
+            this.A4.Size = new System.Drawing.Size(32, 20);
+            this.A4.TabIndex = 41;
+            // 
+            // D4
+            // 
+            this.D4.Location = new System.Drawing.Point(189, 153);
+            this.D4.Name = "D4";
+            this.D4.Size = new System.Drawing.Size(32, 20);
+            this.D4.TabIndex = 40;
+            // 
+            // K4
+            // 
+            this.K4.Location = new System.Drawing.Point(150, 153);
+            this.K4.Name = "K4";
+            this.K4.Size = new System.Drawing.Size(32, 20);
+            this.K4.TabIndex = 39;
+            // 
+            // G3
+            // 
+            this.G3.FormattingEnabled = true;
+            this.G3.Location = new System.Drawing.Point(443, 126);
+            this.G3.Name = "G3";
+            this.G3.Size = new System.Drawing.Size(87, 21);
+            this.G3.TabIndex = 38;
+            // 
+            // F3
+            // 
+            this.F3.Location = new System.Drawing.Point(308, 126);
+            this.F3.Name = "F3";
+            this.F3.Size = new System.Drawing.Size(32, 20);
+            this.F3.TabIndex = 37;
+            // 
+            // C3
+            // 
+            this.C3.Location = new System.Drawing.Point(267, 126);
+            this.C3.Name = "C3";
+            this.C3.Size = new System.Drawing.Size(32, 20);
+            this.C3.TabIndex = 36;
+            // 
+            // A3
+            // 
+            this.A3.Location = new System.Drawing.Point(229, 126);
+            this.A3.Name = "A3";
+            this.A3.Size = new System.Drawing.Size(32, 20);
+            this.A3.TabIndex = 35;
+            // 
+            // D3
+            // 
+            this.D3.Location = new System.Drawing.Point(191, 126);
+            this.D3.Name = "D3";
+            this.D3.Size = new System.Drawing.Size(32, 20);
+            this.D3.TabIndex = 34;
+            // 
+            // K3
+            // 
+            this.K3.Location = new System.Drawing.Point(152, 126);
+            this.K3.Name = "K3";
+            this.K3.Size = new System.Drawing.Size(32, 20);
+            this.K3.TabIndex = 33;
+            // 
+            // G2
+            // 
+            this.G2.FormattingEnabled = true;
+            this.G2.Location = new System.Drawing.Point(443, 99);
+            this.G2.Name = "G2";
+            this.G2.Size = new System.Drawing.Size(87, 21);
+            this.G2.TabIndex = 32;
+            // 
+            // F2
+            // 
+            this.F2.Location = new System.Drawing.Point(308, 99);
+            this.F2.Name = "F2";
+            this.F2.Size = new System.Drawing.Size(32, 20);
+            this.F2.TabIndex = 31;
+            // 
+            // C2
+            // 
+            this.C2.Location = new System.Drawing.Point(267, 99);
+            this.C2.Name = "C2";
+            this.C2.Size = new System.Drawing.Size(32, 20);
+            this.C2.TabIndex = 30;
+            // 
+            // A2
+            // 
+            this.A2.Location = new System.Drawing.Point(229, 99);
+            this.A2.Name = "A2";
+            this.A2.Size = new System.Drawing.Size(32, 20);
+            this.A2.TabIndex = 29;
+            // 
+            // D2
+            // 
+            this.D2.Location = new System.Drawing.Point(191, 99);
+            this.D2.Name = "D2";
+            this.D2.Size = new System.Drawing.Size(32, 20);
+            this.D2.TabIndex = 28;
+            // 
+            // K2
+            // 
+            this.K2.Location = new System.Drawing.Point(152, 99);
+            this.K2.Name = "K2";
+            this.K2.Size = new System.Drawing.Size(32, 20);
+            this.K2.TabIndex = 27;
+            // 
+            // G1
+            // 
+            this.G1.FormattingEnabled = true;
+            this.G1.Location = new System.Drawing.Point(443, 72);
+            this.G1.Name = "G1";
+            this.G1.Size = new System.Drawing.Size(87, 21);
+            this.G1.TabIndex = 26;
+            // 
+            // F1
+            // 
+            this.F1.Location = new System.Drawing.Point(308, 72);
+            this.F1.Name = "F1";
+            this.F1.Size = new System.Drawing.Size(32, 20);
+            this.F1.TabIndex = 25;
+            // 
+            // C1
+            // 
+            this.C1.Location = new System.Drawing.Point(267, 72);
+            this.C1.Name = "C1";
+            this.C1.Size = new System.Drawing.Size(32, 20);
+            this.C1.TabIndex = 24;
+            // 
+            // A1
+            // 
+            this.A1.Location = new System.Drawing.Point(229, 72);
+            this.A1.Name = "A1";
+            this.A1.Size = new System.Drawing.Size(32, 20);
+            this.A1.TabIndex = 23;
+            // 
+            // D1
+            // 
+            this.D1.Location = new System.Drawing.Point(191, 72);
+            this.D1.Name = "D1";
+            this.D1.Size = new System.Drawing.Size(32, 20);
+            this.D1.TabIndex = 22;
+            // 
+            // K1
+            // 
+            this.K1.Location = new System.Drawing.Point(152, 72);
+            this.K1.Name = "K1";
+            this.K1.Size = new System.Drawing.Size(32, 20);
+            this.K1.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(468, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Agent";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(305, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(20, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "FK";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(271, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "AVS";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(226, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Assists";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(188, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Deaths";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(157, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(25, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Kills";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(123, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = ":";
+            // 
+            // S12
+            // 
+            this.S12.Location = new System.Drawing.Point(140, 19);
+            this.S12.Name = "S12";
+            this.S12.Size = new System.Drawing.Size(34, 20);
+            this.S12.TabIndex = 3;
+            // 
+            // S11
+            // 
+            this.S11.Location = new System.Drawing.Point(81, 19);
+            this.S11.Name = "S11";
+            this.S11.Size = new System.Drawing.Size(34, 20);
+            this.S11.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 21);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Score:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(523, 9);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(58, 36);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "VS";
+            // 
+            // T1
+            // 
+            this.T1.Enabled = false;
+            this.T1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T1.Location = new System.Drawing.Point(321, 15);
+            this.T1.Name = "T1";
+            this.T1.Size = new System.Drawing.Size(167, 30);
+            this.T1.TabIndex = 8;
+            // 
+            // T2
+            // 
+            this.T2.Enabled = false;
+            this.T2.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T2.Location = new System.Drawing.Point(611, 15);
+            this.T2.Name = "T2";
+            this.T2.Size = new System.Drawing.Size(167, 30);
+            this.T2.TabIndex = 9;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -898,24 +1219,6 @@
             this.label9.Size = new System.Drawing.Size(74, 21);
             this.label9.TabIndex = 10;
             this.label9.Text = "Game 1";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(313, 18);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 18);
-            this.label10.TabIndex = 81;
-            this.label10.Text = "Map:";
-            // 
-            // M1
-            // 
-            this.M1.FormattingEnabled = true;
-            this.M1.Location = new System.Drawing.Point(364, 19);
-            this.M1.Name = "M1";
-            this.M1.Size = new System.Drawing.Size(96, 21);
-            this.M1.TabIndex = 82;
             // 
             // Cancel
             // 
@@ -935,6 +1238,7 @@
             this.Game3Show.TabIndex = 12;
             this.Game3Show.Text = "Game 3";
             this.Game3Show.UseVisualStyleBackColor = true;
+            this.Game3Show.Click += new System.EventHandler(this.Game3Show_Click);
             // 
             // End
             // 
@@ -944,6 +1248,7 @@
             this.End.TabIndex = 13;
             this.End.Text = "End Match";
             this.End.UseVisualStyleBackColor = true;
+            this.End.Click += new System.EventHandler(this.End_Click);
             // 
             // label11
             // 
@@ -1062,6 +1367,69 @@
             this.groupBox2.Text = "Game2";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(6, 278);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(26, 17);
+            this.label31.TabIndex = 121;
+            this.label31.Text = "T2";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(6, 129);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(26, 17);
+            this.label29.TabIndex = 119;
+            this.label29.Text = "T1";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(9, 206);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(523, 13);
+            this.label27.TabIndex = 118;
+            this.label27.Text = "---------------------------------------------------------------------------------" +
+    "--------------------------------------------------------------------------------" +
+    "-----------";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(63, 53);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(41, 13);
+            this.label24.TabIndex = 115;
+            this.label24.Text = "Players";
+            // 
+            // R20
+            // 
+            this.R20.FormattingEnabled = true;
+            this.R20.Location = new System.Drawing.Point(346, 332);
+            this.R20.Name = "R20";
+            this.R20.Size = new System.Drawing.Size(87, 21);
+            this.R20.TabIndex = 114;
+            // 
+            // P20
+            // 
+            this.P20.Location = new System.Drawing.Point(38, 330);
+            this.P20.Name = "P20";
+            this.P20.Size = new System.Drawing.Size(94, 20);
+            this.P20.TabIndex = 102;
+            // 
+            // R19
+            // 
+            this.R19.FormattingEnabled = true;
+            this.R19.Location = new System.Drawing.Point(346, 304);
+            this.R19.Name = "R19";
+            this.R19.Size = new System.Drawing.Size(87, 21);
+            this.R19.TabIndex = 113;
+            // 
             // M2
             // 
             this.M2.FormattingEnabled = true;
@@ -1069,6 +1437,29 @@
             this.M2.Name = "M2";
             this.M2.Size = new System.Drawing.Size(96, 21);
             this.M2.TabIndex = 82;
+            // 
+            // R18
+            // 
+            this.R18.FormattingEnabled = true;
+            this.R18.Location = new System.Drawing.Point(346, 278);
+            this.R18.Name = "R18";
+            this.R18.Size = new System.Drawing.Size(87, 21);
+            this.R18.TabIndex = 112;
+            // 
+            // P19
+            // 
+            this.P19.Location = new System.Drawing.Point(38, 304);
+            this.P19.Name = "P19";
+            this.P19.Size = new System.Drawing.Size(94, 20);
+            this.P19.TabIndex = 101;
+            // 
+            // R17
+            // 
+            this.R17.FormattingEnabled = true;
+            this.R17.Location = new System.Drawing.Point(346, 251);
+            this.R17.Name = "R17";
+            this.R17.Size = new System.Drawing.Size(87, 21);
+            this.R17.TabIndex = 111;
             // 
             // label12
             // 
@@ -1080,6 +1471,30 @@
             this.label12.TabIndex = 81;
             this.label12.Text = "Map:";
             // 
+            // R16
+            // 
+            this.R16.FormattingEnabled = true;
+            this.R16.Location = new System.Drawing.Point(346, 224);
+            this.R16.Name = "R16";
+            this.R16.Size = new System.Drawing.Size(87, 21);
+            this.R16.TabIndex = 110;
+            // 
+            // P18
+            // 
+            this.P18.Location = new System.Drawing.Point(38, 278);
+            this.P18.Name = "P18";
+            this.P18.Size = new System.Drawing.Size(94, 20);
+            this.P18.TabIndex = 100;
+            // 
+            // R15
+            // 
+            this.R15.FormattingEnabled = true;
+            this.R15.Location = new System.Drawing.Point(346, 180);
+            this.R15.Name = "R15";
+            this.R15.Size = new System.Drawing.Size(87, 21);
+            this.R15.TabIndex = 109;
+            this.R15.SelectedIndexChanged += new System.EventHandler(this.comboBox16_SelectedIndexChanged);
+            // 
             // G20
             // 
             this.G20.FormattingEnabled = true;
@@ -1089,12 +1504,58 @@
             this.G20.TabIndex = 80;
             this.G20.SelectedIndexChanged += new System.EventHandler(this.comboBox23_SelectedIndexChanged);
             // 
+            // R14
+            // 
+            this.R14.FormattingEnabled = true;
+            this.R14.Location = new System.Drawing.Point(346, 153);
+            this.R14.Name = "R14";
+            this.R14.Size = new System.Drawing.Size(87, 21);
+            this.R14.TabIndex = 108;
+            // 
+            // P17
+            // 
+            this.P17.Location = new System.Drawing.Point(38, 251);
+            this.P17.Name = "P17";
+            this.P17.Size = new System.Drawing.Size(94, 20);
+            this.P17.TabIndex = 99;
+            // 
+            // R13
+            // 
+            this.R13.FormattingEnabled = true;
+            this.R13.Location = new System.Drawing.Point(348, 126);
+            this.R13.Name = "R13";
+            this.R13.Size = new System.Drawing.Size(87, 21);
+            this.R13.TabIndex = 107;
+            // 
             // F20
             // 
             this.F20.Location = new System.Drawing.Point(305, 332);
             this.F20.Name = "F20";
             this.F20.Size = new System.Drawing.Size(32, 20);
             this.F20.TabIndex = 79;
+            // 
+            // R12
+            // 
+            this.R12.FormattingEnabled = true;
+            this.R12.Location = new System.Drawing.Point(348, 99);
+            this.R12.Name = "R12";
+            this.R12.Size = new System.Drawing.Size(87, 21);
+            this.R12.TabIndex = 106;
+            // 
+            // P16
+            // 
+            this.P16.Location = new System.Drawing.Point(38, 223);
+            this.P16.Name = "P16";
+            this.P16.Size = new System.Drawing.Size(94, 20);
+            this.P16.TabIndex = 98;
+            // 
+            // R11
+            // 
+            this.R11.FormattingEnabled = true;
+            this.R11.Location = new System.Drawing.Point(348, 72);
+            this.R11.Name = "R11";
+            this.R11.Size = new System.Drawing.Size(87, 21);
+            this.R11.TabIndex = 105;
             // 
             // C20
             // 
@@ -1103,12 +1564,35 @@
             this.C20.Size = new System.Drawing.Size(32, 20);
             this.C20.TabIndex = 78;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(372, 53);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(29, 13);
+            this.label23.TabIndex = 104;
+            this.label23.Text = "Role";
+            // 
+            // P15
+            // 
+            this.P15.Location = new System.Drawing.Point(38, 179);
+            this.P15.Name = "P15";
+            this.P15.Size = new System.Drawing.Size(94, 20);
+            this.P15.TabIndex = 97;
+            // 
             // A20
             // 
             this.A20.Location = new System.Drawing.Point(226, 332);
             this.A20.Name = "A20";
             this.A20.Size = new System.Drawing.Size(32, 20);
             this.A20.TabIndex = 77;
+            // 
+            // P14
+            // 
+            this.P14.Location = new System.Drawing.Point(38, 153);
+            this.P14.Name = "P14";
+            this.P14.Size = new System.Drawing.Size(94, 20);
+            this.P14.TabIndex = 96;
             // 
             // D20
             // 
@@ -1117,12 +1601,26 @@
             this.D20.Size = new System.Drawing.Size(32, 20);
             this.D20.TabIndex = 76;
             // 
+            // P13
+            // 
+            this.P13.Location = new System.Drawing.Point(38, 127);
+            this.P13.Name = "P13";
+            this.P13.Size = new System.Drawing.Size(94, 20);
+            this.P13.TabIndex = 95;
+            // 
             // K20
             // 
             this.K20.Location = new System.Drawing.Point(140, 332);
             this.K20.Name = "K20";
             this.K20.Size = new System.Drawing.Size(32, 20);
             this.K20.TabIndex = 75;
+            // 
+            // P12
+            // 
+            this.P12.Location = new System.Drawing.Point(38, 100);
+            this.P12.Name = "P12";
+            this.P12.Size = new System.Drawing.Size(94, 20);
+            this.P12.TabIndex = 94;
             // 
             // G19
             // 
@@ -1131,6 +1629,13 @@
             this.G19.Name = "G19";
             this.G19.Size = new System.Drawing.Size(87, 21);
             this.G19.TabIndex = 74;
+            // 
+            // P11
+            // 
+            this.P11.Location = new System.Drawing.Point(38, 72);
+            this.P11.Name = "P11";
+            this.P11.Size = new System.Drawing.Size(94, 20);
+            this.P11.TabIndex = 93;
             // 
             // F19
             // 
@@ -1599,411 +2104,879 @@
             this.label21.TabIndex = 1;
             this.label21.Text = "Score:";
             // 
-            // P1
-            // 
-            this.P1.Location = new System.Drawing.Point(44, 72);
-            this.P1.Name = "P1";
-            this.P1.Size = new System.Drawing.Size(94, 20);
-            this.P1.TabIndex = 83;
-            // 
-            // P2
-            // 
-            this.P2.Location = new System.Drawing.Point(44, 100);
-            this.P2.Name = "P2";
-            this.P2.Size = new System.Drawing.Size(94, 20);
-            this.P2.TabIndex = 84;
-            // 
-            // P3
-            // 
-            this.P3.Location = new System.Drawing.Point(44, 127);
-            this.P3.Name = "P3";
-            this.P3.Size = new System.Drawing.Size(94, 20);
-            this.P3.TabIndex = 85;
-            // 
-            // P4
-            // 
-            this.P4.Location = new System.Drawing.Point(44, 153);
-            this.P4.Name = "P4";
-            this.P4.Size = new System.Drawing.Size(94, 20);
-            this.P4.TabIndex = 86;
-            // 
-            // P5
-            // 
-            this.P5.Location = new System.Drawing.Point(44, 179);
-            this.P5.Name = "P5";
-            this.P5.Size = new System.Drawing.Size(94, 20);
-            this.P5.TabIndex = 87;
-            // 
-            // P10
-            // 
-            this.P10.Location = new System.Drawing.Point(44, 329);
-            this.P10.Name = "P10";
-            this.P10.Size = new System.Drawing.Size(94, 20);
-            this.P10.TabIndex = 92;
-            // 
-            // P9
-            // 
-            this.P9.Location = new System.Drawing.Point(44, 303);
-            this.P9.Name = "P9";
-            this.P9.Size = new System.Drawing.Size(94, 20);
-            this.P9.TabIndex = 91;
-            // 
-            // P8
-            // 
-            this.P8.Location = new System.Drawing.Point(44, 277);
-            this.P8.Name = "P8";
-            this.P8.Size = new System.Drawing.Size(94, 20);
-            this.P8.TabIndex = 90;
-            // 
-            // P7
-            // 
-            this.P7.Location = new System.Drawing.Point(44, 250);
-            this.P7.Name = "P7";
-            this.P7.Size = new System.Drawing.Size(94, 20);
-            this.P7.TabIndex = 89;
-            // 
-            // P6
-            // 
-            this.P6.Location = new System.Drawing.Point(44, 222);
-            this.P6.Name = "P6";
-            this.P6.Size = new System.Drawing.Size(94, 20);
-            this.P6.TabIndex = 88;
-            // 
-            // P20
-            // 
-            this.P20.Location = new System.Drawing.Point(38, 330);
-            this.P20.Name = "P20";
-            this.P20.Size = new System.Drawing.Size(94, 20);
-            this.P20.TabIndex = 102;
-            // 
-            // P19
-            // 
-            this.P19.Location = new System.Drawing.Point(38, 304);
-            this.P19.Name = "P19";
-            this.P19.Size = new System.Drawing.Size(94, 20);
-            this.P19.TabIndex = 101;
-            // 
-            // P18
-            // 
-            this.P18.Location = new System.Drawing.Point(38, 278);
-            this.P18.Name = "P18";
-            this.P18.Size = new System.Drawing.Size(94, 20);
-            this.P18.TabIndex = 100;
-            // 
-            // P17
-            // 
-            this.P17.Location = new System.Drawing.Point(38, 251);
-            this.P17.Name = "P17";
-            this.P17.Size = new System.Drawing.Size(94, 20);
-            this.P17.TabIndex = 99;
-            // 
-            // P16
-            // 
-            this.P16.Location = new System.Drawing.Point(38, 223);
-            this.P16.Name = "P16";
-            this.P16.Size = new System.Drawing.Size(94, 20);
-            this.P16.TabIndex = 98;
-            // 
-            // P15
-            // 
-            this.P15.Location = new System.Drawing.Point(38, 179);
-            this.P15.Name = "P15";
-            this.P15.Size = new System.Drawing.Size(94, 20);
-            this.P15.TabIndex = 97;
-            // 
-            // P14
-            // 
-            this.P14.Location = new System.Drawing.Point(38, 153);
-            this.P14.Name = "P14";
-            this.P14.Size = new System.Drawing.Size(94, 20);
-            this.P14.TabIndex = 96;
-            // 
-            // P13
-            // 
-            this.P13.Location = new System.Drawing.Point(38, 127);
-            this.P13.Name = "P13";
-            this.P13.Size = new System.Drawing.Size(94, 20);
-            this.P13.TabIndex = 95;
-            // 
-            // P12
-            // 
-            this.P12.Location = new System.Drawing.Point(38, 100);
-            this.P12.Name = "P12";
-            this.P12.Size = new System.Drawing.Size(94, 20);
-            this.P12.TabIndex = 94;
-            // 
-            // P11
-            // 
-            this.P11.Location = new System.Drawing.Point(38, 72);
-            this.P11.Name = "P11";
-            this.P11.Size = new System.Drawing.Size(94, 20);
-            this.P11.TabIndex = 93;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(373, 53);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(29, 13);
-            this.label22.TabIndex = 93;
-            this.label22.Text = "Role";
-            // 
-            // R10
-            // 
-            this.R10.FormattingEnabled = true;
-            this.R10.Location = new System.Drawing.Point(347, 331);
-            this.R10.Name = "R10";
-            this.R10.Size = new System.Drawing.Size(87, 21);
-            this.R10.TabIndex = 103;
-            // 
-            // R9
-            // 
-            this.R9.FormattingEnabled = true;
-            this.R9.Location = new System.Drawing.Point(347, 303);
-            this.R9.Name = "R9";
-            this.R9.Size = new System.Drawing.Size(87, 21);
-            this.R9.TabIndex = 102;
-            // 
-            // R8
-            // 
-            this.R8.FormattingEnabled = true;
-            this.R8.Location = new System.Drawing.Point(347, 277);
-            this.R8.Name = "R8";
-            this.R8.Size = new System.Drawing.Size(87, 21);
-            this.R8.TabIndex = 101;
-            // 
-            // R7
-            // 
-            this.R7.FormattingEnabled = true;
-            this.R7.Location = new System.Drawing.Point(347, 250);
-            this.R7.Name = "R7";
-            this.R7.Size = new System.Drawing.Size(87, 21);
-            this.R7.TabIndex = 100;
-            // 
-            // R6
-            // 
-            this.R6.FormattingEnabled = true;
-            this.R6.Location = new System.Drawing.Point(347, 223);
-            this.R6.Name = "R6";
-            this.R6.Size = new System.Drawing.Size(87, 21);
-            this.R6.TabIndex = 99;
-            // 
-            // R5
-            // 
-            this.R5.FormattingEnabled = true;
-            this.R5.Location = new System.Drawing.Point(347, 180);
-            this.R5.Name = "R5";
-            this.R5.Size = new System.Drawing.Size(87, 21);
-            this.R5.TabIndex = 98;
-            // 
-            // R4
-            // 
-            this.R4.FormattingEnabled = true;
-            this.R4.Location = new System.Drawing.Point(347, 153);
-            this.R4.Name = "R4";
-            this.R4.Size = new System.Drawing.Size(87, 21);
-            this.R4.TabIndex = 97;
-            // 
-            // R3
-            // 
-            this.R3.FormattingEnabled = true;
-            this.R3.Location = new System.Drawing.Point(349, 126);
-            this.R3.Name = "R3";
-            this.R3.Size = new System.Drawing.Size(87, 21);
-            this.R3.TabIndex = 96;
-            this.R3.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
-            // 
-            // R2
-            // 
-            this.R2.FormattingEnabled = true;
-            this.R2.Location = new System.Drawing.Point(349, 99);
-            this.R2.Name = "R2";
-            this.R2.Size = new System.Drawing.Size(87, 21);
-            this.R2.TabIndex = 95;
-            // 
-            // R1
-            // 
-            this.R1.FormattingEnabled = true;
-            this.R1.Location = new System.Drawing.Point(349, 72);
-            this.R1.Name = "R1";
-            this.R1.Size = new System.Drawing.Size(87, 21);
-            this.R1.TabIndex = 94;
-            // 
-            // R20
-            // 
-            this.R20.FormattingEnabled = true;
-            this.R20.Location = new System.Drawing.Point(346, 332);
-            this.R20.Name = "R20";
-            this.R20.Size = new System.Drawing.Size(87, 21);
-            this.R20.TabIndex = 114;
-            // 
-            // R19
-            // 
-            this.R19.FormattingEnabled = true;
-            this.R19.Location = new System.Drawing.Point(346, 304);
-            this.R19.Name = "R19";
-            this.R19.Size = new System.Drawing.Size(87, 21);
-            this.R19.TabIndex = 113;
-            // 
-            // R18
-            // 
-            this.R18.FormattingEnabled = true;
-            this.R18.Location = new System.Drawing.Point(346, 278);
-            this.R18.Name = "R18";
-            this.R18.Size = new System.Drawing.Size(87, 21);
-            this.R18.TabIndex = 112;
-            // 
-            // R17
-            // 
-            this.R17.FormattingEnabled = true;
-            this.R17.Location = new System.Drawing.Point(346, 251);
-            this.R17.Name = "R17";
-            this.R17.Size = new System.Drawing.Size(87, 21);
-            this.R17.TabIndex = 111;
-            // 
-            // R16
-            // 
-            this.R16.FormattingEnabled = true;
-            this.R16.Location = new System.Drawing.Point(346, 224);
-            this.R16.Name = "R16";
-            this.R16.Size = new System.Drawing.Size(87, 21);
-            this.R16.TabIndex = 110;
-            // 
-            // R15
-            // 
-            this.R15.FormattingEnabled = true;
-            this.R15.Location = new System.Drawing.Point(346, 180);
-            this.R15.Name = "R15";
-            this.R15.Size = new System.Drawing.Size(87, 21);
-            this.R15.TabIndex = 109;
-            this.R15.SelectedIndexChanged += new System.EventHandler(this.comboBox16_SelectedIndexChanged);
-            // 
-            // R14
-            // 
-            this.R14.FormattingEnabled = true;
-            this.R14.Location = new System.Drawing.Point(346, 153);
-            this.R14.Name = "R14";
-            this.R14.Size = new System.Drawing.Size(87, 21);
-            this.R14.TabIndex = 108;
-            // 
-            // R13
-            // 
-            this.R13.FormattingEnabled = true;
-            this.R13.Location = new System.Drawing.Point(348, 126);
-            this.R13.Name = "R13";
-            this.R13.Size = new System.Drawing.Size(87, 21);
-            this.R13.TabIndex = 107;
-            // 
-            // R12
-            // 
-            this.R12.FormattingEnabled = true;
-            this.R12.Location = new System.Drawing.Point(348, 99);
-            this.R12.Name = "R12";
-            this.R12.Size = new System.Drawing.Size(87, 21);
-            this.R12.TabIndex = 106;
-            // 
-            // R11
-            // 
-            this.R11.FormattingEnabled = true;
-            this.R11.Location = new System.Drawing.Point(348, 72);
-            this.R11.Name = "R11";
-            this.R11.Size = new System.Drawing.Size(87, 21);
-            this.R11.TabIndex = 105;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(372, 53);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(29, 13);
-            this.label23.TabIndex = 104;
-            this.label23.Text = "Role";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(63, 53);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(41, 13);
-            this.label24.TabIndex = 115;
-            this.label24.Text = "Players";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(74, 53);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 13);
-            this.label25.TabIndex = 116;
-            this.label25.Text = "Players";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(7, 206);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(523, 13);
-            this.label26.TabIndex = 117;
-            this.label26.Text = "---------------------------------------------------------------------------------" +
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(287, 58);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(74, 21);
+            this.label32.TabIndex = 17;
+            this.label32.Text = "Game 3";
+            this.label32.Visible = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label33);
+            this.groupBox3.Controls.Add(this.label34);
+            this.groupBox3.Controls.Add(this.label35);
+            this.groupBox3.Controls.Add(this.label36);
+            this.groupBox3.Controls.Add(this.R30);
+            this.groupBox3.Controls.Add(this.R29);
+            this.groupBox3.Controls.Add(this.R28);
+            this.groupBox3.Controls.Add(this.R27);
+            this.groupBox3.Controls.Add(this.R26);
+            this.groupBox3.Controls.Add(this.R25);
+            this.groupBox3.Controls.Add(this.R24);
+            this.groupBox3.Controls.Add(this.R23);
+            this.groupBox3.Controls.Add(this.R22);
+            this.groupBox3.Controls.Add(this.R21);
+            this.groupBox3.Controls.Add(this.label37);
+            this.groupBox3.Controls.Add(this.P30);
+            this.groupBox3.Controls.Add(this.P29);
+            this.groupBox3.Controls.Add(this.P28);
+            this.groupBox3.Controls.Add(this.P27);
+            this.groupBox3.Controls.Add(this.P26);
+            this.groupBox3.Controls.Add(this.P25);
+            this.groupBox3.Controls.Add(this.P24);
+            this.groupBox3.Controls.Add(this.P23);
+            this.groupBox3.Controls.Add(this.P22);
+            this.groupBox3.Controls.Add(this.P21);
+            this.groupBox3.Controls.Add(this.M3);
+            this.groupBox3.Controls.Add(this.label38);
+            this.groupBox3.Controls.Add(this.G30);
+            this.groupBox3.Controls.Add(this.F30);
+            this.groupBox3.Controls.Add(this.C30);
+            this.groupBox3.Controls.Add(this.A30);
+            this.groupBox3.Controls.Add(this.D30);
+            this.groupBox3.Controls.Add(this.K30);
+            this.groupBox3.Controls.Add(this.G29);
+            this.groupBox3.Controls.Add(this.F29);
+            this.groupBox3.Controls.Add(this.C29);
+            this.groupBox3.Controls.Add(this.A29);
+            this.groupBox3.Controls.Add(this.D29);
+            this.groupBox3.Controls.Add(this.K29);
+            this.groupBox3.Controls.Add(this.G28);
+            this.groupBox3.Controls.Add(this.F28);
+            this.groupBox3.Controls.Add(this.C28);
+            this.groupBox3.Controls.Add(this.A28);
+            this.groupBox3.Controls.Add(this.D28);
+            this.groupBox3.Controls.Add(this.K28);
+            this.groupBox3.Controls.Add(this.G27);
+            this.groupBox3.Controls.Add(this.F27);
+            this.groupBox3.Controls.Add(this.C27);
+            this.groupBox3.Controls.Add(this.A27);
+            this.groupBox3.Controls.Add(this.D27);
+            this.groupBox3.Controls.Add(this.K27);
+            this.groupBox3.Controls.Add(this.G26);
+            this.groupBox3.Controls.Add(this.F26);
+            this.groupBox3.Controls.Add(this.C26);
+            this.groupBox3.Controls.Add(this.A26);
+            this.groupBox3.Controls.Add(this.D26);
+            this.groupBox3.Controls.Add(this.K26);
+            this.groupBox3.Controls.Add(this.G25);
+            this.groupBox3.Controls.Add(this.F25);
+            this.groupBox3.Controls.Add(this.C25);
+            this.groupBox3.Controls.Add(this.A25);
+            this.groupBox3.Controls.Add(this.D25);
+            this.groupBox3.Controls.Add(this.K25);
+            this.groupBox3.Controls.Add(this.G24);
+            this.groupBox3.Controls.Add(this.F24);
+            this.groupBox3.Controls.Add(this.C24);
+            this.groupBox3.Controls.Add(this.A24);
+            this.groupBox3.Controls.Add(this.D24);
+            this.groupBox3.Controls.Add(this.K24);
+            this.groupBox3.Controls.Add(this.G23);
+            this.groupBox3.Controls.Add(this.F23);
+            this.groupBox3.Controls.Add(this.C23);
+            this.groupBox3.Controls.Add(this.A23);
+            this.groupBox3.Controls.Add(this.D23);
+            this.groupBox3.Controls.Add(this.K23);
+            this.groupBox3.Controls.Add(this.G22);
+            this.groupBox3.Controls.Add(this.F22);
+            this.groupBox3.Controls.Add(this.C22);
+            this.groupBox3.Controls.Add(this.A22);
+            this.groupBox3.Controls.Add(this.D22);
+            this.groupBox3.Controls.Add(this.K22);
+            this.groupBox3.Controls.Add(this.G21);
+            this.groupBox3.Controls.Add(this.F21);
+            this.groupBox3.Controls.Add(this.C21);
+            this.groupBox3.Controls.Add(this.A21);
+            this.groupBox3.Controls.Add(this.D21);
+            this.groupBox3.Controls.Add(this.K21);
+            this.groupBox3.Controls.Add(this.label39);
+            this.groupBox3.Controls.Add(this.label40);
+            this.groupBox3.Controls.Add(this.label41);
+            this.groupBox3.Controls.Add(this.label42);
+            this.groupBox3.Controls.Add(this.label43);
+            this.groupBox3.Controls.Add(this.label44);
+            this.groupBox3.Controls.Add(this.label45);
+            this.groupBox3.Controls.Add(this.S32);
+            this.groupBox3.Controls.Add(this.S31);
+            this.groupBox3.Controls.Add(this.label46);
+            this.groupBox3.Location = new System.Drawing.Point(284, 82);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(533, 367);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Game3";
+            this.groupBox3.Visible = false;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(7, 278);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(26, 17);
+            this.label33.TabIndex = 120;
+            this.label33.Text = "T2";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(7, 130);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(26, 17);
+            this.label34.TabIndex = 118;
+            this.label34.Text = "T1";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(7, 206);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(523, 13);
+            this.label35.TabIndex = 117;
+            this.label35.Text = "---------------------------------------------------------------------------------" +
     "--------------------------------------------------------------------------------" +
     "-----------";
             // 
-            // label27
+            // label36
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 206);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(523, 13);
-            this.label27.TabIndex = 118;
-            this.label27.Text = "---------------------------------------------------------------------------------" +
-    "--------------------------------------------------------------------------------" +
-    "-----------";
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(74, 53);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(41, 13);
+            this.label36.TabIndex = 116;
+            this.label36.Text = "Players";
             // 
-            // label28
+            // R30
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(7, 130);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(26, 17);
-            this.label28.TabIndex = 118;
-            this.label28.Text = "T1";
+            this.R30.FormattingEnabled = true;
+            this.R30.Location = new System.Drawing.Point(347, 331);
+            this.R30.Name = "R30";
+            this.R30.Size = new System.Drawing.Size(87, 21);
+            this.R30.TabIndex = 103;
             // 
-            // label29
+            // R29
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(6, 129);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(26, 17);
-            this.label29.TabIndex = 119;
-            this.label29.Text = "T1";
+            this.R29.FormattingEnabled = true;
+            this.R29.Location = new System.Drawing.Point(347, 303);
+            this.R29.Name = "R29";
+            this.R29.Size = new System.Drawing.Size(87, 21);
+            this.R29.TabIndex = 102;
             // 
-            // label30
+            // R28
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(7, 278);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(26, 17);
-            this.label30.TabIndex = 120;
-            this.label30.Text = "T2";
+            this.R28.FormattingEnabled = true;
+            this.R28.Location = new System.Drawing.Point(347, 277);
+            this.R28.Name = "R28";
+            this.R28.Size = new System.Drawing.Size(87, 21);
+            this.R28.TabIndex = 101;
             // 
-            // label31
+            // R27
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(6, 278);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(26, 17);
-            this.label31.TabIndex = 121;
-            this.label31.Text = "T2";
+            this.R27.FormattingEnabled = true;
+            this.R27.Location = new System.Drawing.Point(347, 250);
+            this.R27.Name = "R27";
+            this.R27.Size = new System.Drawing.Size(87, 21);
+            this.R27.TabIndex = 100;
+            // 
+            // R26
+            // 
+            this.R26.FormattingEnabled = true;
+            this.R26.Location = new System.Drawing.Point(347, 223);
+            this.R26.Name = "R26";
+            this.R26.Size = new System.Drawing.Size(87, 21);
+            this.R26.TabIndex = 99;
+            // 
+            // R25
+            // 
+            this.R25.FormattingEnabled = true;
+            this.R25.Location = new System.Drawing.Point(347, 180);
+            this.R25.Name = "R25";
+            this.R25.Size = new System.Drawing.Size(87, 21);
+            this.R25.TabIndex = 98;
+            // 
+            // R24
+            // 
+            this.R24.FormattingEnabled = true;
+            this.R24.Location = new System.Drawing.Point(347, 153);
+            this.R24.Name = "R24";
+            this.R24.Size = new System.Drawing.Size(87, 21);
+            this.R24.TabIndex = 97;
+            // 
+            // R23
+            // 
+            this.R23.FormattingEnabled = true;
+            this.R23.Location = new System.Drawing.Point(349, 126);
+            this.R23.Name = "R23";
+            this.R23.Size = new System.Drawing.Size(87, 21);
+            this.R23.TabIndex = 96;
+            // 
+            // R22
+            // 
+            this.R22.FormattingEnabled = true;
+            this.R22.Location = new System.Drawing.Point(349, 99);
+            this.R22.Name = "R22";
+            this.R22.Size = new System.Drawing.Size(87, 21);
+            this.R22.TabIndex = 95;
+            // 
+            // R21
+            // 
+            this.R21.FormattingEnabled = true;
+            this.R21.Location = new System.Drawing.Point(349, 72);
+            this.R21.Name = "R21";
+            this.R21.Size = new System.Drawing.Size(87, 21);
+            this.R21.TabIndex = 94;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(373, 53);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(29, 13);
+            this.label37.TabIndex = 93;
+            this.label37.Text = "Role";
+            // 
+            // P30
+            // 
+            this.P30.Location = new System.Drawing.Point(44, 329);
+            this.P30.Name = "P30";
+            this.P30.Size = new System.Drawing.Size(94, 20);
+            this.P30.TabIndex = 92;
+            // 
+            // P29
+            // 
+            this.P29.Location = new System.Drawing.Point(44, 303);
+            this.P29.Name = "P29";
+            this.P29.Size = new System.Drawing.Size(94, 20);
+            this.P29.TabIndex = 91;
+            // 
+            // P28
+            // 
+            this.P28.Location = new System.Drawing.Point(44, 277);
+            this.P28.Name = "P28";
+            this.P28.Size = new System.Drawing.Size(94, 20);
+            this.P28.TabIndex = 90;
+            // 
+            // P27
+            // 
+            this.P27.Location = new System.Drawing.Point(44, 250);
+            this.P27.Name = "P27";
+            this.P27.Size = new System.Drawing.Size(94, 20);
+            this.P27.TabIndex = 89;
+            // 
+            // P26
+            // 
+            this.P26.Location = new System.Drawing.Point(44, 222);
+            this.P26.Name = "P26";
+            this.P26.Size = new System.Drawing.Size(94, 20);
+            this.P26.TabIndex = 88;
+            // 
+            // P25
+            // 
+            this.P25.Location = new System.Drawing.Point(44, 179);
+            this.P25.Name = "P25";
+            this.P25.Size = new System.Drawing.Size(94, 20);
+            this.P25.TabIndex = 87;
+            // 
+            // P24
+            // 
+            this.P24.Location = new System.Drawing.Point(44, 153);
+            this.P24.Name = "P24";
+            this.P24.Size = new System.Drawing.Size(94, 20);
+            this.P24.TabIndex = 86;
+            this.P24.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            // 
+            // P23
+            // 
+            this.P23.Location = new System.Drawing.Point(44, 127);
+            this.P23.Name = "P23";
+            this.P23.Size = new System.Drawing.Size(94, 20);
+            this.P23.TabIndex = 85;
+            // 
+            // P22
+            // 
+            this.P22.Location = new System.Drawing.Point(44, 100);
+            this.P22.Name = "P22";
+            this.P22.Size = new System.Drawing.Size(94, 20);
+            this.P22.TabIndex = 84;
+            // 
+            // P21
+            // 
+            this.P21.Location = new System.Drawing.Point(44, 72);
+            this.P21.Name = "P21";
+            this.P21.Size = new System.Drawing.Size(94, 20);
+            this.P21.TabIndex = 83;
+            // 
+            // M3
+            // 
+            this.M3.FormattingEnabled = true;
+            this.M3.Location = new System.Drawing.Point(364, 19);
+            this.M3.Name = "M3";
+            this.M3.Size = new System.Drawing.Size(96, 21);
+            this.M3.TabIndex = 82;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(313, 18);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(45, 18);
+            this.label38.TabIndex = 81;
+            this.label38.Text = "Map:";
+            // 
+            // G30
+            // 
+            this.G30.FormattingEnabled = true;
+            this.G30.Location = new System.Drawing.Point(441, 331);
+            this.G30.Name = "G30";
+            this.G30.Size = new System.Drawing.Size(87, 21);
+            this.G30.TabIndex = 80;
+            // 
+            // F30
+            // 
+            this.F30.Location = new System.Drawing.Point(306, 331);
+            this.F30.Name = "F30";
+            this.F30.Size = new System.Drawing.Size(32, 20);
+            this.F30.TabIndex = 79;
+            // 
+            // C30
+            // 
+            this.C30.Location = new System.Drawing.Point(265, 331);
+            this.C30.Name = "C30";
+            this.C30.Size = new System.Drawing.Size(32, 20);
+            this.C30.TabIndex = 78;
+            // 
+            // A30
+            // 
+            this.A30.Location = new System.Drawing.Point(227, 331);
+            this.A30.Name = "A30";
+            this.A30.Size = new System.Drawing.Size(32, 20);
+            this.A30.TabIndex = 77;
+            // 
+            // D30
+            // 
+            this.D30.Location = new System.Drawing.Point(189, 331);
+            this.D30.Name = "D30";
+            this.D30.Size = new System.Drawing.Size(32, 20);
+            this.D30.TabIndex = 76;
+            // 
+            // K30
+            // 
+            this.K30.Location = new System.Drawing.Point(150, 331);
+            this.K30.Name = "K30";
+            this.K30.Size = new System.Drawing.Size(32, 20);
+            this.K30.TabIndex = 75;
+            // 
+            // G29
+            // 
+            this.G29.FormattingEnabled = true;
+            this.G29.Location = new System.Drawing.Point(441, 303);
+            this.G29.Name = "G29";
+            this.G29.Size = new System.Drawing.Size(87, 21);
+            this.G29.TabIndex = 74;
+            // 
+            // F29
+            // 
+            this.F29.Location = new System.Drawing.Point(306, 303);
+            this.F29.Name = "F29";
+            this.F29.Size = new System.Drawing.Size(32, 20);
+            this.F29.TabIndex = 73;
+            // 
+            // C29
+            // 
+            this.C29.Location = new System.Drawing.Point(265, 303);
+            this.C29.Name = "C29";
+            this.C29.Size = new System.Drawing.Size(32, 20);
+            this.C29.TabIndex = 72;
+            // 
+            // A29
+            // 
+            this.A29.Location = new System.Drawing.Point(227, 303);
+            this.A29.Name = "A29";
+            this.A29.Size = new System.Drawing.Size(32, 20);
+            this.A29.TabIndex = 71;
+            // 
+            // D29
+            // 
+            this.D29.Location = new System.Drawing.Point(189, 303);
+            this.D29.Name = "D29";
+            this.D29.Size = new System.Drawing.Size(32, 20);
+            this.D29.TabIndex = 70;
+            // 
+            // K29
+            // 
+            this.K29.Location = new System.Drawing.Point(150, 303);
+            this.K29.Name = "K29";
+            this.K29.Size = new System.Drawing.Size(32, 20);
+            this.K29.TabIndex = 69;
+            // 
+            // G28
+            // 
+            this.G28.FormattingEnabled = true;
+            this.G28.Location = new System.Drawing.Point(441, 277);
+            this.G28.Name = "G28";
+            this.G28.Size = new System.Drawing.Size(87, 21);
+            this.G28.TabIndex = 68;
+            // 
+            // F28
+            // 
+            this.F28.Location = new System.Drawing.Point(306, 277);
+            this.F28.Name = "F28";
+            this.F28.Size = new System.Drawing.Size(32, 20);
+            this.F28.TabIndex = 67;
+            // 
+            // C28
+            // 
+            this.C28.Location = new System.Drawing.Point(265, 277);
+            this.C28.Name = "C28";
+            this.C28.Size = new System.Drawing.Size(32, 20);
+            this.C28.TabIndex = 66;
+            // 
+            // A28
+            // 
+            this.A28.Location = new System.Drawing.Point(227, 277);
+            this.A28.Name = "A28";
+            this.A28.Size = new System.Drawing.Size(32, 20);
+            this.A28.TabIndex = 65;
+            // 
+            // D28
+            // 
+            this.D28.Location = new System.Drawing.Point(189, 277);
+            this.D28.Name = "D28";
+            this.D28.Size = new System.Drawing.Size(32, 20);
+            this.D28.TabIndex = 64;
+            // 
+            // K28
+            // 
+            this.K28.Location = new System.Drawing.Point(150, 277);
+            this.K28.Name = "K28";
+            this.K28.Size = new System.Drawing.Size(32, 20);
+            this.K28.TabIndex = 63;
+            // 
+            // G27
+            // 
+            this.G27.FormattingEnabled = true;
+            this.G27.Location = new System.Drawing.Point(441, 250);
+            this.G27.Name = "G27";
+            this.G27.Size = new System.Drawing.Size(87, 21);
+            this.G27.TabIndex = 62;
+            // 
+            // F27
+            // 
+            this.F27.Location = new System.Drawing.Point(306, 250);
+            this.F27.Name = "F27";
+            this.F27.Size = new System.Drawing.Size(32, 20);
+            this.F27.TabIndex = 61;
+            // 
+            // C27
+            // 
+            this.C27.Location = new System.Drawing.Point(265, 250);
+            this.C27.Name = "C27";
+            this.C27.Size = new System.Drawing.Size(32, 20);
+            this.C27.TabIndex = 60;
+            // 
+            // A27
+            // 
+            this.A27.Location = new System.Drawing.Point(227, 250);
+            this.A27.Name = "A27";
+            this.A27.Size = new System.Drawing.Size(32, 20);
+            this.A27.TabIndex = 59;
+            // 
+            // D27
+            // 
+            this.D27.Location = new System.Drawing.Point(189, 250);
+            this.D27.Name = "D27";
+            this.D27.Size = new System.Drawing.Size(32, 20);
+            this.D27.TabIndex = 58;
+            // 
+            // K27
+            // 
+            this.K27.Location = new System.Drawing.Point(150, 250);
+            this.K27.Name = "K27";
+            this.K27.Size = new System.Drawing.Size(32, 20);
+            this.K27.TabIndex = 57;
+            // 
+            // G26
+            // 
+            this.G26.FormattingEnabled = true;
+            this.G26.Location = new System.Drawing.Point(441, 223);
+            this.G26.Name = "G26";
+            this.G26.Size = new System.Drawing.Size(87, 21);
+            this.G26.TabIndex = 56;
+            // 
+            // F26
+            // 
+            this.F26.Location = new System.Drawing.Point(306, 223);
+            this.F26.Name = "F26";
+            this.F26.Size = new System.Drawing.Size(32, 20);
+            this.F26.TabIndex = 55;
+            // 
+            // C26
+            // 
+            this.C26.Location = new System.Drawing.Point(265, 223);
+            this.C26.Name = "C26";
+            this.C26.Size = new System.Drawing.Size(32, 20);
+            this.C26.TabIndex = 54;
+            // 
+            // A26
+            // 
+            this.A26.Location = new System.Drawing.Point(227, 223);
+            this.A26.Name = "A26";
+            this.A26.Size = new System.Drawing.Size(32, 20);
+            this.A26.TabIndex = 53;
+            // 
+            // D26
+            // 
+            this.D26.Location = new System.Drawing.Point(189, 223);
+            this.D26.Name = "D26";
+            this.D26.Size = new System.Drawing.Size(32, 20);
+            this.D26.TabIndex = 52;
+            // 
+            // K26
+            // 
+            this.K26.Location = new System.Drawing.Point(150, 223);
+            this.K26.Name = "K26";
+            this.K26.Size = new System.Drawing.Size(32, 20);
+            this.K26.TabIndex = 51;
+            // 
+            // G25
+            // 
+            this.G25.FormattingEnabled = true;
+            this.G25.Location = new System.Drawing.Point(441, 180);
+            this.G25.Name = "G25";
+            this.G25.Size = new System.Drawing.Size(87, 21);
+            this.G25.TabIndex = 50;
+            // 
+            // F25
+            // 
+            this.F25.Location = new System.Drawing.Point(306, 180);
+            this.F25.Name = "F25";
+            this.F25.Size = new System.Drawing.Size(32, 20);
+            this.F25.TabIndex = 49;
+            // 
+            // C25
+            // 
+            this.C25.Location = new System.Drawing.Point(265, 180);
+            this.C25.Name = "C25";
+            this.C25.Size = new System.Drawing.Size(32, 20);
+            this.C25.TabIndex = 48;
+            // 
+            // A25
+            // 
+            this.A25.Location = new System.Drawing.Point(227, 180);
+            this.A25.Name = "A25";
+            this.A25.Size = new System.Drawing.Size(32, 20);
+            this.A25.TabIndex = 47;
+            // 
+            // D25
+            // 
+            this.D25.Location = new System.Drawing.Point(189, 180);
+            this.D25.Name = "D25";
+            this.D25.Size = new System.Drawing.Size(32, 20);
+            this.D25.TabIndex = 46;
+            // 
+            // K25
+            // 
+            this.K25.Location = new System.Drawing.Point(150, 180);
+            this.K25.Name = "K25";
+            this.K25.Size = new System.Drawing.Size(32, 20);
+            this.K25.TabIndex = 45;
+            // 
+            // G24
+            // 
+            this.G24.FormattingEnabled = true;
+            this.G24.Location = new System.Drawing.Point(441, 153);
+            this.G24.Name = "G24";
+            this.G24.Size = new System.Drawing.Size(87, 21);
+            this.G24.TabIndex = 44;
+            // 
+            // F24
+            // 
+            this.F24.Location = new System.Drawing.Point(306, 153);
+            this.F24.Name = "F24";
+            this.F24.Size = new System.Drawing.Size(32, 20);
+            this.F24.TabIndex = 43;
+            // 
+            // C24
+            // 
+            this.C24.Location = new System.Drawing.Point(265, 153);
+            this.C24.Name = "C24";
+            this.C24.Size = new System.Drawing.Size(32, 20);
+            this.C24.TabIndex = 42;
+            // 
+            // A24
+            // 
+            this.A24.Location = new System.Drawing.Point(227, 153);
+            this.A24.Name = "A24";
+            this.A24.Size = new System.Drawing.Size(32, 20);
+            this.A24.TabIndex = 41;
+            // 
+            // D24
+            // 
+            this.D24.Location = new System.Drawing.Point(189, 153);
+            this.D24.Name = "D24";
+            this.D24.Size = new System.Drawing.Size(32, 20);
+            this.D24.TabIndex = 40;
+            // 
+            // K24
+            // 
+            this.K24.Location = new System.Drawing.Point(150, 153);
+            this.K24.Name = "K24";
+            this.K24.Size = new System.Drawing.Size(32, 20);
+            this.K24.TabIndex = 39;
+            // 
+            // G23
+            // 
+            this.G23.FormattingEnabled = true;
+            this.G23.Location = new System.Drawing.Point(443, 126);
+            this.G23.Name = "G23";
+            this.G23.Size = new System.Drawing.Size(87, 21);
+            this.G23.TabIndex = 38;
+            // 
+            // F23
+            // 
+            this.F23.Location = new System.Drawing.Point(308, 126);
+            this.F23.Name = "F23";
+            this.F23.Size = new System.Drawing.Size(32, 20);
+            this.F23.TabIndex = 37;
+            // 
+            // C23
+            // 
+            this.C23.Location = new System.Drawing.Point(267, 126);
+            this.C23.Name = "C23";
+            this.C23.Size = new System.Drawing.Size(32, 20);
+            this.C23.TabIndex = 36;
+            // 
+            // A23
+            // 
+            this.A23.Location = new System.Drawing.Point(229, 126);
+            this.A23.Name = "A23";
+            this.A23.Size = new System.Drawing.Size(32, 20);
+            this.A23.TabIndex = 35;
+            // 
+            // D23
+            // 
+            this.D23.Location = new System.Drawing.Point(191, 126);
+            this.D23.Name = "D23";
+            this.D23.Size = new System.Drawing.Size(32, 20);
+            this.D23.TabIndex = 34;
+            // 
+            // K23
+            // 
+            this.K23.Location = new System.Drawing.Point(152, 126);
+            this.K23.Name = "K23";
+            this.K23.Size = new System.Drawing.Size(32, 20);
+            this.K23.TabIndex = 33;
+            // 
+            // G22
+            // 
+            this.G22.FormattingEnabled = true;
+            this.G22.Location = new System.Drawing.Point(443, 99);
+            this.G22.Name = "G22";
+            this.G22.Size = new System.Drawing.Size(87, 21);
+            this.G22.TabIndex = 32;
+            // 
+            // F22
+            // 
+            this.F22.Location = new System.Drawing.Point(308, 99);
+            this.F22.Name = "F22";
+            this.F22.Size = new System.Drawing.Size(32, 20);
+            this.F22.TabIndex = 31;
+            // 
+            // C22
+            // 
+            this.C22.Location = new System.Drawing.Point(267, 99);
+            this.C22.Name = "C22";
+            this.C22.Size = new System.Drawing.Size(32, 20);
+            this.C22.TabIndex = 30;
+            // 
+            // A22
+            // 
+            this.A22.Location = new System.Drawing.Point(229, 99);
+            this.A22.Name = "A22";
+            this.A22.Size = new System.Drawing.Size(32, 20);
+            this.A22.TabIndex = 29;
+            // 
+            // D22
+            // 
+            this.D22.Location = new System.Drawing.Point(191, 99);
+            this.D22.Name = "D22";
+            this.D22.Size = new System.Drawing.Size(32, 20);
+            this.D22.TabIndex = 28;
+            // 
+            // K22
+            // 
+            this.K22.Location = new System.Drawing.Point(152, 99);
+            this.K22.Name = "K22";
+            this.K22.Size = new System.Drawing.Size(32, 20);
+            this.K22.TabIndex = 27;
+            // 
+            // G21
+            // 
+            this.G21.FormattingEnabled = true;
+            this.G21.Location = new System.Drawing.Point(443, 72);
+            this.G21.Name = "G21";
+            this.G21.Size = new System.Drawing.Size(87, 21);
+            this.G21.TabIndex = 26;
+            // 
+            // F21
+            // 
+            this.F21.Location = new System.Drawing.Point(308, 72);
+            this.F21.Name = "F21";
+            this.F21.Size = new System.Drawing.Size(32, 20);
+            this.F21.TabIndex = 25;
+            // 
+            // C21
+            // 
+            this.C21.Location = new System.Drawing.Point(267, 72);
+            this.C21.Name = "C21";
+            this.C21.Size = new System.Drawing.Size(32, 20);
+            this.C21.TabIndex = 24;
+            // 
+            // A21
+            // 
+            this.A21.Location = new System.Drawing.Point(229, 72);
+            this.A21.Name = "A21";
+            this.A21.Size = new System.Drawing.Size(32, 20);
+            this.A21.TabIndex = 23;
+            // 
+            // D21
+            // 
+            this.D21.Location = new System.Drawing.Point(191, 72);
+            this.D21.Name = "D21";
+            this.D21.Size = new System.Drawing.Size(32, 20);
+            this.D21.TabIndex = 22;
+            // 
+            // K21
+            // 
+            this.K21.Location = new System.Drawing.Point(152, 72);
+            this.K21.Name = "K21";
+            this.K21.Size = new System.Drawing.Size(32, 20);
+            this.K21.TabIndex = 21;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(468, 53);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(35, 13);
+            this.label39.TabIndex = 20;
+            this.label39.Text = "Agent";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(305, 53);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(20, 13);
+            this.label40.TabIndex = 19;
+            this.label40.Text = "FK";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(271, 53);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(28, 13);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "AVS";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(226, 53);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(39, 13);
+            this.label42.TabIndex = 17;
+            this.label42.Text = "Assists";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(188, 53);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(41, 13);
+            this.label43.TabIndex = 16;
+            this.label43.Text = "Deaths";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(157, 53);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(25, 13);
+            this.label44.TabIndex = 15;
+            this.label44.Text = "Kills";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(123, 21);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(11, 15);
+            this.label45.TabIndex = 4;
+            this.label45.Text = ":";
+            // 
+            // S32
+            // 
+            this.S32.Location = new System.Drawing.Point(140, 19);
+            this.S32.Name = "S32";
+            this.S32.Size = new System.Drawing.Size(34, 20);
+            this.S32.TabIndex = 3;
+            // 
+            // S31
+            // 
+            this.S31.Location = new System.Drawing.Point(81, 19);
+            this.S31.Name = "S31";
+            this.S31.Size = new System.Drawing.Size(34, 20);
+            this.S31.TabIndex = 2;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(13, 16);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(62, 21);
+            this.label46.TabIndex = 1;
+            this.label46.Text = "Score:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(407, 470);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(294, 76);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Game 1 and Game 2";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 584);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.End);
@@ -2022,6 +2995,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2232,5 +3207,105 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox R30;
+        private System.Windows.Forms.ComboBox R29;
+        private System.Windows.Forms.ComboBox R28;
+        private System.Windows.Forms.ComboBox R27;
+        private System.Windows.Forms.ComboBox R26;
+        private System.Windows.Forms.ComboBox R25;
+        private System.Windows.Forms.ComboBox R24;
+        private System.Windows.Forms.ComboBox R23;
+        private System.Windows.Forms.ComboBox R22;
+        private System.Windows.Forms.ComboBox R21;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox P30;
+        private System.Windows.Forms.TextBox P29;
+        private System.Windows.Forms.TextBox P28;
+        private System.Windows.Forms.TextBox P27;
+        private System.Windows.Forms.TextBox P26;
+        private System.Windows.Forms.TextBox P25;
+        private System.Windows.Forms.TextBox P24;
+        private System.Windows.Forms.TextBox P23;
+        private System.Windows.Forms.TextBox P22;
+        private System.Windows.Forms.TextBox P21;
+        private System.Windows.Forms.ComboBox M3;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ComboBox G30;
+        private System.Windows.Forms.TextBox F30;
+        private System.Windows.Forms.TextBox C30;
+        private System.Windows.Forms.TextBox A30;
+        private System.Windows.Forms.TextBox D30;
+        private System.Windows.Forms.TextBox K30;
+        private System.Windows.Forms.ComboBox G29;
+        private System.Windows.Forms.TextBox F29;
+        private System.Windows.Forms.TextBox C29;
+        private System.Windows.Forms.TextBox A29;
+        private System.Windows.Forms.TextBox D29;
+        private System.Windows.Forms.TextBox K29;
+        private System.Windows.Forms.ComboBox G28;
+        private System.Windows.Forms.TextBox F28;
+        private System.Windows.Forms.TextBox C28;
+        private System.Windows.Forms.TextBox A28;
+        private System.Windows.Forms.TextBox D28;
+        private System.Windows.Forms.TextBox K28;
+        private System.Windows.Forms.ComboBox G27;
+        private System.Windows.Forms.TextBox F27;
+        private System.Windows.Forms.TextBox C27;
+        private System.Windows.Forms.TextBox A27;
+        private System.Windows.Forms.TextBox D27;
+        private System.Windows.Forms.TextBox K27;
+        private System.Windows.Forms.ComboBox G26;
+        private System.Windows.Forms.TextBox F26;
+        private System.Windows.Forms.TextBox C26;
+        private System.Windows.Forms.TextBox A26;
+        private System.Windows.Forms.TextBox D26;
+        private System.Windows.Forms.TextBox K26;
+        private System.Windows.Forms.ComboBox G25;
+        private System.Windows.Forms.TextBox F25;
+        private System.Windows.Forms.TextBox C25;
+        private System.Windows.Forms.TextBox A25;
+        private System.Windows.Forms.TextBox D25;
+        private System.Windows.Forms.TextBox K25;
+        private System.Windows.Forms.ComboBox G24;
+        private System.Windows.Forms.TextBox F24;
+        private System.Windows.Forms.TextBox C24;
+        private System.Windows.Forms.TextBox A24;
+        private System.Windows.Forms.TextBox D24;
+        private System.Windows.Forms.TextBox K24;
+        private System.Windows.Forms.ComboBox G23;
+        private System.Windows.Forms.TextBox F23;
+        private System.Windows.Forms.TextBox C23;
+        private System.Windows.Forms.TextBox A23;
+        private System.Windows.Forms.TextBox D23;
+        private System.Windows.Forms.TextBox K23;
+        private System.Windows.Forms.ComboBox G22;
+        private System.Windows.Forms.TextBox F22;
+        private System.Windows.Forms.TextBox C22;
+        private System.Windows.Forms.TextBox A22;
+        private System.Windows.Forms.TextBox D22;
+        private System.Windows.Forms.TextBox K22;
+        private System.Windows.Forms.ComboBox G21;
+        private System.Windows.Forms.TextBox F21;
+        private System.Windows.Forms.TextBox C21;
+        private System.Windows.Forms.TextBox A21;
+        private System.Windows.Forms.TextBox D21;
+        private System.Windows.Forms.TextBox K21;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox S32;
+        private System.Windows.Forms.TextBox S31;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Button button1;
     }
 }
