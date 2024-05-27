@@ -170,6 +170,8 @@
             this.label84 = new System.Windows.Forms.Label();
             this.listBox9 = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox44 = new System.Windows.Forms.TextBox();
             this.textBox37 = new System.Windows.Forms.TextBox();
             this.textBox33 = new System.Windows.Forms.TextBox();
             this.T2 = new System.Windows.Forms.TextBox();
@@ -177,7 +179,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label62 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label59 = new System.Windows.Forms.Label();
@@ -191,6 +192,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.listBox6 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.textBox45 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -201,14 +204,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox44 = new System.Windows.Forms.TextBox();
-            this.textBox45 = new System.Windows.Forms.TextBox();
-            this.textBox46 = new System.Windows.Forms.TextBox();
-            this.textBox47 = new System.Windows.Forms.TextBox();
-            this.textBox48 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.textBox47 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1836,6 +1833,23 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(133, 292);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(62, 19);
+            this.button2.TabIndex = 63;
+            this.button2.Text = "Pesquisar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox44
+            // 
+            this.textBox44.Location = new System.Drawing.Point(18, 292);
+            this.textBox44.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox44.Name = "textBox44";
+            this.textBox44.Size = new System.Drawing.Size(102, 20);
+            this.textBox44.TabIndex = 33;
+            // 
             // textBox37
             // 
             this.textBox37.Enabled = false;
@@ -1876,7 +1890,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(666, 364);
+            this.label26.Location = new System.Drawing.Point(793, 327);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(121, 24);
@@ -1885,43 +1899,29 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.label19);
             this.groupBox10.Controls.Add(this.label18);
-            this.groupBox10.Controls.Add(this.textBox48);
             this.groupBox10.Controls.Add(this.textBox47);
             this.groupBox10.Controls.Add(this.button1);
-            this.groupBox10.Controls.Add(this.label62);
             this.groupBox10.Enabled = false;
-            this.groupBox10.Location = new System.Drawing.Point(669, 387);
+            this.groupBox10.Location = new System.Drawing.Point(796, 353);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox10.Size = new System.Drawing.Size(274, 116);
+            this.groupBox10.Size = new System.Drawing.Size(130, 121);
             this.groupBox10.TabIndex = 57;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "AlterMatch";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(28, 55);
+            this.button1.Location = new System.Drawing.Point(14, 60);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 45);
+            this.button1.Size = new System.Drawing.Size(102, 45);
             this.button1.TabIndex = 19;
             this.button1.Text = "Alter Games";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(121, 30);
-            this.label62.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(33, 20);
-            this.label62.TabIndex = 15;
-            this.label62.Text = "VS";
             // 
             // button9
             // 
@@ -1941,7 +1941,7 @@
             this.groupBox7.Controls.Add(this.button23);
             this.groupBox7.Controls.Add(this.button24);
             this.groupBox7.Enabled = false;
-            this.groupBox7.Location = new System.Drawing.Point(542, 289);
+            this.groupBox7.Location = new System.Drawing.Point(622, 353);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
@@ -1994,7 +1994,7 @@
             // 
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(539, 266);
+            this.label60.Location = new System.Drawing.Point(619, 330);
             this.label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(155, 24);
@@ -2016,7 +2016,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(329, 358);
+            this.label29.Location = new System.Drawing.Point(328, 330);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(116, 24);
@@ -2065,7 +2065,7 @@
             this.groupBox3.Controls.Add(this.label31);
             this.groupBox3.Controls.Add(this.label30);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(332, 381);
+            this.groupBox3.Location = new System.Drawing.Point(331, 353);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -2073,6 +2073,22 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "AddMatch";
+            // 
+            // textBox46
+            // 
+            this.textBox46.Location = new System.Drawing.Point(158, 31);
+            this.textBox46.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox46.Name = "textBox46";
+            this.textBox46.Size = new System.Drawing.Size(102, 20);
+            this.textBox46.TabIndex = 64;
+            // 
+            // textBox45
+            // 
+            this.textBox45.Location = new System.Drawing.Point(15, 30);
+            this.textBox45.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox45.Name = "textBox45";
+            this.textBox45.Size = new System.Drawing.Size(102, 20);
+            this.textBox45.TabIndex = 63;
             // 
             // button7
             // 
@@ -2182,76 +2198,23 @@
             this.label17.Text = "All Matches:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // textBox44
-            // 
-            this.textBox44.Location = new System.Drawing.Point(18, 292);
-            this.textBox44.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(102, 20);
-            this.textBox44.TabIndex = 33;
-            // 
-            // textBox45
-            // 
-            this.textBox45.Location = new System.Drawing.Point(15, 30);
-            this.textBox45.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox45.Name = "textBox45";
-            this.textBox45.Size = new System.Drawing.Size(102, 20);
-            this.textBox45.TabIndex = 63;
-            // 
-            // textBox46
-            // 
-            this.textBox46.Location = new System.Drawing.Point(158, 31);
-            this.textBox46.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(102, 20);
-            this.textBox46.TabIndex = 64;
-            // 
-            // textBox47
-            // 
-            this.textBox47.Enabled = false;
-            this.textBox47.Location = new System.Drawing.Point(15, 30);
-            this.textBox47.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(102, 20);
-            this.textBox47.TabIndex = 65;
-            // 
-            // textBox48
-            // 
-            this.textBox48.Enabled = false;
-            this.textBox48.Location = new System.Drawing.Point(158, 30);
-            this.textBox48.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new System.Drawing.Size(102, 20);
-            this.textBox48.TabIndex = 66;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(133, 292);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(62, 19);
-            this.button2.TabIndex = 63;
-            this.button2.Text = "Pesquisar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(39, 15);
+            this.label18.Location = new System.Drawing.Point(45, 15);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 13);
-            this.label18.TabIndex = 65;
-            this.label18.Text = "Team 1 ID";
+            this.label18.Size = new System.Drawing.Size(48, 13);
+            this.label18.TabIndex = 34;
+            this.label18.Text = "Match id";
             // 
-            // label19
+            // textBox47
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(180, 15);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 13);
-            this.label19.TabIndex = 65;
-            this.label19.Text = "Team 2 ID";
+            this.textBox47.Location = new System.Drawing.Point(14, 30);
+            this.textBox47.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox47.Name = "textBox47";
+            this.textBox47.Size = new System.Drawing.Size(102, 20);
+            this.textBox47.TabIndex = 33;
             // 
             // Form1
             // 
@@ -2459,7 +2422,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.ListBox listBox7;
@@ -2472,12 +2434,10 @@
         private System.Windows.Forms.TextBox T2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox44;
-        private System.Windows.Forms.TextBox textBox48;
-        private System.Windows.Forms.TextBox textBox47;
         private System.Windows.Forms.TextBox textBox46;
         private System.Windows.Forms.TextBox textBox45;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox47;
     }
 }
 
