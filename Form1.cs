@@ -1553,22 +1553,20 @@ namespace ValoLeague
 
         private void button24_Click(object sender, EventArgs e)
         {
-            if (listBox4.SelectedItem == null)
+            if ( textBox24.Text == null)
                 return;
 
-            string selectedMatch = listBox4.SelectedItem.ToString();
-            string matchIDString = selectedMatch.Split(':')[1].Split(',')[0].Trim();
+            string matchIDString = textBox24.Text.ToString();
             if (int.TryParse(matchIDString, out int matchID))
             {
                 RemoveMatch(matchID);
                 LoadMatches();
+                MessageBox.Show("Match removed!");
             }
             else
             {
                 MessageBox.Show("Error parsing match ID.");
             }
-
-            MessageBox.Show("Match removed!");
             groupBox7.Enabled = false;
             AbleEverything4();
 
