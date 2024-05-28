@@ -483,7 +483,14 @@ namespace ValoLeague
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@Age", age);
                 cmd.Parameters.AddWithValue("@Nickname", nickname);
-                cmd.Parameters.AddWithValue("@Team_ID", teamID);
+                if(teamID == -1)
+                {
+                    cmd.Parameters.AddWithValue("@Team_ID", null);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Team_ID", teamID);
+                }
 
                 cmd.ExecuteNonQuery();
 
@@ -736,9 +743,17 @@ namespace ValoLeague
                 string name = textBox31.Text;
                 int age = int.Parse(textBox30.Text);
                 string nickname = textBox26.Text;
-                int teamID = int.Parse(textBox32.Text);
-
-                AddPlayer(ccNumber, name, age, nickname, teamID);
+                if(textBox32.Text == "")
+                {
+                    MessageBox.Show("No team");
+                    AddPlayer(ccNumber, name, age, nickname, -1);
+                }
+                else
+                {
+                    MessageBox.Show("Team");
+                    int teamID = int.Parse(textBox32.Text);
+                    AddPlayer(ccNumber, name, age, nickname, teamID);
+                }
             }
             catch (Exception ex)
             {

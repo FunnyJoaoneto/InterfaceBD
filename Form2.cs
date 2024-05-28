@@ -227,13 +227,37 @@ namespace ValoLeague
         }
         private void addRolesToComboBoxes()
         {
-            string[] roles = { "Sentinel", "Duelist", "Initiator", "Controller" };
-            for (int i = 1; i <= 30; i++)
+            List<string> roles = new List<string>();
+            string query = "SELECT Role_Name FROM VALO_ROLE";
+
+            using (SqlCommand command = new SqlCommand(query, cn))
             {
+                try
+                {
+                    if (cn.State == System.Data.ConnectionState.Closed)
+                    {
+                        cn.Open();
+                    }
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        roles.Add(reader["Role_Name"].ToString());
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions (e.g., log the error)
+                    MessageBox.Show("An error occurred while retrieving roles: " + ex.Message);
+                }
+            }
+            for(int i = 1; i <= 30; i++)
+    {
                 System.Windows.Forms.ComboBox comboBoxR = this.Controls.Find($"R{i}", true).FirstOrDefault() as System.Windows.Forms.ComboBox;
                 if (comboBoxR != null)
                 {
-                    comboBoxR.Items.AddRange(roles);
+                    comboBoxR.Items.AddRange(roles.ToArray());
                     comboBoxR.SelectedIndexChanged += R_SelectedIndexChanged;
                 }
             }
@@ -261,23 +285,41 @@ namespace ValoLeague
         private void UpdateGItems(System.Windows.Forms.ComboBox comboBoxG, string role)
         {
             comboBoxG.Items.Clear();
-            switch (role)
+
+            // Define the query to get agent names based on the role
+            string query = "SELECT Agent_Name FROM VALO_AGENT WHERE ROLE_Role_Name = @Role";
+
+            // Create a list to store the agent names
+            List<string> agentNames = new List<string>();
+
+            using (SqlCommand command = new SqlCommand(query, cn))
             {
-                case "Controller":
-                    comboBoxG.Items.AddRange(new string[] { "Brimstone", "Viper", "Omen", "Astra", "Harbor", "Clove" });
-                    break;
-                case "Duelist":
-                    comboBoxG.Items.AddRange(new string[] { "Phoenix", "Jett", "Reyna", "Raze", "Yoru", "Neon", "Iso" });
-                    break;
-                case "Initiator":
-                    comboBoxG.Items.AddRange(new string[] { "Sova", "Breach", "Skye", "KAY/O", "Fade", "Gekko" });
-                    break;
-                case "Sentinel":
-                    comboBoxG.Items.AddRange(new string[] { "Killjoy", "Cypher", "Sage", "Chamber", "Deadlock" });
-                    break;
-                default:
-                    break;
+                command.Parameters.AddWithValue("@Role", role);
+
+                try
+                {
+                    if (cn.State == System.Data.ConnectionState.Closed)
+                    {
+                        cn.Open();
+                    }
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        agentNames.Add(reader["Agent_Name"].ToString());
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions (e.g., log the error)
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
             }
+
+            // Add the retrieved agent names to the ComboBox
+            comboBoxG.Items.AddRange(agentNames.ToArray());
         }
         private void addMapsToComboBoxes()
         {
