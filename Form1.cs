@@ -469,38 +469,39 @@ namespace ValoLeague
             }
         }
 
-        private void AddPlayer(int ccNumber, string name, int age, string nickname, int teamID)
+        private void AddPlayer(int ccNumber, string name, int age, string nickname, int? teamID)
         {
             if (!verifySGBDConnection())
                 return;
 
             try
             {
-                SqlCommand cmd = new SqlCommand("AddPlayer", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
-                cmd.Parameters.AddWithValue("@Name", name);
-                cmd.Parameters.AddWithValue("@Age", age);
-                cmd.Parameters.AddWithValue("@Nickname", nickname);
-                if(teamID == -1)
+                using (SqlCommand cmd = new SqlCommand("AddPlayer", cn))
                 {
-                    cmd.Parameters.AddWithValue("@Team_ID", null);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Age", age);
+                    cmd.Parameters.AddWithValue("@Nickname", nickname);
+                    cmd.Parameters.AddWithValue("@Team_ID", teamID.HasValue ? (object)teamID.Value : DBNull.Value);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Player added successfully!");
+                    LoadPlayers();
                 }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@Team_ID", teamID);
-                }
-
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Player added successfully!");
-                LoadPlayers();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding player: " + ex.Message);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
             }
         }
 
@@ -743,17 +744,9 @@ namespace ValoLeague
                 string name = textBox31.Text;
                 int age = int.Parse(textBox30.Text);
                 string nickname = textBox26.Text;
-                if(textBox32.Text == "")
-                {
-                    MessageBox.Show("No team");
-                    AddPlayer(ccNumber, name, age, nickname, -1);
-                }
-                else
-                {
-                    MessageBox.Show("Team");
-                    int teamID = int.Parse(textBox32.Text);
-                    AddPlayer(ccNumber, name, age, nickname, teamID);
-                }
+                int? teamID = string.IsNullOrEmpty(textBox32.Text) ? (int?)null : int.Parse(textBox32.Text);
+
+                AddPlayer(ccNumber, name, age, nickname, teamID);
             }
             catch (Exception ex)
             {
@@ -1022,6 +1015,55 @@ namespace ValoLeague
             // Call the search function, it will handle empty strings appropriately
             FilterPlayersByName(playerName);
         }
+
+        private void FilterPlayersByTeamID(int? teamID = null)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.FilterPlayersByTeamID(@TeamID)", cn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@TeamID", teamID.HasValue ? (object)teamID.Value : DBNull.Value);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataSet dataSet = new DataSet();
+                        adapter.Fill(dataSet, "Players");
+
+                        PopulatePlayersListBox(dataSet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading players: " + ex.Message);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox48.Text, out int teamID))
+            {
+                FilterPlayersByTeamID(teamID);
+            }
+            else
+            {
+                FilterPlayersByTeamID(); // Load all players if no valid team ID is provided
+            }
+        }
+
+
+
         private void RemovePlayerByID(int playerID)
         {
             try
@@ -1358,6 +1400,52 @@ namespace ValoLeague
             {
                 string coachInfo = $"ID: {row["CoachID"]} Name: {row["CoachName"]} Team ID: {row["Team_ID"]}";
                 listBox9.Items.Add(coachInfo);
+            }
+        }
+
+        private void FilterCoachesByTeamID(int? teamID = null)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.FilterCoachesByTeamID(@TeamID)", cn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@TeamID", teamID.HasValue ? (object)teamID.Value : DBNull.Value);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataSet dataSet = new DataSet();
+                        adapter.Fill(dataSet, "Coaches");
+
+                        PopulateCoachesListBox(dataSet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading coaches: " + ex.Message);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox49.Text, out int teamID))
+            {
+                FilterCoachesByTeamID(teamID);
+            }
+            else
+            {
+                FilterCoachesByTeamID(); // Load all coaches if no valid team ID is provided
             }
         }
 
