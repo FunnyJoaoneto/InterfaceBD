@@ -1062,6 +1062,18 @@ namespace ValoLeague
             }
         }
 
+        private void button3_Click_2(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox48.Text, out int teamID))
+            {
+                FilterPlayersByTeamID(teamID);
+            }
+            else
+            {
+                FilterPlayersByTeamID(); // Load all players if no valid team ID is provided
+            }
+        }
+
 
 
         private void RemovePlayerByID(int playerID)
@@ -1438,6 +1450,18 @@ namespace ValoLeague
         }
 
         private void button8_Click_1(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox49.Text, out int teamID))
+            {
+                FilterCoachesByTeamID(teamID);
+            }
+            else
+            {
+                FilterCoachesByTeamID(); // Load all coaches if no valid team ID is provided
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
         {
             if (int.TryParse(textBox49.Text, out int teamID))
             {
@@ -1889,6 +1913,7 @@ namespace ValoLeague
                 return -1;
             }
         }
+
     }
 
 }
