@@ -402,6 +402,62 @@ namespace ValoLeague
             }
 
         }
+        private void RemoveTeam(int teamID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("RemoveTeam", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Team removed successfully.");
+                }
+
+                // Recalculate HAS table
+                RecalculateHAS();
+
+                // Refresh the UI to reflect changes
+                LoadTeams();
+                LoadPlayers();
+                LoadCoaches();
+                LoadMatches();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing team: " + ex.Message);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+        }
+        private void RecalculateHAS()
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("RecalculateHAS", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("HAS table recalculated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error recalculating HAS table: " + ex.Message);
+            }
+        }
 
         private void TAddCan_Click(object sender, EventArgs e)
         {
@@ -414,11 +470,29 @@ namespace ValoLeague
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Team Removed!");
+            try
+            {
+                if (int.TryParse(textBox11.Text, out int teamID))
+                {
+                    var result = MessageBox.Show("Are you sure you want to remove this team? This action cannot be undone.", "Confirm Removal", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        RemoveTeam(teamID);
+                    }
+                    MessageBox.Show("Team Removed!");
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid team ID.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
             AbleEverything();
             groupBox2.Enabled = false;
-            //não esquecer de dar clear
-            //textBox11.Clear();
+            textBox11.Clear();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -816,7 +890,7 @@ namespace ValoLeague
                 string nickname = textBox28.Text;
                 string name = textBox16.Text;
                 int age = int.Parse(textBox15.Text);
-                int teamID = int.Parse(textBox17.Text);
+                int? teamID = string.IsNullOrEmpty(textBox17.Text) ? (int?)null : int.Parse(textBox17.Text);
 
                 UpdatePlayerDetails(ccNumber, nickname, name, age, teamID);
             }
@@ -863,32 +937,74 @@ namespace ValoLeague
             if (!verifySGBDConnection())
                 return;
 
+            DataSet playerDataSet = new DataSet();
+
+            try
+            {
+                // Load basic player information
+                string basicInfoQuery = $"SELECT * FROM PlayerBasicInfo WHERE CC_Number = {ccNumber}";
+                adapter = new SqlDataAdapter(basicInfoQuery, cn);
+                adapter.Fill(playerDataSet, "PlayerBasicInfo");
+
+                if (playerDataSet.Tables["PlayerBasicInfo"].Rows.Count > 0)
+                {
+                    DataRow row = playerDataSet.Tables["PlayerBasicInfo"].Rows[0];
+
+                    textBox14.Text = row["CC_Number"].ToString();
+                    textBox16.Text = row["Name"].ToString();
+                    textBox15.Text = row["Age"].ToString();
+                    textBox28.Text = row["Nickname"].ToString();
+                    textBox17.Text = row["Team_ID"].ToString();
+                    textBox21.Text = "";
+                    textBox20.Text = "";
+                    textBox19.Text = "";
+                    textBox18.Text = "";
+                    textBox22.Text = "";
+                    textBox23.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Basic player information not found.");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading basic player information: " + ex.Message);
+                return;
+            }
+
             try
             {
                 // Load Player Global Stats
-                string query = $"SELECT * FROM PlayerGlobalStats WHERE CC_Number = {ccNumber}";
-                adapter = new SqlDataAdapter(query, cn);
-                DataSet playerDataSet = new DataSet();
+                string statsQuery = $"SELECT * FROM PlayerGlobalStats WHERE CC_Number = {ccNumber}";
+                adapter = new SqlDataAdapter(statsQuery, cn);
                 adapter.Fill(playerDataSet, "PlayerStats");
 
-                DataRow row = playerDataSet.Tables["PlayerStats"].Rows[0];
+                if (playerDataSet.Tables["PlayerStats"].Rows.Count > 0)
+                {
+                    DataRow row = playerDataSet.Tables["PlayerStats"].Rows[0];
 
-
-                textBox14.Text = row["CC_Number"].ToString();
-                textBox16.Text = row["Name"].ToString();
-                textBox15.Text = row["Age"].ToString();
-                textBox28.Text = row["Nickname"].ToString();
-                textBox17.Text = row["Team_ID"].ToString();
-                textBox21.Text = row["TotalKills"].ToString();
-                textBox20.Text = row["TotalDeaths"].ToString();
-                textBox19.Text = row["TotalAssists"].ToString();
-                textBox18.Text = row["AverageAVS"].ToString();
-                textBox22.Text = row["AverageRating"].ToString();
-                textBox23.Text = row["TotalFirstKills"].ToString();
+                    textBox14.Text = row["CC_Number"].ToString();
+                    textBox16.Text = row["Name"].ToString();
+                    textBox15.Text = row["Age"].ToString();
+                    textBox28.Text = row["Nickname"].ToString();
+                    textBox17.Text = row["Team_ID"].ToString();
+                    textBox21.Text = row["TotalKills"].ToString();
+                    textBox20.Text = row["TotalDeaths"].ToString();
+                    textBox19.Text = row["TotalAssists"].ToString();
+                    textBox18.Text = row["AverageAVS"].ToString();
+                    textBox22.Text = row["AverageRating"].ToString();
+                    textBox23.Text = row["TotalFirstKills"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("This player has no games");
+                }
 
                 // Load Player Roles
-                query = $"SELECT ROLE_Role_Name FROM PlayerRoles WHERE PERSON_CC_Number = {ccNumber}";
-                adapter = new SqlDataAdapter(query, cn);
+                string rolesQuery = $"SELECT ROLE_Role_Name FROM PlayerRoles WHERE PERSON_CC_Number = {ccNumber}";
+                adapter = new SqlDataAdapter(rolesQuery, cn);
                 playerDataSet = new DataSet();
                 adapter.Fill(playerDataSet, "PlayerRoles");
 
@@ -899,8 +1015,8 @@ namespace ValoLeague
                 }
 
                 // Load Player Agents
-                query = $"SELECT AGENT_Agent_Name, GamesPlayed FROM PlayerAgents WHERE PLAYER_CC_Number = {ccNumber}";
-                adapter = new SqlDataAdapter(query, cn);
+                string agentsQuery = $"SELECT AGENT_Agent_Name, GamesPlayed FROM PlayerAgents WHERE PLAYER_CC_Number = {ccNumber}";
+                adapter = new SqlDataAdapter(agentsQuery, cn);
                 playerDataSet = new DataSet();
                 adapter.Fill(playerDataSet, "PlayerAgents");
 
@@ -922,7 +1038,7 @@ namespace ValoLeague
 
         }
 
-        private void UpdatePlayerDetails(int ccNumber, string nickname, string name, int age, int teamID)
+        private void UpdatePlayerDetails(int ccNumber, string nickname, string name, int age, int? teamID)
         {
             if (!verifySGBDConnection())
                 return;
@@ -937,7 +1053,7 @@ namespace ValoLeague
                     cmd.Parameters.AddWithValue("@Nickname", nickname);
                     cmd.Parameters.AddWithValue("@Name", name);
                     cmd.Parameters.AddWithValue("@Age", age);
-                    cmd.Parameters.AddWithValue("@TeamID", teamID);
+                    cmd.Parameters.AddWithValue("@TeamID", teamID.HasValue ? (object)teamID.Value : DBNull.Value);
 
                     // Ensure the connection is open before executing the command
                     if (cn.State != ConnectionState.Open)
@@ -1199,7 +1315,7 @@ namespace ValoLeague
             }
         }
 
-        private void AddCoach(int ccNumber, string name, int age, int teamID)
+        private void AddCoach(int ccNumber, string name, int age, int? teamID)
         {
             try
             {
@@ -1213,7 +1329,7 @@ namespace ValoLeague
                         cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
                         cmd.Parameters.AddWithValue("@Name", name);
                         cmd.Parameters.AddWithValue("@Age", age);
-                        cmd.Parameters.AddWithValue("@TeamID", teamID);
+                        cmd.Parameters.AddWithValue("@TeamID", teamID.HasValue ? (object)teamID.Value : DBNull.Value);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -1233,7 +1349,7 @@ namespace ValoLeague
                 int ccNumber = int.Parse(textBox39.Text);
                 string name = textBox36.Text;
                 int age = int.Parse(textBox38.Text);
-                int teamID = int.Parse(textBox35.Text);
+                int? teamID = string.IsNullOrEmpty(textBox35.Text) ? (int?)null : int.Parse(textBox35.Text);
 
                 AddCoach(ccNumber, name, age, teamID);
                 // Refresh the coach list
@@ -1480,7 +1596,7 @@ namespace ValoLeague
             // Call the search function, it will handle empty strings appropriately
             SearchCoachByName(coachName);
         }
-        private void UpdateCoachDetails(int ccNumber, string name, int age, int teamID)
+        private void UpdateCoachDetails(int ccNumber, string name, int age, int? teamID)
         {
             try
             {
@@ -1494,7 +1610,7 @@ namespace ValoLeague
                         cmd.Parameters.AddWithValue("@CC_Number", ccNumber);
                         cmd.Parameters.AddWithValue("@Name", name);
                         cmd.Parameters.AddWithValue("@Age", age);
-                        cmd.Parameters.AddWithValue("@TeamID", teamID);
+                        cmd.Parameters.AddWithValue("@TeamID", teamID.HasValue ? (object)teamID.Value : DBNull.Value);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -1514,7 +1630,7 @@ namespace ValoLeague
                 int ccNumber = int.Parse(textBox43.Text);
                 int age = int.Parse(textBox42.Text);
                 string name = textBox41.Text;
-                int teamID = int.Parse(textBox40.Text);
+                int? teamID = string.IsNullOrEmpty(textBox40.Text) ? (int?)null : int.Parse(textBox40.Text);
 
                 UpdateCoachDetails(ccNumber, name, age, teamID);
                 // Refresh the coach list
@@ -1533,6 +1649,11 @@ namespace ValoLeague
             button6.Visible = false;
             AbleEverything3();
             DisableAlterationsCoach();
+
+            textBox40.Clear();
+            textBox41.Clear();
+            textBox42.Clear();
+            textBox43.Clear();
         }
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
