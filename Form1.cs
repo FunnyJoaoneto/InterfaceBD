@@ -1227,6 +1227,31 @@ namespace ValoLeague
 
         }
 
+        private void LoadUnemployedPlayers()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "SELECT * FROM dbo.ListUnemployedPlayers()";
+                adapter = new SqlDataAdapter(query, cn);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "Players");
+
+                PopulatePlayersListBox(dataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading unemployed players: " + ex.Message);
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            LoadUnemployedPlayers();
+        }
+
 
 
 

@@ -377,18 +377,166 @@ namespace ValoLeague
         {
             try
             {
-                AddMatch();
-                MessageBox.Show("Match Added!");
+                if (loadStats)
+                {
+                    UpdateMatch();
+                    MessageBox.Show("Match Updated!");
+                }
+                else
+                {
+                    AddMatch();
+                    MessageBox.Show("Match Added!");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error adding match: " + ex.Message);
+                MessageBox.Show("Error processing match: " + ex.Message);
             }
             finally
             {
                 this.Close();
                 this.form1.Show();
                 this.form1.LoadMatches();
+            }
+        }
+
+        private int getNumGames(int matchid)
+        {
+            List<string> games = new List<string>();
+            string query = "SELECT Game_ID FROM VALO_GAME WHERE MATCH_Match_ID = @MID";
+
+            using (SqlCommand command = new SqlCommand(query, cn))
+            {
+                command.Parameters.AddWithValue("@MID", matchid);
+
+                try
+                {
+                    if (cn.State == System.Data.ConnectionState.Closed)
+                    {
+                        cn.Open();
+                    }
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        games.Add(reader["Game_ID"].ToString());
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions (e.g., log the error)
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+            return games.Count();
+        }
+
+        private void UpdateMatch()
+        {
+
+            using (SqlConnection conn = getSGBDConnection())
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("UpdateMatch", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Match_ID", matchID);
+                    cmd.ExecuteNonQuery();
+                }
+
+                UpdateGame(conn, 1, int.Parse(S11.Text), int.Parse(S12.Text), matchID, M1.Text);
+                UpdateGame(conn, 2, int.Parse(S21.Text), int.Parse(S22.Text), matchID, M2.Text);
+
+                int maxPlayers = 20;
+
+                if(getNumGames(matchID) == 2 && !string.IsNullOrEmpty(M3.Text))
+                {
+                    AddGame(conn, 3, int.Parse(S31.Text), int.Parse(S32.Text), matchID, M3.Text);
+                    maxPlayers = 30;
+                    for (int i = 21; i <= maxPlayers; i++)
+                    {
+                        AddPlayerStats(conn, GetPlayerStatsParameters(i));
+                    }
+                }
+                else if (getNumGames(matchID) == 3 && !string.IsNullOrEmpty(M3.Text))
+                {
+                    UpdateGame(conn, 3, int.Parse(S31.Text), int.Parse(S32.Text), matchID, M3.Text);
+                    maxPlayers = 30; // If there is a third game, include players 21-30
+                }
+                else if (getNumGames(matchID) == 3 && string.IsNullOrEmpty(M3.Text))
+                {
+                    RemoveGame(conn, 3, matchID);
+                }
+                else
+                {
+                    MessageBox.Show("Isto não deve aparecer");
+                }
+
+                for (int i = 1; i <= maxPlayers; i++)
+                {
+                    UpdatePlayerStats(conn, GetPlayerStatsParameters(i));
+                }
+            }
+        }
+
+        private void RemoveGame(SqlConnection conn, int gameId, int matchId)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                string query = "RemoveGame"; // Name of the stored procedure
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MatchID", matchId);
+                cmd.Parameters.AddWithValue("@GameID", gameId);
+
+                //MessageBox.Show($"Executing RemoveGame with MatchID: {matchId}, GameID: {gameId}");
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Game removed successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error removing game: " + ex.Message);
+            }
+        }
+
+        private void UpdateGame(SqlConnection conn, int gameId, int roundsWonTeam1, int roundsWonTeam2, int matchId, string map)
+        {
+            using (SqlCommand cmd = new SqlCommand("UpdateGame", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Game_ID", gameId);
+                cmd.Parameters.AddWithValue("@Rounds_Won_Team_1", roundsWonTeam1);
+                cmd.Parameters.AddWithValue("@Rounds_Won_Team_2", roundsWonTeam2);
+                cmd.Parameters.AddWithValue("@Match_ID", matchId);
+                cmd.Parameters.AddWithValue("@Map", map);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void UpdatePlayerStats(SqlConnection conn, PlayerStatsParameters parameters)
+        {
+            using (SqlCommand cmd = new SqlCommand("UpdatePlayerStats", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PLAYER_CC_Number", parameters.PlayerId);
+                cmd.Parameters.AddWithValue("@GAME_Match_ID", matchID);
+                cmd.Parameters.AddWithValue("@GAME_Game_ID", parameters.GameId);
+                cmd.Parameters.AddWithValue("@Kills", parameters.Kills);
+                cmd.Parameters.AddWithValue("@Deaths", parameters.Deaths);
+                cmd.Parameters.AddWithValue("@Assists", parameters.Assists);
+                cmd.Parameters.AddWithValue("@AVS", parameters.AVS);
+                cmd.Parameters.AddWithValue("@Rating", parameters.Rating);
+                cmd.Parameters.AddWithValue("@First_kills", parameters.FirstKills);
+                cmd.Parameters.AddWithValue("@AGENT_Agent_Name", parameters.AgentName);
+                cmd.Parameters.AddWithValue("@ROLE_Role_Name", parameters.RoleName);
+                cmd.ExecuteNonQuery();
             }
         }
 

@@ -212,6 +212,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.button15 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -745,6 +746,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button15);
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.textBox48);
@@ -788,7 +790,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(18, 405);
+            this.label19.Location = new System.Drawing.Point(19, 400);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(97, 13);
@@ -797,7 +799,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(157, 420);
+            this.button3.Location = new System.Drawing.Point(158, 415);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(60, 19);
@@ -808,7 +810,7 @@
             // 
             // textBox48
             // 
-            this.textBox48.Location = new System.Drawing.Point(20, 420);
+            this.textBox48.Location = new System.Drawing.Point(21, 415);
             this.textBox48.Margin = new System.Windows.Forms.Padding(2);
             this.textBox48.Name = "textBox48";
             this.textBox48.Size = new System.Drawing.Size(133, 20);
@@ -867,7 +869,7 @@
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(120, 446);
+            this.button22.Location = new System.Drawing.Point(122, 453);
             this.button22.Margin = new System.Windows.Forms.Padding(2);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(86, 37);
@@ -947,7 +949,7 @@
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(347, 294);
+            this.label50.Location = new System.Drawing.Point(375, 294);
             this.label50.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(118, 24);
@@ -969,7 +971,7 @@
             this.groupBox6.Controls.Add(this.label52);
             this.groupBox6.Controls.Add(this.textBox27);
             this.groupBox6.Enabled = false;
-            this.groupBox6.Location = new System.Drawing.Point(346, 323);
+            this.groupBox6.Location = new System.Drawing.Point(374, 323);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
@@ -1353,7 +1355,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(20, 446);
+            this.button13.Location = new System.Drawing.Point(22, 453);
             this.button13.Margin = new System.Windows.Forms.Padding(2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(82, 37);
@@ -1364,7 +1366,7 @@
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(221, 446);
+            this.button14.Location = new System.Drawing.Point(223, 453);
             this.button14.Margin = new System.Windows.Forms.Padding(2);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(86, 37);
@@ -1375,7 +1377,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(157, 379);
+            this.button12.Location = new System.Drawing.Point(158, 374);
             this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(60, 19);
@@ -1386,7 +1388,7 @@
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(20, 379);
+            this.textBox13.Location = new System.Drawing.Point(21, 374);
             this.textBox13.Margin = new System.Windows.Forms.Padding(2);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(133, 20);
@@ -1395,7 +1397,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(18, 363);
+            this.label35.Location = new System.Drawing.Point(19, 358);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(103, 13);
@@ -1420,7 +1422,7 @@
             this.listBox8.Location = new System.Drawing.Point(20, 46);
             this.listBox8.Margin = new System.Windows.Forms.Padding(2);
             this.listBox8.Name = "listBox8";
-            this.listBox8.Size = new System.Drawing.Size(221, 316);
+            this.listBox8.Size = new System.Drawing.Size(221, 303);
             this.listBox8.TabIndex = 0;
             this.listBox8.SelectedIndexChanged += new System.EventHandler(this.listBox8_SelectedIndexChanged);
             // 
@@ -2288,6 +2290,17 @@
             this.label17.Text = "All Matches:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(249, 311);
+            this.button15.Margin = new System.Windows.Forms.Padding(2);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(81, 41);
+            this.button15.TabIndex = 63;
+            this.button15.Text = "Show players with no team";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2516,6 +2529,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox49;
+        private System.Windows.Forms.Button button15;
     }
 }
 
