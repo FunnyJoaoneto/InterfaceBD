@@ -1831,11 +1831,18 @@ namespace ValoLeague
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(1, 2, 3, this, true); //id team 1, id team 2, match id, (form, sempre "this"), se true vai dar load ás stats)
-            groupBox10.Enabled = false;
-            AbleEverything4();
-            form2.Show();
-            this.Hide();
+            if (int.TryParse(textBox47.Text, out int matchID))
+            {
+                Form2 form2 = new Form2(-1, -1, matchID, this, true);
+                groupBox10.Enabled = false;
+                AbleEverything4();
+                form2.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid match ID.");
+            }
         }
 
         private void label31_Click(object sender, EventArgs e)
@@ -2035,6 +2042,10 @@ namespace ValoLeague
             }
         }
 
+        private void groupBox10_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

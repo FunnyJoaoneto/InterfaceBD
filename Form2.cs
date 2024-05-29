@@ -39,7 +39,7 @@ namespace ValoLeague
             verifySGBDConnection();
             if (load)
             {
-                LoadStats();
+                getMatchDetails(mid);
             }
             else
             {
@@ -63,6 +63,206 @@ namespace ValoLeague
 
             return cn.State == ConnectionState.Open;
         }
+
+        private void getMatchDetails(int matchID)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            DataSet matchDetailsDataSet = new DataSet();
+
+            try
+            {
+                string query = $"SELECT * FROM dbo.getmatchdetails({matchID})";
+                adapter = new SqlDataAdapter(query, cn);
+                adapter.Fill(matchDetailsDataSet, "MatchDetails");
+
+                if (matchDetailsDataSet.Tables["MatchDetails"].Rows.Count > 0)
+                {
+                    var matchDetails = matchDetailsDataSet.Tables["MatchDetails"].AsEnumerable();
+
+                    var team1Details = matchDetails.First();
+                    T1.Text = team1Details["Team_1_Name"].ToString();
+                    T2.Text = team1Details["Team_2_Name"].ToString();
+
+                    var games = matchDetails
+                        .GroupBy(row => row.Field<int>("Game_ID"))
+                        .ToList();
+
+                    for (int i = 0; i < 3; i++) // Iterate through 3 possible games
+                    {
+                        var gameIndex = i + 1;
+
+                        if (i < games.Count)
+                        {
+                            var game = games[i].First();
+
+                            SetControlText($"M{gameIndex}", game["Map"].ToString());
+                            SetControlText($"S{gameIndex}1", game["Rounds_Won_Team_1"].ToString());
+                            SetControlText($"S{gameIndex}2", game["Rounds_Won_Team_2"].ToString());
+
+                            for (int j = 0; j < 10; j++) // Iterate through 10 possible players per game
+                            {
+                                var playerIndex = (gameIndex - 1) * 10 + j + 1;
+
+                                if (j < games[i].Count())
+                                {
+                                    var player = games[i].ElementAt(j);
+
+                                    SetControlText($"P{playerIndex}", player["PLAYER_CC_Number"].ToString());
+                                    SetControlText($"K{playerIndex}", player["Kills"].ToString());
+                                    SetControlText($"D{playerIndex}", player["Deaths"].ToString());
+                                    SetControlText($"A{playerIndex}", player["Assists"].ToString());
+                                    SetControlText($"C{playerIndex}", player["AVS"].ToString());
+                                    SetControlText($"F{playerIndex}", player["First_kills"].ToString());
+                                    SetControlText($"E{playerIndex}", player["Rating"].ToString());
+                                    SetComboBoxValue($"R{playerIndex}", player["ROLE_Role_Name"].ToString());
+                                    SetComboBoxValue($"G{playerIndex}", player["AGENT_Agent_Name"].ToString());
+                                }
+                                else
+                                {
+                                    // Clear the controls if there are no more players for this game
+                                    SetControlText($"P{playerIndex}", "");
+                                    SetControlText($"K{playerIndex}", "");
+                                    SetControlText($"D{playerIndex}", "");
+                                    SetControlText($"A{playerIndex}", "");
+                                    SetControlText($"C{playerIndex}", "");
+                                    SetControlText($"F{playerIndex}", "");
+                                    SetControlText($"E{playerIndex}", "");
+                                    SetComboBoxValue($"R{playerIndex}", "");
+                                    SetComboBoxValue($"G{playerIndex}", "");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Clear the controls if there are no more games
+                            SetControlText($"M{gameIndex}", "");
+                            SetControlText($"S{gameIndex}1", "");
+                            SetControlText($"S{gameIndex}2", "");
+
+                            for (int j = 0; j < 10; j++)
+                            {
+                                var playerIndex = (gameIndex - 1) * 10 + j + 1;
+
+                                SetControlText($"P{playerIndex}", "");
+                                SetControlText($"K{playerIndex}", "");
+                                SetControlText($"D{playerIndex}", "");
+                                SetControlText($"A{playerIndex}", "");
+                                SetControlText($"C{playerIndex}", "");
+                                SetControlText($"F{playerIndex}", "");
+                                SetControlText($"E{playerIndex}", "");
+                                SetComboBoxValue($"R{playerIndex}", "");
+                                SetComboBoxValue($"G{playerIndex}", "");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No match details found.");
+                }
+
+                // Call getPlayersFromMatch to fill list boxes
+                getPlayersFromMatch();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading match details: " + ex.Message);
+            }
+        }
+
+        private void SetControlText(string controlName, string text)
+        {
+            var control = this.Controls.Find(controlName, true).FirstOrDefault();
+            if (control != null)
+            {
+                control.Text = text;
+            }
+        }
+
+        private void SetComboBoxValue(string controlName, string value)
+        {
+            var control = this.Controls.Find(controlName, true).FirstOrDefault() as System.Windows.Forms.ComboBox;
+            if (control != null)
+            {
+                if (!control.Items.Contains(value))
+                {
+                    control.Items.Add(value);
+                }
+                control.SelectedItem = value;
+            }
+        }
+
+        private void getPlayersFromMatch()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+
+            try
+            {
+                // Define arrays for player ID textboxes
+                string[] team1PlayerIds = { "P1", "P2", "P3", "P4", "P5" };
+                string[] team2PlayerIds = { "P6", "P7", "P8", "P9", "P10" };
+
+                // Fetch and add players from team 1
+                foreach (string playerIdControl in team1PlayerIds)
+                {
+                    var playerIdTextBox = this.Controls.Find(playerIdControl, true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                    if (playerIdTextBox != null && int.TryParse(playerIdTextBox.Text, out int playerId))
+                    {
+                        var playerInfo = GetPlayerInfo(playerId);
+                        if (playerInfo != null && !listBox1.Items.Contains(playerInfo))
+                        {
+                            listBox1.Items.Add(playerInfo);
+                        }
+                    }
+                }
+
+                // Fetch and add players from team 2
+                foreach (string playerIdControl in team2PlayerIds)
+                {
+                    var playerIdTextBox = this.Controls.Find(playerIdControl, true).FirstOrDefault() as System.Windows.Forms.TextBox;
+                    if (playerIdTextBox != null && int.TryParse(playerIdTextBox.Text, out int playerId))
+                    {
+                        var playerInfo = GetPlayerInfo(playerId);
+                        if (playerInfo != null && !listBox2.Items.Contains(playerInfo))
+                        {
+                            listBox2.Items.Add(playerInfo);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading player details: " + ex.Message);
+            }
+        }
+
+        private string GetPlayerInfo(int playerId)
+        {
+            try
+            {
+                string query = $"SELECT Nickname FROM VALO_PLAYER WHERE PERSON_CC_Number = {playerId}";
+                using (SqlCommand cmd = new SqlCommand(query, cn))
+                {
+                    var nickname = cmd.ExecuteScalar()?.ToString();
+                    if (!string.IsNullOrEmpty(nickname))
+                    {
+                        return $"ID: {playerId} Nickname: {nickname}";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching player info: " + ex.Message);
+            }
+            return null;
+        }
+
         private void LoadTeamDetails()
         {
             var team1Details = GetTeamDetails(team1ID);
