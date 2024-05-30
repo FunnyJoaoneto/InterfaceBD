@@ -373,6 +373,34 @@ namespace ValoLeague
             this.form1.Show();
         }
 
+        private void detectAndRemoveInvalidMatches()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("detectAndRemoveInvalidMatches", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cn.InfoMessage += (sender, e) =>
+                    {
+                        foreach (var info in e.Message.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            MessageBox.Show(info, "Invalid Match Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    };
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error detecting and removing invalid matches: " + ex.Message);
+            }
+        }
+
         private void End_Click(object sender, EventArgs e)
         {
             try
@@ -387,6 +415,8 @@ namespace ValoLeague
                     AddMatch();
                     MessageBox.Show("Match Added!");
                 }
+
+                detectAndRemoveInvalidMatches();
             }
             catch (Exception ex)
             {
