@@ -826,7 +826,6 @@ namespace ValoLeague
             {
                 MessageBox.Show("Invalid input: " + ex.Message);
             }
-            MessageBox.Show("Player added");
             AbleEverything2();
             groupBox6.Enabled = false;
             textBox26.Clear();
@@ -1384,8 +1383,6 @@ namespace ValoLeague
             {
                 MessageBox.Show("Please enter valid values for all fields.");
             }
-
-            MessageBox.Show("Coach Added");
             groupBox9.Enabled = false;
             AbleEverything3();
 

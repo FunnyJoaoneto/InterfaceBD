@@ -958,7 +958,7 @@ namespace ValoLeague
             G5.Text = "Cypher";
 
             // Player stats for Game 1, Team 2
-            P6.Text = "20000005";
+            P6.Text = "99990001";
             K6.Text = "8";
             D6.Text = "7";
             A6.Text = "2";
@@ -968,7 +968,7 @@ namespace ValoLeague
             R6.Text = "Duelist";
             G6.Text = "Phoenix";
 
-            P7.Text = "20000006";
+            P7.Text = "99990002";
             K7.Text = "10";
             D7.Text = "5";
             A7.Text = "2";
@@ -978,7 +978,7 @@ namespace ValoLeague
             R7.Text = "Initiator";
             G7.Text = "Breach";
 
-            P8.Text = "20000007";
+            P8.Text = "99990003";
             K8.Text = "11";
             D8.Text = "6";
             A8.Text = "3";
@@ -988,7 +988,7 @@ namespace ValoLeague
             R8.Text = "Controller";
             G8.Text = "Viper";
 
-            P9.Text = "20000008";
+            P9.Text = "99990004";
             K9.Text = "12";
             D9.Text = "7";
             A9.Text = "4";
@@ -998,7 +998,7 @@ namespace ValoLeague
             R9.Text = "Sentinel";
             G9.Text = "Killjoy";
 
-            P10.Text = "20000009";
+            P10.Text = "99990005";
             K10.Text = "7";
             D10.Text = "8";
             A10.Text = "2";
@@ -1060,7 +1060,7 @@ namespace ValoLeague
             G15.Text = "Cypher";
 
             // Player stats for Game 2, Team 2
-            P16.Text = "20000005";
+            P16.Text = "99990001";
             K16.Text = "8";
             D16.Text = "7";
             A16.Text = "2";
@@ -1070,7 +1070,7 @@ namespace ValoLeague
             R16.Text = "Duelist";
             G16.Text = "Phoenix";
 
-            P17.Text = "20000006";
+            P17.Text = "99990002";
             K17.Text = "10";
             D17.Text = "5";
             A17.Text = "2";
@@ -1080,7 +1080,7 @@ namespace ValoLeague
             R17.Text = "Initiator";
             G17.Text = "Breach";
 
-            P18.Text = "20000007";
+            P18.Text = "99990003";
             K18.Text = "11";
             D18.Text = "6";
             A18.Text = "3";
@@ -1090,7 +1090,7 @@ namespace ValoLeague
             R18.Text = "Controller";
             G18.Text = "Viper";
 
-            P19.Text = "20000008";
+            P19.Text = "99990004";
             K19.Text = "12";
             D19.Text = "7";
             A19.Text = "4";
@@ -1100,7 +1100,7 @@ namespace ValoLeague
             R19.Text = "Sentinel";
             G19.Text = "Killjoy";
 
-            P20.Text = "20000009";
+            P20.Text = "99990005";
             K20.Text = "7";
             D20.Text = "8";
             A20.Text = "2";
@@ -1162,7 +1162,7 @@ namespace ValoLeague
             G25.Text = "Cypher";
 
             // Player stats for Game 3, Team 2
-            P26.Text = "20000005";
+            P26.Text = "99990001";
             K26.Text = "8";
             D26.Text = "7";
             A26.Text = "2";
@@ -1172,7 +1172,7 @@ namespace ValoLeague
             R26.Text = "Duelist";
             G26.Text = "Phoenix";
 
-            P27.Text = "20000006";
+            P27.Text = "99990002";
             K27.Text = "10";
             D27.Text = "5";
             A27.Text = "2";
@@ -1182,7 +1182,7 @@ namespace ValoLeague
             R27.Text = "Initiator";
             G27.Text = "Breach";
 
-            P28.Text = "20000007";
+            P28.Text = "99990003";
             K28.Text = "11";
             D28.Text = "6";
             A28.Text = "3";
@@ -1192,7 +1192,7 @@ namespace ValoLeague
             R28.Text = "Controller";
             G28.Text = "Viper";
 
-            P29.Text = "20000008";
+            P29.Text = "99990004";
             K29.Text = "12";
             D29.Text = "7";
             A29.Text = "4";
@@ -1202,7 +1202,7 @@ namespace ValoLeague
             R29.Text = "Sentinel";
             G29.Text = "Killjoy";
 
-            P30.Text = "20000009";
+            P30.Text = "99990005";
             K30.Text = "7";
             D30.Text = "8";
             A30.Text = "2";
