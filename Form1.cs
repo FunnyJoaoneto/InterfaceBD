@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace ValoLeague
         private SqlConnection cn;
         private SqlDataAdapter adapter;
         private DataSet dataSet;
+        private bool tabsLocked;
+        private String UserRole;
 
         public Form1()
         {
@@ -34,6 +37,13 @@ namespace ValoLeague
             LoadPlayers();
             LoadCoaches();
             LoadMatches();
+
+            comboBox1.Items.Add("Admin");
+            comboBox1.Items.Add("User");
+            textBox51.PasswordChar = '*';
+
+            tabsLocked = true;
+            tabControl1.Selecting += new TabControlCancelEventHandler(tabControl1_Selecting);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,6 +67,173 @@ namespace ValoLeague
             return cn.State == ConnectionState.Open;
         }
 
+
+
+
+
+
+        //CODE: Login
+
+
+
+
+
+
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            // Check if tabs are locked
+            if (tabsLocked)
+            {
+                e.Cancel = true; // Cancel the tab change
+                MessageBox.Show("Please Log in");
+            }
+        }
+
+        private void button16_Click_1(object sender, EventArgs e)
+        {
+            string username = comboBox1.Text;
+            string password = textBox51.Text;
+
+            if (Login(username, password))
+            {
+                MessageBox.Show("Login successful!");
+                tabsLocked = false;
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
+        }
+
+        private bool Login(string username, string password)
+        {
+            string hashedPassword = HashingHelper.HashPassword(password);
+
+            using (SqlConnection conn = new SqlConnection(getSGBDConnection().ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT role FROM VALO_LOGIN WHERE username = @username AND passwordhash = @passwordhash";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@passwordhash", hashedPassword);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        UserRole = result.ToString();
+                        tabsLocked = false; // Unlock tabs
+                        tabControl1.Enabled = true; // Ensure the TabControl is enabled
+
+                        if (UserRole == "User")
+                        {
+                            HideAdminButtons(); // Call the method to hide admin buttons
+                        }
+                        else
+                        {
+                            ShowAdminButtons();
+                        }
+
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void HideAdminButtons()
+        {
+            // Placeholder code to hide buttons for User role
+            // Replace 'button1', 'button2', etc. with actual button names
+            TRem.Visible = false;
+            TAdd.Visible = false;
+            TAlt.Visible = false;
+            button13.Visible = false;
+            button14.Visible = false;
+            button22.Visible = false;
+            button30.Visible = false;
+            button25.Visible = false;
+            button31.Visible = false;
+            button17.Visible = false;
+            button9.Visible = false;
+            button10.Visible = false;
+            groupBox1.Visible = false;
+            groupBox2.Visible = false;
+            label14.Visible = false;
+            label15.Visible = false;
+            label50.Visible = false;
+            label49.Visible = false;
+            groupBox5.Visible = false;
+            groupBox6.Visible = false;
+            label65.Visible = false;
+            label64.Visible = false;
+            groupBox8.Visible = false;
+            groupBox9.Visible = false;
+            label29.Visible = false;
+            label60.Visible = false;
+            label26.Visible = false;
+            groupBox3.Visible = false;
+            groupBox7.Visible = false;
+            groupBox10.Visible = false;
+            // Add more buttons as necessary
+        }
+        private void ShowAdminButtons()
+        {
+            // Placeholder code to hide buttons for User role
+            // Replace 'button1', 'button2', etc. with actual button names
+            TRem.Visible = true;
+            TAdd.Visible = true;
+            TAlt.Visible = true;
+            button13.Visible = true;
+            button14.Visible = true;
+            button22.Visible = true;
+            button30.Visible = true;
+            button25.Visible = true;
+            button31.Visible = true;
+            button17.Visible = true;
+            button9.Visible = true;
+            button10.Visible = true;
+            groupBox1.Visible = true;
+            groupBox2.Visible = true;
+            label14.Visible = true;
+            label15.Visible = true;
+            label50.Visible = true;
+            label49.Visible = true;
+            groupBox5.Visible = true;
+            groupBox6.Visible = true;
+            label65.Visible = true;
+            label64.Visible = true;
+            groupBox8.Visible = true;
+            groupBox9.Visible = true;
+            label29.Visible = true;
+            label60.Visible = true;
+            label26.Visible = true;
+            groupBox3.Visible = true;
+            groupBox7.Visible = true;
+            groupBox10.Visible = true;
+            // Add more buttons as necessary
+        }
+
+
+
+        public static class HashingHelper
+        {
+            public static string HashPassword(string password)
+            {
+                using (SHA256 sha256Hash = SHA256.Create())
+                {
+                    byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                    StringBuilder builder = new StringBuilder();
+                    foreach (byte b in bytes)
+                    {
+                        builder.Append(b.ToString("x2"));
+                    }
+                    return builder.ToString();
+                }
+            }
+        }
 
 
 
@@ -2065,6 +2242,11 @@ namespace ValoLeague
         }
 
         private void groupBox10_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
