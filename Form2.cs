@@ -36,6 +36,15 @@ namespace ValoLeague
             this.team2ID = id2;
             this.matchID = mid;
             this.loadStats = load;
+            System.Windows.Forms.TextBox[] playerTextBoxes = { P1, P2, P3, P4, P5, P6, P7, P8, P9, P10,
+                                  P11, P12, P13, P14, P15, P16, P17, P18, P19, P20,
+                                  P21, P22, P23, P24, P25, P26, P27, P28, P29, P30 };
+
+            // Fill TextBoxes with player names
+            for (int i = 0; i < playerTextBoxes.Length; i++)
+            {
+                playerTextBoxes[i].Enabled = false;
+            }
             verifySGBDConnection();
             if (load)
             {
@@ -285,6 +294,58 @@ namespace ValoLeague
             {
                 MessageBox.Show("Error retrieving team details.");
             }
+            var team1PlayersID = GetPlayersID(team1ID);
+            var team2PlayersID = GetPlayersID(team2ID);
+
+            System.Windows.Forms.TextBox[] playerst1 = { P1, P2, P3, P4, P5, P11, P12, P13, P14, P15, P21, P22, P23, P24, P25};
+            System.Windows.Forms.TextBox[] playerst2 = { P6, P7, P8, P9, P10, P16, P17, P18, P19, P20, P26, P27, P28, P29, P30 };
+            // Player stats for Game 1, Team 1
+            for (int i = 1; i < playerst1.Length+1; i++)
+            {
+                if (team1PlayersID.Players != null)
+                {
+                    int id1 = i % 5;
+                    if(id1 == 0)
+                    {
+                        id1 = 5;
+                    }
+                    if(team1PlayersID.Players.Count >= id1)
+                    {
+                        playerst1[i-1].Text = team1PlayersID.Players[id1-1];
+                    }
+                    else
+                    {
+                        playerst1[i-1].Text = "";
+                    }
+                }
+                else
+                {
+                    playerst1[i-1].Text = "";
+                }
+            }
+            for (int i = 1; i < playerst2.Length+1; i++)
+            {
+                if (team2PlayersID.Players != null)
+                {
+                    int id2 = i % 5;
+                    if (id2 == 0)
+                    {
+                        id2 = 5;
+                    }
+                    if (team2PlayersID.Players.Count >= id2)
+                    {
+                        playerst2[i - 1].Text = team2PlayersID.Players[id2-1];
+                    }
+                    else
+                    {
+                        playerst2[i-1].Text = "";
+                    }
+                }
+                else
+                {
+                    playerst2[i - 1].Text = "";
+                }
+            }
         }
         private (string TeamName, List<string> Players) GetTeamDetails(int teamID)
         {
@@ -310,6 +371,42 @@ namespace ValoLeague
                 foreach (DataRow row in dataSet.Tables[1].Rows)
                 {
                     string playerInfo = $"ID:{row["PlayerID"]} NickName:{row["Nickname"]}";
+                    players.Add(playerInfo);
+                }
+
+                return (teamName, players);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving team details: " + ex.Message);
+                return (null, null);
+            }
+        }
+
+        private (string TeamName, List<string> Players) GetPlayersID(int teamID)
+        {
+            if (!verifySGBDConnection())
+                return (null, null);
+
+            try
+            {
+                string query = "GetTeamDetails"; // Name of the stored procedure
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TeamID", teamID);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                // Extract team name
+                string teamName = dataSet.Tables[0].Rows[0]["Nome"].ToString();
+
+                // Extract players
+                List<string> players = new List<string>();
+                foreach (DataRow row in dataSet.Tables[1].Rows)
+                {
+                    string playerInfo = $"{row["PlayerID"]}";
                     players.Add(playerInfo);
                 }
 
@@ -905,9 +1002,6 @@ namespace ValoLeague
         private void autofill_Click(object sender, EventArgs e)
         {
             // Automatically fill fields for debugging
-
-            // Player stats for Game 1, Team 1
-            P1.Text = "20000000";
             K1.Text = "10";
             D1.Text = "5";
             A1.Text = "2";
@@ -917,7 +1011,6 @@ namespace ValoLeague
             R1.Text = "Sentinel";
             G1.Text = "Sage";
 
-            P2.Text = "20000001";
             K2.Text = "12";
             D2.Text = "6";
             A2.Text = "4";
@@ -927,7 +1020,6 @@ namespace ValoLeague
             R2.Text = "Duelist";
             G2.Text = "Jett";
 
-            P3.Text = "20000002";
             K3.Text = "8";
             D3.Text = "7";
             A3.Text = "3";
@@ -937,7 +1029,6 @@ namespace ValoLeague
             R3.Text = "Initiator";
             G3.Text = "Sova";
 
-            P4.Text = "20000003";
             K4.Text = "11";
             D4.Text = "5";
             A4.Text = "3";
@@ -947,7 +1038,6 @@ namespace ValoLeague
             R4.Text = "Controller";
             G4.Text = "Omen";
 
-            P5.Text = "20000004";
             K5.Text = "9";
             D5.Text = "6";
             A5.Text = "3";
@@ -958,7 +1048,6 @@ namespace ValoLeague
             G5.Text = "Cypher";
 
             // Player stats for Game 1, Team 2
-            P6.Text = "99990001";
             K6.Text = "8";
             D6.Text = "7";
             A6.Text = "2";
@@ -968,7 +1057,6 @@ namespace ValoLeague
             R6.Text = "Duelist";
             G6.Text = "Phoenix";
 
-            P7.Text = "99990002";
             K7.Text = "10";
             D7.Text = "5";
             A7.Text = "2";
@@ -978,7 +1066,6 @@ namespace ValoLeague
             R7.Text = "Initiator";
             G7.Text = "Breach";
 
-            P8.Text = "99990003";
             K8.Text = "11";
             D8.Text = "6";
             A8.Text = "3";
@@ -988,7 +1075,6 @@ namespace ValoLeague
             R8.Text = "Controller";
             G8.Text = "Viper";
 
-            P9.Text = "99990004";
             K9.Text = "12";
             D9.Text = "7";
             A9.Text = "4";
@@ -998,7 +1084,6 @@ namespace ValoLeague
             R9.Text = "Sentinel";
             G9.Text = "Killjoy";
 
-            P10.Text = "99990005";
             K10.Text = "7";
             D10.Text = "8";
             A10.Text = "2";
@@ -1009,7 +1094,6 @@ namespace ValoLeague
             G10.Text = "Reyna";
 
             // Player stats for Game 2, Team 1
-            P11.Text = "20000000";
             K11.Text = "10";
             D11.Text = "5";
             A11.Text = "2";
@@ -1019,7 +1103,6 @@ namespace ValoLeague
             R11.Text = "Sentinel";
             G11.Text = "Sage";
 
-            P12.Text = "20000001";
             K12.Text = "12";
             D12.Text = "6";
             A12.Text = "4";
@@ -1029,7 +1112,6 @@ namespace ValoLeague
             R12.Text = "Duelist";
             G12.Text = "Jett";
 
-            P13.Text = "20000002";
             K13.Text = "8";
             D13.Text = "7";
             A13.Text = "3";
@@ -1039,7 +1121,6 @@ namespace ValoLeague
             R13.Text = "Initiator";
             G13.Text = "Sova";
 
-            P14.Text = "20000003";
             K14.Text = "11";
             D14.Text = "5";
             A14.Text = "3";
@@ -1049,7 +1130,6 @@ namespace ValoLeague
             R14.Text = "Controller";
             G14.Text = "Omen";
 
-            P15.Text = "20000004";
             K15.Text = "9";
             D15.Text = "6";
             A15.Text = "3";
@@ -1060,7 +1140,6 @@ namespace ValoLeague
             G15.Text = "Cypher";
 
             // Player stats for Game 2, Team 2
-            P16.Text = "99990001";
             K16.Text = "8";
             D16.Text = "7";
             A16.Text = "2";
@@ -1070,7 +1149,6 @@ namespace ValoLeague
             R16.Text = "Duelist";
             G16.Text = "Phoenix";
 
-            P17.Text = "99990002";
             K17.Text = "10";
             D17.Text = "5";
             A17.Text = "2";
@@ -1080,7 +1158,6 @@ namespace ValoLeague
             R17.Text = "Initiator";
             G17.Text = "Breach";
 
-            P18.Text = "99990003";
             K18.Text = "11";
             D18.Text = "6";
             A18.Text = "3";
@@ -1090,7 +1167,6 @@ namespace ValoLeague
             R18.Text = "Controller";
             G18.Text = "Viper";
 
-            P19.Text = "99990004";
             K19.Text = "12";
             D19.Text = "7";
             A19.Text = "4";
@@ -1100,7 +1176,6 @@ namespace ValoLeague
             R19.Text = "Sentinel";
             G19.Text = "Killjoy";
 
-            P20.Text = "99990005";
             K20.Text = "7";
             D20.Text = "8";
             A20.Text = "2";
@@ -1111,7 +1186,6 @@ namespace ValoLeague
             G20.Text = "Reyna";
 
             // Player stats for Game 3, Team 1
-            P21.Text = "20000000";
             K21.Text = "10";
             D21.Text = "5";
             A21.Text = "2";
@@ -1121,7 +1195,6 @@ namespace ValoLeague
             R21.Text = "Sentinel";
             G21.Text = "Sage";
 
-            P22.Text = "20000001";
             K22.Text = "12";
             D22.Text = "6";
             A22.Text = "4";
@@ -1131,7 +1204,6 @@ namespace ValoLeague
             R22.Text = "Duelist";
             G22.Text = "Jett";
 
-            P23.Text = "20000002";
             K23.Text = "8";
             D23.Text = "7";
             A23.Text = "3";
@@ -1141,7 +1213,6 @@ namespace ValoLeague
             R23.Text = "Initiator";
             G23.Text = "Sova";
 
-            P24.Text = "20000003";
             K24.Text = "11";
             D24.Text = "5";
             A24.Text = "3";
@@ -1151,7 +1222,6 @@ namespace ValoLeague
             R24.Text = "Controller";
             G24.Text = "Omen";
 
-            P25.Text = "20000004";
             K25.Text = "9";
             D25.Text = "6";
             A25.Text = "3";
@@ -1162,7 +1232,6 @@ namespace ValoLeague
             G25.Text = "Cypher";
 
             // Player stats for Game 3, Team 2
-            P26.Text = "99990001";
             K26.Text = "8";
             D26.Text = "7";
             A26.Text = "2";
@@ -1172,7 +1241,6 @@ namespace ValoLeague
             R26.Text = "Duelist";
             G26.Text = "Phoenix";
 
-            P27.Text = "99990002";
             K27.Text = "10";
             D27.Text = "5";
             A27.Text = "2";
@@ -1182,7 +1250,6 @@ namespace ValoLeague
             R27.Text = "Initiator";
             G27.Text = "Breach";
 
-            P28.Text = "99990003";
             K28.Text = "11";
             D28.Text = "6";
             A28.Text = "3";
@@ -1192,7 +1259,6 @@ namespace ValoLeague
             R28.Text = "Controller";
             G28.Text = "Viper";
 
-            P29.Text = "99990004";
             K29.Text = "12";
             D29.Text = "7";
             A29.Text = "4";
@@ -1202,7 +1268,6 @@ namespace ValoLeague
             R29.Text = "Sentinel";
             G29.Text = "Killjoy";
 
-            P30.Text = "99990005";
             K30.Text = "7";
             D30.Text = "8";
             A30.Text = "2";
